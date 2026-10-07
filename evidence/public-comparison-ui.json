@@ -1,0 +1,24 @@
+{
+  "verified_at_utc": "2026-10-07T12:31:23.585548+00:00",
+  "url": "https://learnprompt.github.io/record-freely/",
+  "anonymous": true,
+  "images_loaded": 6,
+  "sliders": 3,
+  "tested_values": [
+    0,
+    100,
+    15
+  ],
+  "dom_zero_splits": [
+    "0%",
+    "0%",
+    "0%"
+  ],
+  "dom_hundred_clip_path": [
+    "inset(0px 0px 0px 100%)",
+    "inset(0px 0px 0px 100%)",
+    "inset(0px 0px 0px 100%)"
+  ],
+  "readme_link": "https://github.com/LearnPrompt/record-freely#readme",
+  "method": "Actual Codex IAB browser; native slider setValue, refreshed accessibility state, read-only DOM inspection; no source-only claim."
+}

@@ -1,0 +1,48 @@
+{
+  "verified_at_utc": "2026-10-07T12:32:48.132907+00:00",
+  "verification_stage": "source_and_comparison_online_before_trial_release",
+  "repository_url": "https://github.com/LearnPrompt/record-freely",
+  "public": true,
+  "checked_commit": "602a2fcb02678ce69142f838563d9758ecd293e0",
+  "anonymous_http_checks": [
+    {
+      "url": "https://api.github.com/repos/LearnPrompt/record-freely",
+      "status": 200,
+      "bytes": 5715,
+      "sha256": "59e95d73663ac0fed2b1b4ea69cf1ef86932dc624fa30d0d383c64d7514392e7",
+      "private": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/LearnPrompt/record-freely/main/README.md",
+      "status": 200,
+      "bytes": 7189,
+      "sha256": "0c2e44923548475b5ceff6503ae08af0d1518fbb388ead073a064091b008544f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/LearnPrompt/record-freely/main/README_EN.md",
+      "status": 200,
+      "bytes": 7073,
+      "sha256": "4c0266a4def2e5e1b1bebebaa2848f0117fd959c89229c9276842d3440d46b1c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/LearnPrompt/record-freely/main/README_JA.md",
+      "status": 200,
+      "bytes": 8698,
+      "sha256": "82962be38f0541426ce39857ac9a6b2f7c255ddb4eaba14944a1908a03641af9"
+    },
+    {
+      "url": "https://learnprompt.github.io/record-freely/assets/comparisons/index.html",
+      "status": 200,
+      "bytes": 4553,
+      "sha256": "ce42fb25207eeded979c34f29bda8566622c0e81ff19e8cb24102007292d40a2"
+    }
+  ],
+  "code_tests": {
+    "passed": 69,
+    "elapsed_seconds": 2.38
+  },
+  "markdown_local_link_check": "passed",
+  "public_comparison_browser_check": "public-comparison-ui.json",
+  "historical_media_uploaded": false,
+  "pending": "Final one-minute trial output and release downloads are not covered by this initial check."
+}
