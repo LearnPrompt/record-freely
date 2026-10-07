@@ -1,0 +1,2 @@
+# Preserve byte-exact historical forensic sources; whitespace is part of the evidence.
+evidence/public-case/** -whitespace
