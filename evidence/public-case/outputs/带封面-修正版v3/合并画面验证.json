@@ -1,0 +1,446 @@
+{
+  "status": "passed",
+  "actual_frame_points": 73,
+  "method": "Independent accurate FFmpeg frame extraction; final concatenated movie native YUV420 pixels exactly match reviewed chunks. Native comparison avoids RGB conversion differences from input color metadata.",
+  "samples": [
+    {
+      "global_frame": 0,
+      "seconds": 0.0,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 1856,
+      "seconds": 61.86666666666667,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 1860,
+      "seconds": 62.0,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 2181,
+      "seconds": 72.7,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 2182,
+      "seconds": 72.73333333333333,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 2183,
+      "seconds": 72.76666666666667,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 2264,
+      "seconds": 75.46666666666667,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 3030,
+      "seconds": 101.0,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 3360,
+      "seconds": 112.0,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 3690,
+      "seconds": 123.0,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 4740,
+      "seconds": 158.0,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 8999,
+      "seconds": 299.96666666666664,
+      "chunk": "part-00",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 9000,
+      "seconds": 300.0,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 11808,
+      "seconds": 393.6,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 11809,
+      "seconds": 393.6333333333333,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 11970,
+      "seconds": 399.0,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12003,
+      "seconds": 400.1,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12012,
+      "seconds": 400.4,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12013,
+      "seconds": 400.43333333333334,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12821,
+      "seconds": 427.3666666666667,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12822,
+      "seconds": 427.4,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12823,
+      "seconds": 427.43333333333334,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12906,
+      "seconds": 430.2,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12907,
+      "seconds": 430.23333333333335,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12908,
+      "seconds": 430.26666666666665,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 12985,
+      "seconds": 432.8333333333333,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 14550,
+      "seconds": 485.0,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16100,
+      "seconds": 536.6666666666666,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16110,
+      "seconds": 537.0,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16137,
+      "seconds": 537.9,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16139,
+      "seconds": 537.9666666666667,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16140,
+      "seconds": 538.0,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16144,
+      "seconds": 538.1333333333333,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16147,
+      "seconds": 538.2333333333333,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16178,
+      "seconds": 539.2666666666667,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16179,
+      "seconds": 539.3,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16190,
+      "seconds": 539.6666666666666,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16191,
+      "seconds": 539.7,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16192,
+      "seconds": 539.7333333333333,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16193,
+      "seconds": 539.7666666666667,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16194,
+      "seconds": 539.8,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16200,
+      "seconds": 540.0,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16531,
+      "seconds": 551.0333333333333,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 16532,
+      "seconds": 551.0666666666667,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 17999,
+      "seconds": 599.9666666666667,
+      "chunk": "part-01",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 18000,
+      "seconds": 600.0,
+      "chunk": "part-02",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 26160,
+      "seconds": 872.0,
+      "chunk": "part-02",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 26214,
+      "seconds": 873.8,
+      "chunk": "part-02",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 26999,
+      "seconds": 899.9666666666667,
+      "chunk": "part-02",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 27000,
+      "seconds": 900.0,
+      "chunk": "part-03",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 29150,
+      "seconds": 971.6666666666666,
+      "chunk": "part-03",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 29160,
+      "seconds": 972.0,
+      "chunk": "part-03",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 29213,
+      "seconds": 973.7666666666667,
+      "chunk": "part-03",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 35430,
+      "seconds": 1181.0,
+      "chunk": "part-03",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 35999,
+      "seconds": 1199.9666666666667,
+      "chunk": "part-03",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 36000,
+      "seconds": 1200.0,
+      "chunk": "part-04",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 44999,
+      "seconds": 1499.9666666666667,
+      "chunk": "part-04",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 45000,
+      "seconds": 1500.0,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 45240,
+      "seconds": 1508.0,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 46110,
+      "seconds": 1537.0,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 46140,
+      "seconds": 1538.0,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 46148,
+      "seconds": 1538.2666666666667,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 46230,
+      "seconds": 1541.0,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 49110,
+      "seconds": 1637.0,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 51540,
+      "seconds": 1718.0,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 53999,
+      "seconds": 1799.9666666666667,
+      "chunk": "part-05",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 54000,
+      "seconds": 1800.0,
+      "chunk": "part-06",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 57870,
+      "seconds": 1929.0,
+      "chunk": "part-06",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 58500,
+      "seconds": 1950.0,
+      "chunk": "part-06",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 59190,
+      "seconds": 1973.0,
+      "chunk": "part-06",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 62999,
+      "seconds": 2099.9666666666667,
+      "chunk": "part-06",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 63000,
+      "seconds": 2100.0,
+      "chunk": "part-07",
+      "native_yuv_pixel_equal": true
+    },
+    {
+      "global_frame": 63870,
+      "seconds": 2129.0,
+      "chunk": "part-07",
+      "native_yuv_pixel_equal": true
+    }
+  ],
+  "critical_corrections_in_final_movie": "Skill first/last cropped glyphs, three-row source association highlight missing rows, clipped top identity and protected navigation checked in assembled output"
+}

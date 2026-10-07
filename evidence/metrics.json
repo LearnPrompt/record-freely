@@ -1,0 +1,810 @@
+{
+  "schema_version": 1,
+  "audited_at_utc": "2026-10-07T10:00:10.729094+00:00",
+  "case": "带封面 / 影视飓风制作流程录屏（项目案例描述不代表影视飓风官方合作）",
+  "video": {
+    "duration_seconds": 2129.033333,
+    "duration_display": "35:29.033",
+    "frames": 63871,
+    "resolution": [
+      3840,
+      2160
+    ],
+    "fps": 30,
+    "source_reference": "/Users/carl/Downloads/带封面.mp4",
+    "source_bytes": 6950202751,
+    "final_native_frame_comparison_points": 73,
+    "technical_source": "outputs/带封面-修正版v3/技术验证.json",
+    "native_comparison_source": "outputs/带封面-修正版v3/合并画面验证.json"
+  },
+  "initial_first_five_minutes": {
+    "source_seconds": 300.0,
+    "source_frames": 9000,
+    "elapsed_seconds": 836.08,
+    "elapsed_display": "13 分 56 秒（836.08 秒）",
+    "ocr_workers": 3,
+    "detect_every": 1,
+    "source": "outputs/带封面-前5分钟/report.json",
+    "scope": "automatic scan and export only; excludes preceding development, agent review, later source-specific repairs and final full-video delivery"
+  },
+  "initial_remaining_batches": [
+    {
+      "part": "part-01",
+      "source_seconds": 300.0,
+      "source_frames": 9000,
+      "elapsed_seconds": 967.28,
+      "report_elapsed_seconds": 966.78,
+      "workers": 3,
+      "source": "work/full-video/chunks/part-01/complete.json",
+      "measure": "initial local decoding, full-frame OCR, tracking, encoding and script validation; wrapper includes report finalization; review_repairs were added later and are not timed here"
+    },
+    {
+      "part": "part-02",
+      "source_seconds": 300.0,
+      "source_frames": 9000,
+      "elapsed_seconds": 1244.88,
+      "report_elapsed_seconds": 1244.61,
+      "workers": 3,
+      "source": "work/full-video/chunks/part-02/complete.json",
+      "measure": "initial local decoding, full-frame OCR, tracking, encoding and script validation; wrapper includes report finalization; review_repairs were added later and are not timed here"
+    },
+    {
+      "part": "part-03",
+      "source_seconds": 300.0,
+      "source_frames": 9000,
+      "elapsed_seconds": 1119.05,
+      "report_elapsed_seconds": 1118.47,
+      "workers": 3,
+      "source": "work/full-video/chunks/part-03/complete.json",
+      "measure": "initial local decoding, full-frame OCR, tracking, encoding and script validation; wrapper includes report finalization; review_repairs were added later and are not timed here"
+    },
+    {
+      "part": "part-04",
+      "source_seconds": 300.0,
+      "source_frames": 9000,
+      "elapsed_seconds": 1463.65,
+      "report_elapsed_seconds": 1463.2,
+      "workers": 3,
+      "source": "work/full-video/chunks/part-04/complete.json",
+      "measure": "initial local decoding, full-frame OCR, tracking, encoding and script validation; wrapper includes report finalization; review_repairs were added later and are not timed here"
+    },
+    {
+      "part": "part-05",
+      "source_seconds": 300.0,
+      "source_frames": 9000,
+      "elapsed_seconds": 1582.08,
+      "report_elapsed_seconds": 1581.73,
+      "workers": 2,
+      "source": "work/full-video/chunks/part-05/complete.json",
+      "measure": "initial local decoding, full-frame OCR, tracking, encoding and script validation; wrapper includes report finalization; review_repairs were added later and are not timed here"
+    },
+    {
+      "part": "part-06",
+      "source_seconds": 300.0,
+      "source_frames": 9000,
+      "elapsed_seconds": 1450.79,
+      "report_elapsed_seconds": 1450.4,
+      "workers": 2,
+      "source": "work/full-video/chunks/part-06/complete.json",
+      "measure": "initial local decoding, full-frame OCR, tracking, encoding and script validation; wrapper includes report finalization; review_repairs were added later and are not timed here"
+    },
+    {
+      "part": "part-07",
+      "source_seconds": 29.033333333333335,
+      "source_frames": 871,
+      "elapsed_seconds": 377.28,
+      "report_elapsed_seconds": 376.94,
+      "workers": 2,
+      "source": "work/full-video/chunks/part-07/complete.json",
+      "measure": "initial local decoding, full-frame OCR, tracking, encoding and script validation; wrapper includes report finalization; review_repairs were added later and are not timed here"
+    }
+  ],
+  "initial_remaining_job_elapsed_sum_seconds": 8205.01,
+  "initial_remaining_parallel_wall_clock_seconds": null,
+  "all_initial_job_elapsed_sum_seconds": 9041.09,
+  "v2_patch_renderers": {
+    "jobs": [
+      {
+        "source": "work/revision-v2/render-part00-fix.log",
+        "part": "part-00",
+        "elapsed_seconds": 15.88,
+        "rendered_frames": 249,
+        "affected_frames": 2,
+        "global_render_windows": [
+          [
+            1935,
+            2184
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part00-fix2.log",
+        "part": "part-00",
+        "elapsed_seconds": 16.06,
+        "rendered_frames": 249,
+        "affected_frames": 1,
+        "global_render_windows": [
+          [
+            1935,
+            2184
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part00.log",
+        "part": "part-00",
+        "elapsed_seconds": 135.84,
+        "rendered_frames": 2438,
+        "affected_frames": 981,
+        "global_render_windows": [
+          [
+            1685,
+            2434
+          ],
+          [
+            2934,
+            4184
+          ],
+          [
+            4434,
+            4873
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part01-dedupe.log",
+        "part": "part-01",
+        "elapsed_seconds": 16.76,
+        "rendered_frames": 250,
+        "affected_frames": 60,
+        "global_render_windows": [
+          [
+            14362,
+            14612
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part01-entry.log",
+        "part": "part-01",
+        "elapsed_seconds": 17.88,
+        "rendered_frames": 250,
+        "affected_frames": 1,
+        "global_render_windows": [
+          [
+            12619,
+            12869
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part01-extra.log",
+        "part": "part-01",
+        "elapsed_seconds": 30.96,
+        "rendered_frames": 500,
+        "affected_frames": 84,
+        "global_render_windows": [
+          [
+            12619,
+            13119
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part01-last.log",
+        "part": "part-01",
+        "elapsed_seconds": 30.68,
+        "rendered_frames": 500,
+        "affected_frames": 23,
+        "global_render_windows": [
+          [
+            12619,
+            13119
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part01.log",
+        "part": "part-01",
+        "elapsed_seconds": 229.36,
+        "rendered_frames": 3904,
+        "affected_frames": 2934,
+        "global_render_windows": [
+          [
+            11635,
+            13119
+          ],
+          [
+            14112,
+            16532
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part02-tail.log",
+        "part": "part-02",
+        "elapsed_seconds": 17.48,
+        "rendered_frames": 250,
+        "affected_frames": 1,
+        "global_render_windows": [
+          [
+            26087,
+            26337
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part02.log",
+        "part": "part-02",
+        "elapsed_seconds": 67.98,
+        "rendered_frames": 750,
+        "affected_frames": 601,
+        "global_render_windows": [
+          [
+            25587,
+            26337
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part03-extra.log",
+        "part": "part-03",
+        "elapsed_seconds": 19.05,
+        "rendered_frames": 250,
+        "affected_frames": 6,
+        "global_render_windows": [
+          [
+            28970,
+            29220
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part03-last.log",
+        "part": "part-03",
+        "elapsed_seconds": 19.62,
+        "rendered_frames": 250,
+        "affected_frames": 55,
+        "global_render_windows": [
+          [
+            28970,
+            29220
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part03-middle.log",
+        "part": "part-03",
+        "elapsed_seconds": 48.07,
+        "rendered_frames": 250,
+        "affected_frames": 3,
+        "global_render_windows": [
+          [
+            28970,
+            29220
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part03.log",
+        "part": "part-03",
+        "elapsed_seconds": 35.65,
+        "rendered_frames": 581,
+        "affected_frames": 420,
+        "global_render_windows": [
+          [
+            35299,
+            35880
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part04.log",
+        "part": "part-04",
+        "elapsed_seconds": 39.97,
+        "rendered_frames": 243,
+        "affected_frames": 76,
+        "global_render_windows": [
+          [
+            44757,
+            45000
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part05-tail.log",
+        "part": "part-05",
+        "elapsed_seconds": 8.98,
+        "rendered_frames": 92,
+        "affected_frames": 39,
+        "global_render_windows": [
+          [
+            46057,
+            46149
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part05.log",
+        "part": "part-05",
+        "elapsed_seconds": 199.98,
+        "rendered_frames": 3247,
+        "affected_frames": 2328,
+        "global_render_windows": [
+          [
+            45000,
+            46399
+          ],
+          [
+            48704,
+            49802
+          ],
+          [
+            51367,
+            52117
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v2/render-part06.log",
+        "part": "part-06",
+        "elapsed_seconds": 94.6,
+        "rendered_frames": 1582,
+        "affected_frames": 1277,
+        "global_render_windows": [
+          [
+            57805,
+            59387
+          ]
+        ]
+      }
+    ],
+    "job_elapsed_sum_seconds": 1044.8,
+    "rendered_frame_sum": 15835,
+    "wall_clock_seconds": null,
+    "scope": "recorded local patch renderer executions; includes repeated retries; excludes agent analysis, QA, source matching, assembly and final full decode; sum is not wall clock because jobs can overlap"
+  },
+  "v3_patch_renderers": {
+    "jobs": [
+      {
+        "source": "work/revision-v3/render-part00.log",
+        "part": "part-00",
+        "elapsed_seconds": 39.89,
+        "rendered_frames": 749,
+        "affected_frames": 409,
+        "global_render_windows": [
+          [
+            1685,
+            2434
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v3/render-part01-highlight.log",
+        "part": "part-01",
+        "elapsed_seconds": 18.36,
+        "rendered_frames": 250,
+        "affected_frames": 79,
+        "global_render_windows": [
+          [
+            16068,
+            16318
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v3/render-part01-rowrepair.log",
+        "part": "part-01",
+        "elapsed_seconds": 24.26,
+        "rendered_frames": 484,
+        "affected_frames": 70,
+        "global_render_windows": [
+          [
+            11635,
+            12119
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v3/render-part01-top.log",
+        "part": "part-01",
+        "elapsed_seconds": 28.91,
+        "rendered_frames": 464,
+        "affected_frames": 342,
+        "global_render_windows": [
+          [
+            16068,
+            16532
+          ]
+        ]
+      },
+      {
+        "source": "work/revision-v3/render-part01.log",
+        "part": "part-01",
+        "elapsed_seconds": 108.88,
+        "rendered_frames": 2198,
+        "affected_frames": 1283,
+        "global_render_windows": [
+          [
+            11635,
+            13119
+          ],
+          [
+            15818,
+            16532
+          ]
+        ]
+      }
+    ],
+    "job_elapsed_sum_seconds": 220.3,
+    "rendered_frame_sum": 4145,
+    "wall_clock_seconds": null,
+    "scope": "recorded local patch renderer executions; includes repeated retries; excludes agent analysis, QA, source matching, assembly and final full decode; sum is not wall clock because jobs can overlap"
+  },
+  "final_end_to_end_wall_clock_seconds": null,
+  "cloud_vision": {
+    "actual_initial_pipeline_cloud_api_calls": 0,
+    "actual_additional_local_review_ocr_calls": null,
+    "nominal_initial_full_frame_local_ocr_dispatches": 63871,
+    "counterfactual_baseline": {
+      "assumption": "one cloud vision API request for each original video frame; this is a hypothetical comparison, not a measured prior implementation",
+      "requests": 63871,
+      "requests_replaced_by_local_processing": 63871,
+      "request_reduction_percent": 100
+    },
+    "codex_savings_inferred_from_cloud_calls": false,
+    "price_or_credit_savings": null,
+    "scope": "local OCR and rendering pipeline only; Codex agent orchestration still consumes account allowance"
+  },
+  "codex": {
+    "account_allowance_consumed_by_this_project": null,
+    "account_allowance_units_or_credits_saved": null,
+    "paid_currency_cost": null,
+    "same_condition_baseline": null,
+    "quota_snapshot_reference": "evidence/codex-quota-snapshot.json",
+    "telemetry_parent_session": {
+      "id": "01a111c5-8f42-7e01-96ae-d06be53efdba",
+      "source": "/Users/carl/.codex/sessions/2026/10/06/rollout-2026-10-06T23-12-02-01a111c5-8f42-7e01-96ae-d06be53efdba.jsonl",
+      "before_packaging": {
+        "line": 6831,
+        "timestamp": "2026-10-07T09:53:23.262Z",
+        "total": {
+          "input_tokens": 81129923,
+          "cached_input_tokens": 79516800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 276127,
+          "reasoning_output_tokens": 132891,
+          "total_tokens": 81406050
+        },
+        "last": {
+          "input_tokens": 65952,
+          "cached_input_tokens": 64896,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 369,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 66321
+        }
+      },
+      "latest_snapshot": {
+        "line": 6942,
+        "timestamp": "2026-10-07T09:59:36.472Z",
+        "total": {
+          "input_tokens": 82115023,
+          "cached_input_tokens": 80406016,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 280874,
+          "reasoning_output_tokens": 134045,
+          "total_tokens": 82395897
+        },
+        "last": {
+          "input_tokens": 89759,
+          "cached_input_tokens": 88960,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1196,
+          "reasoning_output_tokens": 230,
+          "total_tokens": 90955
+        }
+      },
+      "packaging_delta_parent_only": {
+        "input_tokens": 985100,
+        "cached_input_tokens": 889216,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4747,
+        "reasoning_output_tokens": 1154,
+        "total_tokens": 989847
+      },
+      "repeated_cumulative_events_seen": 163,
+      "cumulative_decreases_seen": [],
+      "method": "take cumulative snapshot differences; do not sum last_token_usage because repeated cumulative events duplicate last usage",
+      "semantics": "session-reported token telemetry, including repeated conversation/context inputs; not an invoice, account-percentage reading or platform credit counter",
+      "cached_input_tokens_are_subset_of_input": true,
+      "reasoning_output_tokens_are_subset_of_output": true,
+      "uncached_input_before_packaging": 1613123,
+      "uncached_input_latest": 1709007,
+      "subagent_tokens_included": false,
+      "subagent_aggregation": null,
+      "frozen_while_packaging_in_progress": true,
+      "possible_flush_delay": true,
+      "historical_stage_boundaries": [
+        {
+          "stage": "prototype_and_initial_discussion",
+          "end_line": 327,
+          "end_timestamp": "2026-10-06T15:31:31.007Z",
+          "cumulative_total_tokens": 2541875
+        },
+        {
+          "stage": "first_five_minutes_processing_and_review",
+          "end_line": 1355,
+          "end_timestamp": "2026-10-06T16:48:21.409Z",
+          "cumulative_total_tokens": 14774884
+        },
+        {
+          "stage": "remaining_video_processing_and_review",
+          "end_line": 4464,
+          "end_timestamp": "2026-10-06T19:50:56.447Z",
+          "cumulative_total_tokens": 48636071
+        },
+        {
+          "stage": "v2_revision",
+          "end_line": 5930,
+          "end_timestamp": "2026-10-07T08:44:18.466Z",
+          "cumulative_total_tokens": 67844801
+        },
+        {
+          "stage": "v3_revision",
+          "end_line": 6831,
+          "end_timestamp": "2026-10-07T09:53:23.262Z",
+          "cumulative_total_tokens": 81406050
+        }
+      ]
+    }
+  },
+  "publishable_claims": {
+    "zh": "这次 4K 案例，5 分钟素材的首轮自动扫描与导出用时 13 分 56 秒。全片 35 分 29 秒、63,871 帧；本地打码流程无需逐帧云端视觉 API。Agent 复核与多轮修补另计。",
+    "en": "In this 4K case, the first automatic pass scanned and exported a 5-minute segment in 13 min 56 sec. The full video contains 63,871 frames over 35 min 29 sec. The local redaction pipeline requires no per-frame cloud vision API. Agent review and iterative fixes are separate."
+  },
+  "not_supported_claims": [
+    "35-minute final video completed in a few dozen minutes",
+    "Codex consumed zero allowance",
+    "saved a known number of Codex credits or account percent",
+    "100% coverage or guaranteed platform approval"
+  ],
+  "input_files": [
+    {
+      "path": "outputs/带封面-前5分钟/report.json",
+      "bytes": 2775243,
+      "sha256": "1176c7772a3cb8ee2b7716b187a013fdae27eeb55722ba89cf13c17370c6a894"
+    },
+    {
+      "path": "work/full-video/chunks/part-01/complete.json",
+      "bytes": 161,
+      "sha256": "20741b2880ebbbe7f5af3ce168b054c3a2b0cbf93f95b31c91689bce82351ffd"
+    },
+    {
+      "path": "work/full-video/chunks/part-01/report.json",
+      "bytes": 3149218,
+      "sha256": "90e2e8317e861c666d7c0aee5b5db06f3932a8d56cc8b45495805de064bee6cc"
+    },
+    {
+      "path": "work/full-video/chunks/part-02/complete.json",
+      "bytes": 162,
+      "sha256": "7261579c0b3c9d0783992f731c2e13f222814a96245ff1ddeb450c57cf46642b"
+    },
+    {
+      "path": "work/full-video/chunks/part-02/report.json",
+      "bytes": 2458549,
+      "sha256": "efdba14cd583a6b6d1d1c0ac9a2037b24c6c3070ec4c008407a90fcdaaad0477"
+    },
+    {
+      "path": "work/full-video/chunks/part-03/complete.json",
+      "bytes": 163,
+      "sha256": "36eb9d37ecb2982fb9c987d5d94e4bf0d403aafe64d5a682e3d90cd39bbc3105"
+    },
+    {
+      "path": "work/full-video/chunks/part-03/report.json",
+      "bytes": 3142466,
+      "sha256": "c669c54841f050f6b76ef96d669a4c285addbbd09ef4f30f8d97d565501c2c48"
+    },
+    {
+      "path": "work/full-video/chunks/part-04/complete.json",
+      "bytes": 162,
+      "sha256": "3fd6c2f36d7295fdf460692ae0bc6a3534721bebd40732e0a366efc91599dfb1"
+    },
+    {
+      "path": "work/full-video/chunks/part-04/report.json",
+      "bytes": 1357588,
+      "sha256": "f0e8edd8605e160eb352f11723f44a04c2e0ab4abff73481f6e72f724cf75391"
+    },
+    {
+      "path": "work/full-video/chunks/part-05/complete.json",
+      "bytes": 162,
+      "sha256": "923301a1b2e61aeb713225927809b736be4948fa1c022509b99393837a309e4c"
+    },
+    {
+      "path": "work/full-video/chunks/part-05/report.json",
+      "bytes": 3739077,
+      "sha256": "0639b9be754c314694a5476c8070d21aee1f595e7040adbb1b60709dac4da410"
+    },
+    {
+      "path": "work/full-video/chunks/part-06/complete.json",
+      "bytes": 162,
+      "sha256": "1f338dc12aa452f8956fc27421bb05fc46e0b29a6efb9bda2b44a4e4e2d571d7"
+    },
+    {
+      "path": "work/full-video/chunks/part-06/report.json",
+      "bytes": 1243002,
+      "sha256": "bb6ca308053595bcf80d309a12bd143c66deda151d77ce418cbfdf06f3413fd7"
+    },
+    {
+      "path": "work/full-video/chunks/part-07/complete.json",
+      "bytes": 134,
+      "sha256": "e6af29592f077760fd202664d116ca79454ca6bca77981f899531eb85ddac4a5"
+    },
+    {
+      "path": "work/full-video/chunks/part-07/report.json",
+      "bytes": 102170,
+      "sha256": "4da938e7eba1f53bcb44335377d14e3bdea990da2c4921af504a0e0d53dbccf3"
+    },
+    {
+      "path": "outputs/带封面-修正版v3/技术验证.json",
+      "bytes": 14842,
+      "sha256": "5bb084526daa88edc1415f7ea7355e8ce83f4e47955be4e62b9feaa74c506783"
+    },
+    {
+      "path": "outputs/带封面-修正版v3/合并画面验证.json",
+      "bytes": 10287,
+      "sha256": "f941bf7fcdde2ded4dac4328e7bb0e95a3ef0a99936cad8c3938e8ae83338a45"
+    },
+    {
+      "path": "work/full-video/manifest.json",
+      "bytes": 2202,
+      "sha256": "37692bb87c4905e955ee27f32c240436b373ff7787279c31e2c9337fc63c2dfb"
+    },
+    {
+      "path": "work/revision-v2/render-part00-fix.log",
+      "bytes": 1844,
+      "sha256": "f35e4fae3c13b3494433d615f8d7c44ded0b82d6761bfee7968439815f62a8f6"
+    },
+    {
+      "path": "work/revision-v2/render-part00-fix2.log",
+      "bytes": 1846,
+      "sha256": "4a373bbe340133327127e35b1331b4e4be287c02c408531477309b882d43fee8"
+    },
+    {
+      "path": "work/revision-v2/render-part00.log",
+      "bytes": 4246,
+      "sha256": "324790d55f3b8da870af646c4e6112544641af9d14a0d8f0814383f9124d77db"
+    },
+    {
+      "path": "work/revision-v2/render-part01-dedupe.log",
+      "bytes": 1870,
+      "sha256": "dd761d4fb41221ef461101e678d4de679e954f69e2acf93c4798870f51e14c0a"
+    },
+    {
+      "path": "work/revision-v2/render-part01-entry.log",
+      "bytes": 1856,
+      "sha256": "9a65882bb254e535a6c10ea246a1546c6dc1c8178fa4bc1ecbb13d05f6c0d15c"
+    },
+    {
+      "path": "work/revision-v2/render-part01-extra.log",
+      "bytes": 2128,
+      "sha256": "3d747a77a37f1949a2dcebc99d7acdc668b6e0a057cc376a1216d71c90ba72bf"
+    },
+    {
+      "path": "work/revision-v2/render-part01-last.log",
+      "bytes": 2124,
+      "sha256": "13ea8109c1427ec7dc7d02ccc6c40c4ee4cb4b158e8be398a4fa5accd7a9da2f"
+    },
+    {
+      "path": "work/revision-v2/render-part01.log",
+      "bytes": 5930,
+      "sha256": "2e217f34d716e9c579c9e5c8eca82611483de18959f619b65c9ac86c6c984736"
+    },
+    {
+      "path": "work/revision-v2/render-part02-tail.log",
+      "bytes": 1854,
+      "sha256": "4a50f79d26bff5ef768506dffe3e0b7c8a7405ecba2322b0ece5098359273512"
+    },
+    {
+      "path": "work/revision-v2/render-part02.log",
+      "bytes": 2390,
+      "sha256": "0a22a902a9593d79efc664d263932c46e55fbdb7d7ad90af89db26c1167a2524"
+    },
+    {
+      "path": "work/revision-v2/render-part03-extra.log",
+      "bytes": 1860,
+      "sha256": "357c70a7780775cb6a600ceb0d146d02d4b251f6abc5b3356f0929dce89f6472"
+    },
+    {
+      "path": "work/revision-v2/render-part03-last.log",
+      "bytes": 1864,
+      "sha256": "356a9b6fcaa24ef5cb02d673c202d1416d4b71fccb24b4109de66a91e950df63"
+    },
+    {
+      "path": "work/revision-v2/render-part03-middle.log",
+      "bytes": 1848,
+      "sha256": "2e5c216c2cd953ad7825705809f0f9bdf462986a0095180f940882f597257d9d"
+    },
+    {
+      "path": "work/revision-v2/render-part03.log",
+      "bytes": 2189,
+      "sha256": "de3e87dd17fa4ac665d2f41e816fcb5f903adfe8e39fda28cabf54cfb0516edb"
+    },
+    {
+      "path": "work/revision-v2/render-part04.log",
+      "bytes": 1850,
+      "sha256": "2b7e542b008f47bd15076078b22ee5b3cf1c236dc8ceb30b51b9d0795e2dcfb1"
+    },
+    {
+      "path": "work/revision-v2/render-part05-tail.log",
+      "bytes": 1675,
+      "sha256": "b64907acfb1106b6813149260ae53b5fd6da958f0e0bd98663e52a8b3a5a4d6c"
+    },
+    {
+      "path": "work/revision-v2/render-part05.log",
+      "bytes": 5198,
+      "sha256": "583eaf098a820d2e7b75492b6feb779c7951cf4479cac632b58f68db494c5f95"
+    },
+    {
+      "path": "work/revision-v2/render-part06.log",
+      "bytes": 3343,
+      "sha256": "adc9498981c0332867815ddb7ffeacf87623ebefd70ca7e694841f8fb4fe7bc7"
+    },
+    {
+      "path": "work/revision-v3/render-part00.log",
+      "bytes": 2376,
+      "sha256": "dfe7989b573dcd6a00d511bd063b5ce2ce21f83345454c796528f8cece8e9fc0"
+    },
+    {
+      "path": "work/revision-v3/render-part01-highlight.log",
+      "bytes": 1880,
+      "sha256": "83029a3121d28f0f35fb32aae35780f076b921c5bfadb2c1db206d69dceb646b"
+    },
+    {
+      "path": "work/revision-v3/render-part01-rowrepair.log",
+      "bytes": 2140,
+      "sha256": "be734eabc625a0d015a4c55d4a89b00069fbcae96c12385457249ec49c29311c"
+    },
+    {
+      "path": "work/revision-v3/render-part01-top.log",
+      "bytes": 2073,
+      "sha256": "97a09b48612cb0bc4b268f0baeffd64f9a8f7bb2976c6dad05ae830110557a26"
+    },
+    {
+      "path": "work/revision-v3/render-part01.log",
+      "bytes": 3969,
+      "sha256": "aaa0fa8ad464958559ee49668e73a86ee02ac6f52e368c7334881a74dcf85b06"
+    },
+    {
+      "path": "work/full-video/process_chunks.py",
+      "bytes": 3151,
+      "sha256": "c4740c4a158897010b0b5b1d8dd444bc2f94d137154e3cc30d7ba76fe8a1fd3c"
+    },
+    {
+      "path": "work/full-video/process_tail_chunks.py",
+      "bytes": 3227,
+      "sha256": "7c252e1dadf55ff4b3bb3c57d3307fca3bb49c9e5553197307e1f8f95c6adafe"
+    },
+    {
+      "path": "work/full-video/redact_full_engine.py",
+      "bytes": 34747,
+      "sha256": "7a7481cd83f7ed7cba0ce380f9087e2a9878841a4fe828c685737487c3768c77"
+    },
+    {
+      "path": "/Users/carl/.codex/skills/video-link-redactor/SKILL.md",
+      "bytes": 4177,
+      "sha256": "b6388b8c8d2277f207aedb1b875dc1912f5b56da203173788c4164277f98504e"
+    },
+    {
+      "path": "/Users/carl/.codex/skills/video-link-redactor/scripts/redact_video.py",
+      "bytes": 28649,
+      "sha256": "cb9d1c5c73d13892cbf0857a26de05672371accf0be264f4d9257fd93b8c06a3"
+    }
+  ],
+  "input_scope": {
+    "included": "only this workspace work/outputs artifacts, the installed video-link-redactor instructions/code, and the single exact parent session JSONL identified by this thread id",
+    "excluded": "credentials, unrelated sessions, account billing history, subagent session logs and network model calls",
+    "source_file_read_for_this_audit": false,
+    "source_video_metrics_verified_via_existing_technical_report": true
+  }
+}

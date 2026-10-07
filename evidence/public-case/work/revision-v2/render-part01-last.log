@@ -1,0 +1,10 @@
+{"part": "part-01", "stage": "staging", "local_window": [3619, 4119], "global_window": [12619, 13119], "local_windows": [[3619, 4119]], "rendered_frames": 500, "added_regions": 23, "removed_regions": 23, "duplicate_regions_skipped": 0, "affected_frames": 23, "masked_frames_before": 3978, "masked_frames_after": 3978, "new_masked_frames": 0, "removed_masked_frames": 0, "masked_frames_delta": 0, "remove_ids": [], "patches": [{"file": "middle-last-final-part01.json", "sha256": "e98bb7842ed1c62638ecbd4b607755e83d56378131f7e34341c400da21db687b", "id_prefix": "Re98bb7842ed1", "matched_frames": 23, "added_regions": 23}]}
+{"stage": "rendering_repair", "local_frames": 60, "total": 500}
+{"stage": "rendering_repair", "local_frames": 120, "total": 500}
+{"stage": "rendering_repair", "local_frames": 180, "total": 500}
+{"stage": "rendering_repair", "local_frames": 240, "total": 500}
+{"stage": "rendering_repair", "local_frames": 300, "total": 500}
+{"stage": "rendering_repair", "local_frames": 360, "total": 500}
+{"stage": "rendering_repair", "local_frames": 420, "total": 500}
+{"stage": "rendering_repair", "local_frames": 480, "total": 500}
+{"part": "part-01", "status": "patched", "added_regions": 23, "removed_regions": 23, "duplicate_regions_skipped": 0, "affected_frames": 23, "masked_frames_before": 3978, "masked_frames_after": 3978, "new_masked_frames": 0, "removed_masked_frames": 0, "masked_frames_delta": 0, "remove_ids": [], "patches": [{"file": "middle-last-final-part01.json", "sha256": "e98bb7842ed1c62638ecbd4b607755e83d56378131f7e34341c400da21db687b", "id_prefix": "Re98bb7842ed1", "matched_frames": 23, "added_regions": 23}], "mode": "keyframe_windows", "local_render_window": [3619, 4119], "global_render_window": [12619, 13119], "local_render_windows": [[3619, 4119]], "global_render_windows": [[12619, 13119]], "rendered_frames": 500, "backup": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/revision-v2/patch-backups/part-01/20261007T082219.033360Z", "verification": {"frames": 9000, "duration": 300.0, "packet_pts": "passed", "aac_packet_hash": "passed"}, "elapsed_seconds": 30.68}

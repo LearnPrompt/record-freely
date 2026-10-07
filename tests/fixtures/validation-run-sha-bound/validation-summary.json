@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "unit_tests": {
+    "passed": 69,
+    "last_elapsed_seconds": 1.77
+  },
+  "skill_frontmatter_valid": true,
+  "source_binding": {
+    "algorithm": "SHA256",
+    "block_bytes": 1048576,
+    "same_size_mtime_collision_rejected_before_probe_and_output": true,
+    "missing_sha_report_rejected": true,
+    "identical_content_different_mtime_copy_accepted": true,
+    "runtime_stat_check_retained": true
+  },
+  "synthetic_fixture": {
+    "frames": 144,
+    "video_seconds": 6,
+    "link_frames": 103,
+    "automatic_elapsed_seconds": 8.27,
+    "refinement_elapsed_seconds": 0.41,
+    "refinement_timing_includes_hash_and_preflight": true,
+    "automatic_acceptance_passed": true,
+    "stabilized_acceptance_passed": true,
+    "refinement_output": "stable-final/redacted.mp4",
+    "refinement_codec_and_source_checks": {
+      "frame_count": true,
+      "duration": true,
+      "audio_stream_count": true,
+      "full_codec_decode": true,
+      "source_signature_unchanged": true,
+      "source_sha256_bound_before_render": true
+    },
+    "contact_sheet_visually_reviewed": true
+  },
+  "limits": [
+    "Fixture results apply to this synthetic video only.",
+    "Automatic output AAC is re-encoded.",
+    "Reviewed author/skill suffixes and personal paths require source-frame review.",
+    "No current-frame color-based pixel restoration in portable entrypoint."
+  ],
+  "source_sha256": "97cc824dbee370eb48709dab3355e3e91d38c668c8551f4bb2c2f3097c09f99c",
+  "script_sha256": {
+    "iana-tlds.txt": "1ba454ada32b7b9ae6a1240f1d1ce882c14106ec70593d167848a0414ae10ebe",
+    "redact_video.py": "10f3542ce7276946ad853461ceaf043ae270b2683ba1dd88f264fa1cecf07b99",
+    "refine_video.py": "3c5f806e2ebe0fb3f445ddf978560ad3caedfefc8a6319e6d87b2399d8c70ba9",
+    "stabilize_masks.py": "159b65122e612d8a8a9f996eac14e76e1566cdbc8d2be7420b738a261fcb3bf5",
+    "vision_ocr.swift": "d0f97389faac71b3b7b55cb5abe749ba6fba4a3af77b8feceb60430f1b1adbd5"
+  }
+}

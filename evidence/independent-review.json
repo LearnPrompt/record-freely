@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "status": "passed_after_remediation_with_documented_limits",
+  "independent_agent": true,
+  "audited_at_utc": "2026-10-07T10:14:31.299957+00:00",
+  "method": "Read source, generated fresh local fixture, ran real macOS OCR and render/refine, inspected decoded images, independently hashed every baseline bundle file and regenerated source/final comparison pixels. Did not reuse authors acceptance conclusions.",
+  "tests": {
+    "initial_tests_passed": 66,
+    "after_remediation_tests_passed": 69,
+    "test_log": "../../review-run/final-tests.log",
+    "fixture_frames": 144,
+    "fixture_duration_seconds": 6,
+    "automatic_link_ink_coverage_min": 1.0,
+    "stable_link_ink_coverage_min": 1.0,
+    "short_flash_frames": [
+      50,
+      51,
+      52
+    ],
+    "hard_cut_start_frame": 112,
+    "no_stale_mask_after_cut": true,
+    "ordinary_text_unchanged_within_fixture_threshold": true,
+    "full_codec_decode_outputs": [
+      "automatic",
+      "stable",
+      "reviewed",
+      "prefix-reviewed",
+      "preview",
+      "preview-refined"
+    ],
+    "reviewed_prefix_frame": 0,
+    "reviewed_prefix_box": [
+      47,
+      183,
+      251,
+      39
+    ],
+    "reviewed_prefix_result": "Actual /private tail stays readable; full protocol+host hidden. Exact rectangle applied after stabilization.",
+    "preview_start_seconds": 2.5,
+    "preview_local_frames": 24,
+    "preview_source_first_frame": 60,
+    "preview_normal_region_mae": 1.6562608506944445,
+    "fresh_sha_bound_automatic_acceptance_passed": true,
+    "wrong_source_same_size_mtime_rejected_before_output": true,
+    "identical_content_with_changed_path_mtime_accepted": true,
+    "source_sha256_unchanged_after_final_review_run": "97cc824dbee370eb48709dab3355e3e91d38c668c8551f4bb2c2f3097c09f99c"
+  },
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "P2",
+      "state": "fixed_and_independently_retested",
+      "title": "Source binding accepted unrelated same-size, same-mtime media",
+      "original_locations": [
+        "scripts/redact_video.py:311",
+        "scripts/refine_video.py:103-105"
+      ],
+      "reproduction": "Generate unrelated black 960x540/24fps/6s video, append trailing zero bytes to original 127872-byte length and os.utime to original mtime; pre-fix refine accepted original report and returned complete on wrong media.",
+      "artifacts": [
+        "../../review-run/independent-fixture/unrelated.mp4",
+        "../../review-run/independent-fixture/wrong-source-accepted/report.json",
+        "../../review-run/independent-fixture/wrong-source-fixed-check.json"
+      ],
+      "remediation": "Automatic engine now hashes original media; refine validates source_sha256 before probe and output creation. Byte-identical relocated files accepted regardless of mtime; missing/different source SHA fails."
+    }
+  ],
+  "bundle_baseline": {
+    "independent": true,
+    "file_count": 3428,
+    "bytes": 68507023936,
+    "mismatches": [],
+    "elapsed_seconds": 29.91,
+    "catalog_formal_skill_snapshot_pending": true
+  },
+  "comparisons": [
+    {
+      "case": "01-02",
+      "asset": "before",
+      "max_abs_pixel_difference": 0,
+      "exact_pixels": true
+    },
+    {
+      "case": "01-02",
+      "asset": "after",
+      "max_abs_pixel_difference": 0,
+      "exact_pixels": true
+    },
+    {
+      "case": "06-39",
+      "asset": "before",
+      "max_abs_pixel_difference": 0,
+      "exact_pixels": true
+    },
+    {
+      "case": "06-39",
+      "asset": "after",
+      "max_abs_pixel_difference": 0,
+      "exact_pixels": true
+    },
+    {
+      "case": "09-00",
+      "asset": "before",
+      "max_abs_pixel_difference": 0,
+      "exact_pixels": true
+    },
+    {
+      "case": "09-00",
+      "asset": "after",
+      "max_abs_pixel_difference": 0,
+      "exact_pixels": true
+    }
+  ],
+  "metric_verification": {
+    "relative_evidence_files_hash_match_count": 44,
+    "initial_first5min_elapsed_seconds": 836.08,
+    "parent_token_snapshots_lines": [
+      6831,
+      6942
+    ],
+    "parent_token_snapshots_exact_match": true,
+    "codex_account_cost_or_savings_verified": false,
+    "reason": "No project-attributable account billing baseline or official token-to-allowance conversion; parent-only token snapshots frozen during packaging."
+  },
+  "documentation": {
+    "languages": [
+      "zh",
+      "en",
+      "ja"
+    ],
+    "meaning_consistent": true,
+    "automatic_and_reviewed_case_capabilities_separated": true,
+    "local_pipeline_vs_codex_cost_separated": true,
+    "case_audio_packet_identity_not_claimed_for_portable_engine": true,
+    "no_official_partnership_claim": true,
+    "no_platform_approval_guarantee": true,
+    "no_publication_claim": true,
+    "name_understandable": "放心录 / Record Freely",
+    "about_story_consistent_with_readmes": true
+  },
+  "reviewed_source_sha256": {
+    "scripts/iana-tlds.txt": "1ba454ada32b7b9ae6a1240f1d1ce882c14106ec70593d167848a0414ae10ebe",
+    "scripts/redact_video.py": "10f3542ce7276946ad853461ceaf043ae270b2683ba1dd88f264fa1cecf07b99",
+    "scripts/refine_video.py": "3c5f806e2ebe0fb3f445ddf978560ad3caedfefc8a6319e6d87b2399d8c70ba9",
+    "scripts/stabilize_masks.py": "159b65122e612d8a8a9f996eac14e76e1566cdbc8d2be7420b738a261fcb3bf5",
+    "scripts/vision_ocr.swift": "d0f97389faac71b3b7b55cb5abe749ba6fba4a3af77b8feceb60430f1b1adbd5"
+  },
+  "limits": [
+    "Synthetic checks prove the tested 144-frame fixture, not zero missed links for arbitrary real recordings.",
+    "Original case full-video 63871-frame complete decode and 73-point proofs were inspected as methodology/evidence; this independent review newly extracted six comparison assets and top crop, not a second full-film decode.",
+    "Old case feedback .html at 25:41 remains unlocated and disclosed in three READMEs.",
+    "Baseline bundle hash audit includes original media and all 3428 work/outputs/original-skill files; formal-skill final snapshot, review-run attachment and zip finalization are separate coordinator delivery gates."
+  ]
+}

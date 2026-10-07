@@ -1,0 +1,17 @@
+{
+  "source_original": "带封面.mp4",
+  "source_original_sha256": "b779a1a123733bab21059d2130ad6e44d22fd30bab7201ed214fd0c7fe268682",
+  "original_start_seconds": 55,
+  "original_end_seconds": 115,
+  "clip_duration_seconds": 60,
+  "video_frames": 1800,
+  "resolution": [
+    3840,
+    2160
+  ],
+  "fps": 30,
+  "bytes": 60131532,
+  "sha256": "efd875d321d814a1a50e13cf259325dbf2b7377250d3d9fb2a3914e619f592f4",
+  "cut": "ffmpeg input seek 55s, reencode libx264 CRF24 fast, AAC160k, CFR30; source unchanged",
+  "preexisting_masks": "The recording already contains some gray masks; not a pristine unmasked reconstruction."
+}

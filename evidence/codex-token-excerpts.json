@@ -1,0 +1,97 @@
+{
+  "scope": "Only original token_count event payloads at the two cited lines; other conversation content excluded. Snapshot cut during packaging, not final project usage.",
+  "events": [
+    {
+      "source_basename": "rollout-2026-10-06T23-12-02-01a111c5-8f42-7e01-96ae-d06be53efdba.jsonl",
+      "source_line": 6831,
+      "timestamp": "2026-10-07T09:53:23.262Z",
+      "token_count_payload": {
+        "type": "token_count",
+        "info": {
+          "total_token_usage": {
+            "input_tokens": 81129923,
+            "cached_input_tokens": 79516800,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 276127,
+            "reasoning_output_tokens": 132891,
+            "total_tokens": 81406050
+          },
+          "last_token_usage": {
+            "input_tokens": 65952,
+            "cached_input_tokens": 64896,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 369,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 66321
+          },
+          "model_context_window": 258400
+        },
+        "rate_limits": {
+          "limit_id": "codex",
+          "limit_name": null,
+          "primary": {
+            "used_percent": 4.0,
+            "window_minutes": 10080,
+            "resets_at": 1791950124
+          },
+          "secondary": null,
+          "credits": {
+            "has_credits": true,
+            "unlimited": false,
+            "balance": "62500"
+          },
+          "individual_limit": null,
+          "spend_control_reached": null,
+          "plan_type": "pro",
+          "rate_limit_reached_type": null
+        }
+      }
+    },
+    {
+      "source_basename": "rollout-2026-10-06T23-12-02-01a111c5-8f42-7e01-96ae-d06be53efdba.jsonl",
+      "source_line": 6942,
+      "timestamp": "2026-10-07T09:59:36.472Z",
+      "token_count_payload": {
+        "type": "token_count",
+        "info": {
+          "total_token_usage": {
+            "input_tokens": 82115023,
+            "cached_input_tokens": 80406016,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 280874,
+            "reasoning_output_tokens": 134045,
+            "total_tokens": 82395897
+          },
+          "last_token_usage": {
+            "input_tokens": 89759,
+            "cached_input_tokens": 88960,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1196,
+            "reasoning_output_tokens": 230,
+            "total_tokens": 90955
+          },
+          "model_context_window": 258400
+        },
+        "rate_limits": {
+          "limit_id": "codex",
+          "limit_name": null,
+          "primary": {
+            "used_percent": 4.0,
+            "window_minutes": 10080,
+            "resets_at": 1791950124
+          },
+          "secondary": null,
+          "credits": {
+            "has_credits": true,
+            "unlimited": false,
+            "balance": "62500"
+          },
+          "individual_limit": null,
+          "spend_control_reached": null,
+          "plan_type": "pro",
+          "rate_limit_reached_type": null
+        }
+      }
+    }
+  ]
+}

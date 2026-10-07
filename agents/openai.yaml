@@ -1,0 +1,4 @@
+interface:
+  display_name: "放心录 · Record Freely"
+  short_description: "本地识别录屏中的疑似网址，稳定打码并保留有用内容，支持逐帧人工修订"
+  default_prompt: "使用 $record-freely 为这段录屏制作可审阅的本地链接打码版本，保留有用内容并交付处理报告。"

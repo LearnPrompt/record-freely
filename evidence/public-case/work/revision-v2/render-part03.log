@@ -1,0 +1,11 @@
+{"part": "part-03", "stage": "staging", "local_window": [8299, 8880], "global_window": [35299, 35880], "local_windows": [[8299, 8880]], "rendered_frames": 581, "added_regions": 1569, "removed_regions": 2904, "duplicate_regions_skipped": 0, "affected_frames": 420, "masked_frames_before": 1238, "masked_frames_after": 1238, "new_masked_frames": 0, "removed_masked_frames": 0, "masked_frames_delta": 0, "remove_ids": [], "patches": [{"file": "stability-part03.json", "sha256": "5dbd7b30b6f0fcf1f24c1a3933fc3180c400c60a5a44449a156d18f5cd8c04e1", "id_prefix": "R5dbd7b30b6f0", "matched_frames": 420, "added_regions": 1569}]}
+{"stage": "rendering_repair", "local_frames": 60, "total": 581}
+{"stage": "rendering_repair", "local_frames": 120, "total": 581}
+{"stage": "rendering_repair", "local_frames": 180, "total": 581}
+{"stage": "rendering_repair", "local_frames": 240, "total": 581}
+{"stage": "rendering_repair", "local_frames": 300, "total": 581}
+{"stage": "rendering_repair", "local_frames": 360, "total": 581}
+{"stage": "rendering_repair", "local_frames": 420, "total": 581}
+{"stage": "rendering_repair", "local_frames": 480, "total": 581}
+{"stage": "rendering_repair", "local_frames": 540, "total": 581}
+{"part": "part-03", "status": "patched", "added_regions": 1569, "removed_regions": 2904, "duplicate_regions_skipped": 0, "affected_frames": 420, "masked_frames_before": 1238, "masked_frames_after": 1238, "new_masked_frames": 0, "removed_masked_frames": 0, "masked_frames_delta": 0, "remove_ids": [], "patches": [{"file": "stability-part03.json", "sha256": "5dbd7b30b6f0fcf1f24c1a3933fc3180c400c60a5a44449a156d18f5cd8c04e1", "id_prefix": "R5dbd7b30b6f0", "matched_frames": 420, "added_regions": 1569}], "mode": "keyframe_windows", "local_render_window": [8299, 8880], "global_render_window": [35299, 35880], "local_render_windows": [[8299, 8880]], "global_render_windows": [[35299, 35880]], "rendered_frames": 581, "backup": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/revision-v2/patch-backups/part-03/20261007T074831.851825Z", "verification": {"frames": 9000, "duration": 300.0, "packet_pts": "passed", "aac_packet_hash": "passed"}, "elapsed_seconds": 35.65}

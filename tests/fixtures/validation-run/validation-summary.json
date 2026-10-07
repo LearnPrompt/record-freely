@@ -1,0 +1,40 @@
+{
+  "status": "passed_historical_pre_source_sha_binding",
+  "unit_tests": {
+    "passed": 66,
+    "last_elapsed_seconds": 1.5
+  },
+  "skill_frontmatter_valid": true,
+  "synthetic_fixture": {
+    "frames": 144,
+    "video_seconds": 6,
+    "link_frames": 103,
+    "automatic_elapsed_seconds": 7.59,
+    "refinement_elapsed_seconds": 0.4,
+    "automatic_acceptance_passed": true,
+    "stabilized_acceptance_passed": true,
+    "refinement_codec_and_source_checks": {
+      "frame_count": true,
+      "duration": true,
+      "audio_stream_count": true,
+      "full_codec_decode": true,
+      "source_signature_unchanged": true
+    },
+    "contact_sheet_visually_reviewed": true
+  },
+  "limits": [
+    "Fixture results apply to this synthetic video only.",
+    "Automatic output AAC is re-encoded.",
+    "Reviewed author/skill suffixes and personal paths require source-frame review.",
+    "No current-frame color-based pixel restoration in portable entrypoint."
+  ],
+  "source_sha256": "97cc824dbee370eb48709dab3355e3e91d38c668c8551f4bb2c2f3097c09f99c",
+  "script_sha256": {
+    "iana-tlds.txt": "1ba454ada32b7b9ae6a1240f1d1ce882c14106ec70593d167848a0414ae10ebe",
+    "redact_video.py": "27599a56af9b08f9aff0e84bd7ba279ee39d8d7e3835adae1a98a97403cbcb09",
+    "refine_video.py": "fcced0eb6ee006adb26f52c0952ecab9fd34017ab5ad85955e89276c053d98a5",
+    "stabilize_masks.py": "159b65122e612d8a8a9f996eac14e76e1566cdbc8d2be7420b738a261fcb3bf5",
+    "vision_ocr.swift": "d0f97389faac71b3b7b55cb5abe749ba6fba4a3af77b8feceb60430f1b1adbd5"
+  },
+  "superseded_by": "../validation-run-sha-bound/validation-summary.json"
+}

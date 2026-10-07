@@ -1,0 +1,10 @@
+{"part": "part-01", "stage": "staging", "local_window": [2635, 3119], "global_window": [11635, 12119], "local_windows": [[2635, 3119]], "rendered_frames": 484, "added_regions": 210, "removed_regions": 174, "duplicate_regions_skipped": 0, "affected_frames": 70, "masked_frames_before": 3981, "masked_frames_after": 3981, "new_masked_frames": 0, "removed_masked_frames": 0, "masked_frames_delta": 0, "remove_ids": [], "patches": [{"file": "middle-rowrepair-final-part01.json", "sha256": "dc13c1e353808dc89ddc3e1a2222d7bbba22e9837cf3debd429931e8b482ccb1", "id_prefix": "Rdc13c1e35380", "matched_frames": 70, "added_regions": 210}]}
+{"stage": "rendering_repair", "local_frames": 60, "total": 484}
+{"stage": "rendering_repair", "local_frames": 120, "total": 484}
+{"stage": "rendering_repair", "local_frames": 180, "total": 484}
+{"stage": "rendering_repair", "local_frames": 240, "total": 484}
+{"stage": "rendering_repair", "local_frames": 300, "total": 484}
+{"stage": "rendering_repair", "local_frames": 360, "total": 484}
+{"stage": "rendering_repair", "local_frames": 420, "total": 484}
+{"stage": "rendering_repair", "local_frames": 480, "total": 484}
+{"part": "part-01", "status": "patched", "added_regions": 210, "removed_regions": 174, "duplicate_regions_skipped": 0, "affected_frames": 70, "masked_frames_before": 3981, "masked_frames_after": 3981, "new_masked_frames": 0, "removed_masked_frames": 0, "masked_frames_delta": 0, "remove_ids": [], "patches": [{"file": "middle-rowrepair-final-part01.json", "sha256": "dc13c1e353808dc89ddc3e1a2222d7bbba22e9837cf3debd429931e8b482ccb1", "id_prefix": "Rdc13c1e35380", "matched_frames": 70, "added_regions": 210}], "mode": "keyframe_windows", "local_render_window": [2635, 3119], "global_render_window": [11635, 12119], "local_render_windows": [[2635, 3119]], "global_render_windows": [[11635, 12119]], "rendered_frames": 484, "backup": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/revision-v3/patch-backups/part-01/20261007T093007.114117Z", "verification": {"frames": 9000, "duration": 300.0, "packet_pts": "passed", "aac_packet_hash": "passed"}, "elapsed_seconds": 24.26}

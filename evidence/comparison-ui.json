@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "six_images_loaded": true,
+  "slider_endpoints_tested": [
+    0,
+    100
+  ],
+  "observed_css_split": [
+    "0%",
+    "100%"
+  ],
+  "final_default_percent": 15,
+  "comparison_assets_independently_matched_to_case_frames": true,
+  "network": "Preview served on loopback only; standalone HTML references local packaged PNG files."
+}

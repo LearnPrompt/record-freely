@@ -1,0 +1,2802 @@
+{
+  "status": "complete",
+  "engine": "macOS Vision + OpenCV",
+  "fps": 24.0,
+  "style": "solid",
+  "padding": 4,
+  "detect_every": 1,
+  "frames": [
+    {
+      "frame": 0,
+      "time": 0.0,
+      "boxes": [
+        [
+          47,
+          183,
+          348,
+          39
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 1,
+      "time": 0.041667,
+      "boxes": [
+        [
+          52,
+          188,
+          344,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "time": 0.083333,
+      "boxes": [
+        [
+          56,
+          188,
+          344,
+          32
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "time": 0.125,
+      "boxes": [
+        [
+          60,
+          188,
+          344,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "time": 0.166667,
+      "boxes": [
+        [
+          64,
+          183,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "time": 0.208333,
+      "boxes": [
+        [
+          68,
+          188,
+          344,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "time": 0.25,
+      "boxes": [
+        [
+          71,
+          185,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "time": 0.291667,
+      "boxes": [
+        [
+          75,
+          183,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "time": 0.333333,
+      "boxes": [
+        [
+          80,
+          183,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 9,
+      "time": 0.375,
+      "boxes": [
+        [
+          84,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 10,
+      "time": 0.416667,
+      "boxes": [
+        [
+          88,
+          188,
+          344,
+          32
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 11,
+      "time": 0.458333,
+      "boxes": [
+        [
+          92,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 12,
+      "time": 0.5,
+      "boxes": [
+        [
+          96,
+          183,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 13,
+      "time": 0.541667,
+      "boxes": [
+        [
+          100,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 14,
+      "time": 0.583333,
+      "boxes": [
+        [
+          104,
+          186,
+          346,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 15,
+      "time": 0.625,
+      "boxes": [
+        [
+          107,
+          183,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 16,
+      "time": 0.666667,
+      "boxes": [
+        [
+          112,
+          183,
+          346,
+          39
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 17,
+      "time": 0.708333,
+      "boxes": [
+        [
+          116,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 18,
+      "time": 0.75,
+      "boxes": [
+        [
+          119,
+          183,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 19,
+      "time": 0.791667,
+      "boxes": [
+        [
+          124,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 20,
+      "time": 0.833333,
+      "boxes": [
+        [
+          128,
+          183,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 21,
+      "time": 0.875,
+      "boxes": [
+        [
+          132,
+          188,
+          348,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 22,
+      "time": 0.916667,
+      "boxes": [
+        [
+          136,
+          188,
+          350,
+          32
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 23,
+      "time": 0.958333,
+      "boxes": [
+        [
+          140,
+          183,
+          348,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 24,
+      "time": 1.0,
+      "boxes": [
+        [
+          143,
+          185,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 25,
+      "time": 1.041667,
+      "boxes": [
+        [
+          148,
+          183,
+          348,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 26,
+      "time": 1.083333,
+      "boxes": [
+        [
+          148,
+          183,
+          352,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 27,
+      "time": 1.125,
+      "boxes": [
+        [
+          156,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 28,
+      "time": 1.166667,
+      "boxes": [
+        [
+          160,
+          183,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 29,
+      "time": 1.208333,
+      "boxes": [
+        [
+          164,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 30,
+      "time": 1.25,
+      "boxes": [
+        [
+          167,
+          183,
+          348,
+          39
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 31,
+      "time": 1.291667,
+      "boxes": [
+        [
+          172,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 32,
+      "time": 1.333333,
+      "boxes": [
+        [
+          175,
+          183,
+          348,
+          40
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 33,
+      "time": 1.375,
+      "boxes": [
+        [
+          180,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 34,
+      "time": 1.416667,
+      "boxes": [
+        [
+          183,
+          183,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 35,
+      "time": 1.458333,
+      "boxes": [
+        [
+          188,
+          183,
+          348,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 36,
+      "time": 1.5,
+      "boxes": [
+        [
+          191,
+          183,
+          348,
+          40
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 37,
+      "time": 1.541667,
+      "boxes": [
+        [
+          196,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 38,
+      "time": 1.583333,
+      "boxes": [
+        [
+          199,
+          183,
+          348,
+          39
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 39,
+      "time": 1.625,
+      "boxes": [
+        [
+          204,
+          183,
+          346,
+          39
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 40,
+      "time": 1.666667,
+      "boxes": [
+        [
+          207,
+          183,
+          348,
+          39
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 41,
+      "time": 1.708333,
+      "boxes": [
+        [
+          212,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 42,
+      "time": 1.75,
+      "boxes": [
+        [
+          212,
+          183,
+          352,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 43,
+      "time": 1.791667,
+      "boxes": [
+        [
+          220,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 44,
+      "time": 1.833333,
+      "boxes": [
+        [
+          223,
+          185,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 45,
+      "time": 1.875,
+      "boxes": [
+        [
+          228,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 46,
+      "time": 1.916667,
+      "boxes": [
+        [
+          231,
+          185,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 47,
+      "time": 1.958333,
+      "boxes": [
+        [
+          236,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U001",
+          "kind": "http(s)",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 48,
+      "time": 2.0,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 49,
+      "time": 2.041667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 50,
+      "time": 2.083333,
+      "boxes": [
+        [
+          323,
+          237,
+          202,
+          38
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U002",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 51,
+      "time": 2.125,
+      "boxes": [
+        [
+          323,
+          237,
+          202,
+          38
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U002",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 52,
+      "time": 2.166667,
+      "boxes": [
+        [
+          323,
+          237,
+          202,
+          38
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U002",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 53,
+      "time": 2.208333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 54,
+      "time": 2.25,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 55,
+      "time": 2.291667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 56,
+      "time": 2.333333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 57,
+      "time": 2.375,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 58,
+      "time": 2.416667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 59,
+      "time": 2.458333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 60,
+      "time": 2.5,
+      "boxes": [
+        [
+          296,
+          400,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 61,
+      "time": 2.541667,
+      "boxes": [
+        [
+          294,
+          398,
+          300,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 62,
+      "time": 2.583333,
+      "boxes": [
+        [
+          292,
+          392,
+          304,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 63,
+      "time": 2.625,
+      "boxes": [
+        [
+          296,
+          390,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 64,
+      "time": 2.666667,
+      "boxes": [
+        [
+          296,
+          384,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 65,
+      "time": 2.708333,
+      "boxes": [
+        [
+          296,
+          382,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 66,
+      "time": 2.75,
+      "boxes": [
+        [
+          296,
+          376,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 67,
+      "time": 2.791667,
+      "boxes": [
+        [
+          288,
+          372,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 68,
+      "time": 2.833333,
+      "boxes": [
+        [
+          296,
+          368,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 69,
+      "time": 2.875,
+      "boxes": [
+        [
+          294,
+          366,
+          300,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 70,
+      "time": 2.916667,
+      "boxes": [
+        [
+          292,
+          360,
+          304,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 71,
+      "time": 2.958333,
+      "boxes": [
+        [
+          296,
+          358,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 72,
+      "time": 3.0,
+      "boxes": [
+        [
+          296,
+          352,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 73,
+      "time": 3.041667,
+      "boxes": [
+        [
+          296,
+          350,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 74,
+      "time": 3.083333,
+      "boxes": [
+        [
+          296,
+          344,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 75,
+      "time": 3.125,
+      "boxes": [
+        [
+          296,
+          342,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 76,
+      "time": 3.166667,
+      "boxes": [
+        [
+          292,
+          336,
+          304,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 77,
+      "time": 3.208333,
+      "boxes": [
+        [
+          294,
+          334,
+          300,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 78,
+      "time": 3.25,
+      "boxes": [
+        [
+          292,
+          328,
+          304,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 79,
+      "time": 3.291667,
+      "boxes": [
+        [
+          294,
+          326,
+          300,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 80,
+      "time": 3.333333,
+      "boxes": [
+        [
+          296,
+          320,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 81,
+      "time": 3.375,
+      "boxes": [
+        [
+          294,
+          318,
+          300,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 82,
+      "time": 3.416667,
+      "boxes": [
+        [
+          296,
+          312,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 83,
+      "time": 3.458333,
+      "boxes": [
+        [
+          296,
+          310,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 84,
+      "time": 3.5,
+      "boxes": [
+        [
+          296,
+          304,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 85,
+      "time": 3.541667,
+      "boxes": [
+        [
+          294,
+          302,
+          300,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 86,
+      "time": 3.583333,
+      "boxes": [
+        [
+          292,
+          296,
+          304,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 87,
+      "time": 3.625,
+      "boxes": [
+        [
+          296,
+          294,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 88,
+      "time": 3.666667,
+      "boxes": [
+        [
+          296,
+          288,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 89,
+      "time": 3.708333,
+      "boxes": [
+        [
+          296,
+          286,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 90,
+      "time": 3.75,
+      "boxes": [
+        [
+          296,
+          280,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 91,
+      "time": 3.791667,
+      "boxes": [
+        [
+          296,
+          276,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 92,
+      "time": 3.833333,
+      "boxes": [
+        [
+          296,
+          272,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 93,
+      "time": 3.875,
+      "boxes": [
+        [
+          296,
+          268,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 94,
+      "time": 3.916667,
+      "boxes": [
+        [
+          296,
+          263,
+          300,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 95,
+      "time": 3.958333,
+      "boxes": [
+        [
+          296,
+          260,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 96,
+      "time": 4.0,
+      "boxes": [
+        [
+          296,
+          255,
+          300,
+          37
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 97,
+      "time": 4.041667,
+      "boxes": [
+        [
+          296,
+          252,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 98,
+      "time": 4.083333,
+      "boxes": [
+        [
+          296,
+          248,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 99,
+      "time": 4.125,
+      "boxes": [
+        [
+          296,
+          244,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 100,
+      "time": 4.166667,
+      "boxes": [
+        [
+          296,
+          240,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 101,
+      "time": 4.208333,
+      "boxes": [
+        [
+          296,
+          238,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 102,
+      "time": 4.25,
+      "boxes": [
+        [
+          296,
+          234,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 103,
+      "time": 4.291667,
+      "boxes": [
+        [
+          296,
+          230,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 104,
+      "time": 4.333333,
+      "boxes": [
+        [
+          296,
+          224,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 105,
+      "time": 4.375,
+      "boxes": [
+        [
+          294,
+          222,
+          300,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 106,
+      "time": 4.416667,
+      "boxes": [
+        [
+          296,
+          218,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 107,
+      "time": 4.458333,
+      "boxes": [
+        [
+          296,
+          212,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 108,
+      "time": 4.5,
+      "boxes": [
+        [
+          296,
+          208,
+          300,
+          36
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 109,
+      "time": 4.541667,
+      "boxes": [
+        [
+          294,
+          205,
+          300,
+          35
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 110,
+      "time": 4.583333,
+      "boxes": [
+        [
+          296,
+          202,
+          298,
+          34
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 111,
+      "time": 4.625,
+      "boxes": [
+        [
+          296,
+          197,
+          298,
+          35
+        ]
+      ],
+      "origins": [
+        "ocr"
+      ],
+      "regions": [
+        {
+          "id": "U003",
+          "kind": "domain",
+          "box_method": "characters",
+          "ocr_confidence": 1.0,
+          "origin": "ocr"
+        }
+      ]
+    },
+    {
+      "frame": 112,
+      "time": 4.666667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 113,
+      "time": 4.708333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 114,
+      "time": 4.75,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 115,
+      "time": 4.791667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 116,
+      "time": 4.833333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 117,
+      "time": 4.875,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 118,
+      "time": 4.916667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 119,
+      "time": 4.958333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 120,
+      "time": 5.0,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 121,
+      "time": 5.041667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 122,
+      "time": 5.083333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 123,
+      "time": 5.125,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 124,
+      "time": 5.166667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 125,
+      "time": 5.208333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 126,
+      "time": 5.25,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 127,
+      "time": 5.291667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 128,
+      "time": 5.333333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 129,
+      "time": 5.375,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 130,
+      "time": 5.416667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 131,
+      "time": 5.458333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 132,
+      "time": 5.5,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 133,
+      "time": 5.541667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 134,
+      "time": 5.583333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 135,
+      "time": 5.625,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 136,
+      "time": 5.666667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 137,
+      "time": 5.708333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 138,
+      "time": 5.75,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 139,
+      "time": 5.791667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 140,
+      "time": 5.833333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 141,
+      "time": 5.875,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 142,
+      "time": 5.916667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 143,
+      "time": 5.958333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    }
+  ],
+  "scene_cuts": [
+    112
+  ],
+  "warnings": [
+    "OCR and tracking are heuristic. Inspect the preview before publication; missed links remain possible.",
+    "Output uses constant frame rate and original metadata is removed."
+  ],
+  "privacy": "Local only. OCR text and URL contents are not saved in the report.",
+  "start": 0,
+  "selected_duration": null,
+  "source_sha256": "97cc824dbee370eb48709dab3355e3e91d38c668c8551f4bb2c2f3097c09f99c",
+  "source_signature": {
+    "size": 127872,
+    "mtime_ns": 1791367935455956312
+  },
+  "audio_policy": "AAC re-encode; stream count verified, packet identity not promised",
+  "ocr_workers": 3,
+  "width": 960,
+  "height": 540,
+  "source_video_stream": 0,
+  "hold_seconds": 0.35,
+  "lookback_frames": 8,
+  "tld_snapshot": "# Version 2026100600, Last Updated Tue Oct  6 07:07:01 2026 UTC",
+  "processed_frames": 144,
+  "duration": 6.0,
+  "masked_frames": 103,
+  "audio_streams": 1,
+  "elapsed_seconds": 8.27,
+  "verification": {
+    "frame_count": "passed",
+    "duration": "passed",
+    "audio_stream_count": "passed"
+  }
+}

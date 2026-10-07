@@ -1,0 +1,64 @@
+{
+  "source": "带封面.mp4",
+  "final": "带封面-修正版v3/redacted.mp4",
+  "rows": [
+    {
+      "id": "01-02",
+      "global_frame": 1860,
+      "time_seconds": 62.0,
+      "crop_xyxy": [
+        160,
+        780,
+        3220,
+        1080
+      ],
+      "source_size": [
+        3840,
+        2160
+      ],
+      "comparison_method": "Same decoded CFR frame; identical crop and display scale; no text replacement.",
+      "before": "01-02-before.png",
+      "after": "01-02-after.png",
+      "board": "01-02-comparison.jpg"
+    },
+    {
+      "id": "06-39",
+      "global_frame": 11970,
+      "time_seconds": 399.0,
+      "crop_xyxy": [
+        110,
+        1180,
+        2720,
+        1600
+      ],
+      "source_size": [
+        3840,
+        2160
+      ],
+      "comparison_method": "Same decoded CFR frame; identical crop and display scale; no text replacement.",
+      "before": "06-39-before.png",
+      "after": "06-39-after.png",
+      "board": "06-39-comparison.jpg"
+    },
+    {
+      "id": "09-00",
+      "global_frame": 16200,
+      "time_seconds": 540.0,
+      "crop_xyxy": [
+        180,
+        565,
+        2850,
+        1680
+      ],
+      "source_size": [
+        3840,
+        2160
+      ],
+      "comparison_method": "Same decoded CFR frame; identical crop and display scale; no text replacement.",
+      "before": "09-00-before.png",
+      "after": "09-00-after.png",
+      "board": "09-00-comparison.jpg"
+    }
+  ],
+  "authorization": "Creator requested before/after source-frame comparisons; unmasked BEFORE contains original visible text."
+}

@@ -1,0 +1,28 @@
+{"part": "part-06", "stage": "staging", "local_window": [3805, 5387], "global_window": [57805, 59387], "local_windows": [[3805, 5387]], "rendered_frames": 1582, "added_regions": 4642, "removed_regions": 382, "duplicate_regions_skipped": 0, "affected_frames": 1277, "masked_frames_before": 603, "masked_frames_after": 1501, "new_masked_frames": 898, "removed_masked_frames": 0, "masked_frames_delta": 898, "remove_ids": [], "patches": [{"file": "late-final-part-06.json", "sha256": "7f40534d1a2498fe5dd5ffdcb1251858dddeaded1045557c373c7cdfb8b66e20", "id_prefix": "R7f40534d1a24", "matched_frames": 1277, "added_regions": 4642}]}
+{"stage": "rendering_repair", "local_frames": 60, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 120, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 180, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 240, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 300, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 360, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 420, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 480, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 540, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 600, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 660, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 720, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 780, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 840, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 900, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 960, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1020, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1080, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1140, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1200, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1260, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1320, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1380, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1440, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1500, "total": 1582}
+{"stage": "rendering_repair", "local_frames": 1560, "total": 1582}
+{"part": "part-06", "status": "patched", "added_regions": 4642, "removed_regions": 382, "duplicate_regions_skipped": 0, "affected_frames": 1277, "masked_frames_before": 603, "masked_frames_after": 1501, "new_masked_frames": 898, "removed_masked_frames": 0, "masked_frames_delta": 898, "remove_ids": [], "patches": [{"file": "late-final-part-06.json", "sha256": "7f40534d1a2498fe5dd5ffdcb1251858dddeaded1045557c373c7cdfb8b66e20", "id_prefix": "R7f40534d1a24", "matched_frames": 1277, "added_regions": 4642}], "mode": "keyframe_windows", "local_render_window": [3805, 5387], "global_render_window": [57805, 59387], "local_render_windows": [[3805, 5387]], "global_render_windows": [[57805, 59387]], "rendered_frames": 1582, "backup": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/revision-v2/patch-backups/part-06/20261007T075607.786884Z", "verification": {"frames": 9000, "duration": 300.0, "packet_pts": "passed", "aac_packet_hash": "passed"}, "elapsed_seconds": 94.6}

@@ -1,0 +1,1934 @@
+{
+  "schema_version": 1,
+  "description": "Compact public evidence for the original full-film case. Historical scripts are forensic records, not the portable Skill entry point.",
+  "metrics_input_count": 46,
+  "metrics_inputs_all_bytes_and_sha256_verified": true,
+  "file_count": 191,
+  "historical_script_count": 149,
+  "total_bytes": 18793520,
+  "local_full_review_catalog": "../full-review-file-catalog.json",
+  "local_full_review_validation": "../full-review-validation.json",
+  "scope": {
+    "public": "All 46 metrics inputs and all .py/.swift scripts under the case work directory and frozen original Skill.",
+    "local_only": "The original 35:29 film, all historical full-length and intermediate media, and the complete 68,516,873,763-byte local review bundle. The public catalog is a file inventory and integrity record; it does not mean the cataloged media has been uploaded.",
+    "not_included": "Raw chat transcripts, credential files, unknown source screenshots, and additional raw OCR logs outside the 46 audited metrics inputs."
+  },
+  "secret_scan": {
+    "methods": [
+      "private_key",
+      "github_token",
+      "provider_secret_key",
+      "jwt",
+      "credential_assignment",
+      "credential_url_query"
+    ],
+    "files_scanned": 191,
+    "candidate_hits": [],
+    "limitations": "Pattern-based screening is not proof that arbitrary private text or novel credential formats are absent. User-authorized source names and local paths are preserved as historical evidence."
+  },
+  "files": [
+    {
+      "path": "original-skill/video-link-redactor/SKILL.md",
+      "bytes": 4177,
+      "sha256": "b6388b8c8d2277f207aedb1b875dc1912f5b56da203173788c4164277f98504e",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        44
+      ],
+      "metrics_input_paths": [
+        "/Users/carl/.codex/skills/video-link-redactor/SKILL.md"
+      ]
+    },
+    {
+      "path": "original-skill/video-link-redactor/scripts/redact_video.py",
+      "bytes": 28649,
+      "sha256": "cb9d1c5c73d13892cbf0857a26de05672371accf0be264f4d9257fd93b8c06a3",
+      "kind": "metrics_input",
+      "historical_source_script": true,
+      "metrics_input_indexes": [
+        45
+      ],
+      "metrics_input_paths": [
+        "/Users/carl/.codex/skills/video-link-redactor/scripts/redact_video.py"
+      ]
+    },
+    {
+      "path": "original-skill/video-link-redactor/scripts/test_parallel.py",
+      "bytes": 4622,
+      "sha256": "377c16ac9a1896e33ef6db4be5b5844df7507e6c1b58a211e9cc1a7972d0e308",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "original-skill/video-link-redactor/scripts/test_redact_video.py",
+      "bytes": 8554,
+      "sha256": "d5075f189a37821daf9e375647e7fe2f3747feade83c6ef156c59208d96a47d3",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "original-skill/video-link-redactor/scripts/vision_ocr.swift",
+      "bytes": 2773,
+      "sha256": "d0f97389faac71b3b7b55cb5abe749ba6fba4a3af77b8feceb60430f1b1adbd5",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "outputs/带封面-修正版v3/合并画面验证.json",
+      "bytes": 10287,
+      "sha256": "f941bf7fcdde2ded4dac4328e7bb0e95a3ef0a99936cad8c3938e8ae83338a45",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        16
+      ],
+      "metrics_input_paths": [
+        "outputs/带封面-修正版v3/合并画面验证.json"
+      ]
+    },
+    {
+      "path": "outputs/带封面-修正版v3/技术验证.json",
+      "bytes": 14842,
+      "sha256": "5bb084526daa88edc1415f7ea7355e8ce83f4e47955be4e62b9feaa74c506783",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        15
+      ],
+      "metrics_input_paths": [
+        "outputs/带封面-修正版v3/技术验证.json"
+      ]
+    },
+    {
+      "path": "outputs/带封面-前5分钟/report.json",
+      "bytes": 2775243,
+      "sha256": "1176c7772a3cb8ee2b7716b187a013fdae27eeb55722ba89cf13c17370c6a894",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        0
+      ],
+      "metrics_input_paths": [
+        "outputs/带封面-前5分钟/report.json"
+      ]
+    },
+    {
+      "path": "work/full-video/apply_repairs.py",
+      "bytes": 29253,
+      "sha256": "551626142d72f1e968ffa1a5b94cfc50c7f4bdd1f8be253339d0d8acf9b425c0",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/assemble_full.py",
+      "bytes": 1986,
+      "sha256": "f330fee59687613e209dde49dc0a7dac65a4ef7202d54c2bd54b36b4929130e0",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/assets_anchor_probe.py",
+      "bytes": 974,
+      "sha256": "84c7a8250fd64b7456a081376ea44352415086147213efd333ace642ac72cb8a",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/assets_suffix_probe.py",
+      "bytes": 557,
+      "sha256": "2649613d9e13be71213071513d21bf9aff52d207cb968404e0629e704d3f36c7",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/build_full_report.py",
+      "bytes": 36131,
+      "sha256": "d98ad8b6ff4212b76d3dcc0f189caaa9f4812114d78265450328137c46085682",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/build_part02_proxy_gaps.py",
+      "bytes": 1741,
+      "sha256": "2f7817517481da1f6b455a9fe8b3646184ed2dc966001bd95dbb57dfea7780c1",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/build_yellow_proxy_patch.py",
+      "bytes": 2687,
+      "sha256": "be7588f41f28de6824a9e57c8f3f8a9664757fffc23662a3d954f4b102e04dd1",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/check_part01_yellow_actual.py",
+      "bytes": 1643,
+      "sha256": "4955cfdfd7631d42f86ff24478464e4fbdbf61b48c470d44ffa0b7d42355648d",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/check_yellow_coverage.py",
+      "bytes": 1693,
+      "sha256": "81242410b7cfcb80093a11994a0758fa4db27d056fca150c162df0a44cf2fe44",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/chunks/part-01/complete.json",
+      "bytes": 161,
+      "sha256": "20741b2880ebbbe7f5af3ce168b054c3a2b0cbf93f95b31c91689bce82351ffd",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        1
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-01/complete.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-01/report.json",
+      "bytes": 3149218,
+      "sha256": "90e2e8317e861c666d7c0aee5b5db06f3932a8d56cc8b45495805de064bee6cc",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        2
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-01/report.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-02/complete.json",
+      "bytes": 162,
+      "sha256": "7261579c0b3c9d0783992f731c2e13f222814a96245ff1ddeb450c57cf46642b",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        3
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-02/complete.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-02/report.json",
+      "bytes": 2458549,
+      "sha256": "efdba14cd583a6b6d1d1c0ac9a2037b24c6c3070ec4c008407a90fcdaaad0477",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        4
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-02/report.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-03/complete.json",
+      "bytes": 163,
+      "sha256": "36eb9d37ecb2982fb9c987d5d94e4bf0d403aafe64d5a682e3d90cd39bbc3105",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        5
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-03/complete.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-03/report.json",
+      "bytes": 3142466,
+      "sha256": "c669c54841f050f6b76ef96d669a4c285addbbd09ef4f30f8d97d565501c2c48",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        6
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-03/report.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-04/complete.json",
+      "bytes": 162,
+      "sha256": "3fd6c2f36d7295fdf460692ae0bc6a3534721bebd40732e0a366efc91599dfb1",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        7
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-04/complete.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-04/report.json",
+      "bytes": 1357588,
+      "sha256": "f0e8edd8605e160eb352f11723f44a04c2e0ab4abff73481f6e72f724cf75391",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        8
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-04/report.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-05/complete.json",
+      "bytes": 162,
+      "sha256": "923301a1b2e61aeb713225927809b736be4948fa1c022509b99393837a309e4c",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        9
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-05/complete.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-05/report.json",
+      "bytes": 3739077,
+      "sha256": "0639b9be754c314694a5476c8070d21aee1f595e7040adbb1b60709dac4da410",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        10
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-05/report.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-06/complete.json",
+      "bytes": 162,
+      "sha256": "1f338dc12aa452f8956fc27421bb05fc46e0b29a6efb9bda2b44a4e4e2d571d7",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        11
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-06/complete.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-06/report.json",
+      "bytes": 1243002,
+      "sha256": "bb6ca308053595bcf80d309a12bd143c66deda151d77ce418cbfdf06f3413fd7",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        12
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-06/report.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-07/complete.json",
+      "bytes": 134,
+      "sha256": "e6af29592f077760fd202664d116ca79454ca6bca77981f899531eb85ddac4a5",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        13
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-07/complete.json"
+      ]
+    },
+    {
+      "path": "work/full-video/chunks/part-07/report.json",
+      "bytes": 102170,
+      "sha256": "4da938e7eba1f53bcb44335377d14e3bdea990da2c4921af504a0e0d53dbccf3",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        14
+      ],
+      "metrics_input_paths": [
+        "work/full-video/chunks/part-07/report.json"
+      ]
+    },
+    {
+      "path": "work/full-video/finalize_delivery.py",
+      "bytes": 1890,
+      "sha256": "f2353b684346be9f7ebd90330956f8c86b3dbc510f529632e753a66567f1d82b",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/finish_when_ready.py",
+      "bytes": 1587,
+      "sha256": "2ab50437c6a0df4b4b6a0f8eb6ef3f62b3505020bfd8882e8c4abfffeec341f2",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/manifest.json",
+      "bytes": 2202,
+      "sha256": "37692bb87c4905e955ee27f32c240436b373ff7787279c31e2c9337fc63c2dfb",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        17
+      ],
+      "metrics_input_paths": [
+        "work/full-video/manifest.json"
+      ]
+    },
+    {
+      "path": "work/full-video/normalize_chunks.py",
+      "bytes": 2284,
+      "sha256": "1531692e2b42e02e4059d3e0f78edcfbbe445e36de359a64855880511cb8e9df",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/process_chunks.py",
+      "bytes": 3151,
+      "sha256": "c4740c4a158897010b0b5b1d8dd444bc2f94d137154e3cc30d7ba76fe8a1fd3c",
+      "kind": "metrics_input",
+      "historical_source_script": true,
+      "metrics_input_indexes": [
+        41
+      ],
+      "metrics_input_paths": [
+        "work/full-video/process_chunks.py"
+      ]
+    },
+    {
+      "path": "work/full-video/process_tail_chunks.py",
+      "bytes": 3227,
+      "sha256": "7c252e1dadf55ff4b3bb3c57d3307fca3bb49c9e5553197307e1f8f95c6adafe",
+      "kind": "metrics_input",
+      "historical_source_script": true,
+      "metrics_input_indexes": [
+        42
+      ],
+      "metrics_input_paths": [
+        "work/full-video/process_tail_chunks.py"
+      ]
+    },
+    {
+      "path": "work/full-video/qa_assets_repair.py",
+      "bytes": 3095,
+      "sha256": "30a5f5cc86112d4fabf3fa22f2fcf9035abe79c9bc05c5ca425d5817154c2ae3",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_calendar_continuation.py",
+      "bytes": 6955,
+      "sha256": "aea111adac5d93436a819f3c73e4bbe1a22b3df2374af3ec25e94619aea49883",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_calendar_finish.py",
+      "bytes": 1749,
+      "sha256": "cc1d0aeac5118db90af15140ba6eb197c4436b43769102b0d9ee4044db001eff",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_calendar_preview.py",
+      "bytes": 1105,
+      "sha256": "00719c5cd8fcfc50601f65c9b8632dd6eada1685c595a47319fcf20c7a27d311",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_candidates.py",
+      "bytes": 1427,
+      "sha256": "b39b8d6dac3de8fb09d3ea3ef96d390236b305a20cb1270c406d3d158fd5e2e1",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_dense_scout.py",
+      "bytes": 1348,
+      "sha256": "c1793439d7160f64b7098c95f99eac7cbcfa39ca5f4bd92a793798e136c901d6",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_extract_part.py",
+      "bytes": 2199,
+      "sha256": "14f5e6964b77fb6e7204759deb33b5f9d5b4c013a0bf1665bcc767926cf4b3ba",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_feishu_edges.py",
+      "bytes": 2311,
+      "sha256": "c63ccfa79d3f0b581592c61a86cc77a4ce309013582142e8fa667291cef91c8b",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_full_actual_check.py",
+      "bytes": 2817,
+      "sha256": "3dc9b46c14d1e9a823393fb8eb3c2732fd8e18e52b63eca84a22ac05731a5ff0",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_inset_repair.py",
+      "bytes": 1795,
+      "sha256": "12dbf27ea74f79ca9a488498ffd0822177bbcc132336860bd01886227d5b45e1",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_make_deliverables.py",
+      "bytes": 2301,
+      "sha256": "7b129b23370dbab000ca3af67807d26ed6156b22b207dbeb03710d890b00c8f7",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part02_shell_exit.py",
+      "bytes": 2399,
+      "sha256": "2f13a8bbfa9df846353f09f7bb79ab21fe8e39f6a277f4c29c2843d54facfa53",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part02_shell_variant.py",
+      "bytes": 2228,
+      "sha256": "947b6642d71fdd6d82c271dc9e531cbfd4c508093b917a47451960e2ee32fc4e",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part03_final_actual.py",
+      "bytes": 1329,
+      "sha256": "6bcb027a25c29be3c8c844c3b3030dc11b5f18503769664160247ee199ba4b66",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part03_uri.py",
+      "bytes": 40383,
+      "sha256": "2e220c5f4215c7d5b252494c8582ad454e383559cc971e85bc22405744407cb8",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part04_browser.py",
+      "bytes": 1646,
+      "sha256": "4a1b5f0fe5670a9db36fbc976869bca7fce5b35a792df4ba4bc75adc0e97095d",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part04_browser_template.py",
+      "bytes": 1870,
+      "sha256": "b4a160cbdc856fc5be580ca3e2b77c31836e81ddc9fde8de59a0996efdb723a0",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part05_assets_exit.py",
+      "bytes": 1866,
+      "sha256": "e7265415cbab339534f5295c30752ecdfb534e17133290d78a0c4d0183a83a9f",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part05_assets_geometry.py",
+      "bytes": 8450,
+      "sha256": "6e82b017579d6e259315fc044f9a574a12fd4fca53ab2446920ef73b7f4076b8",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_part06_edges.py",
+      "bytes": 1125,
+      "sha256": "00274266411bc4a0177292778eadb091e9d0e0aa3d4e1eebdbd56692062cb13c",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_proxy_part02.py",
+      "bytes": 2295,
+      "sha256": "92ade638a9d9948973ed148f383b5ab793ea97e8753275855f347c833f509e8b",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_proxy_repair.py",
+      "bytes": 3073,
+      "sha256": "f90d187386d861d08a1aefd6bde09afd480845305a444174c8d0b01c1e697a7e",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_scout.py",
+      "bytes": 1248,
+      "sha256": "71cee3f5a47efa68d5d3f857aa1978e979c2bf1b7eea574b13eea14a577255bd",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_shell_continuation.py",
+      "bytes": 12635,
+      "sha256": "c4b7a8c49276690d37b75dcef1cd82c10ac7ca848744c0d8482f7cb73897c310",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_skill_registry.py",
+      "bytes": 3206,
+      "sha256": "93aa7cd50b465fabe358e91bcfe9838224b0a561e7e1552d22695b038cbaabdd",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_skill_registry_exit.py",
+      "bytes": 1825,
+      "sha256": "5c0981cffd876a232090a59eb6d39b109a97da55eb4cf48c885fe28e2f1f7bde",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/qa_yellow_proxy.py",
+      "bytes": 960,
+      "sha256": "4e488446db637a8b6f286cfbf3a6fb1d64c9335ed045d3bf3c82500b2790f554",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/redact_full_engine.py",
+      "bytes": 34747,
+      "sha256": "7a7481cd83f7ed7cba0ce380f9087e2a9878841a4fe828c685737487c3768c77",
+      "kind": "metrics_input",
+      "historical_source_script": true,
+      "metrics_input_indexes": [
+        43
+      ],
+      "metrics_input_paths": [
+        "work/full-video/redact_full_engine.py"
+      ]
+    },
+    {
+      "path": "work/full-video/run_pending_repairs.py",
+      "bytes": 885,
+      "sha256": "33efe9e7efcba84c7716f4608fad3142ee231de5512c7e5ce9658c0d5e90bd3e",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/stream_capture.py",
+      "bytes": 1606,
+      "sha256": "034bc237626ddafefff3aadd7f5ce3d6d4f397757c0aa0fdc33f3612a046f537",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/test_assets_geometry.py",
+      "bytes": 4025,
+      "sha256": "e3cd136eceeaa2d624c9fb5a7ec494d40b188957bec1d1d4266ec64f94f254b9",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/test_full_engine.py",
+      "bytes": 8097,
+      "sha256": "68ae41ea0e25319f979fd78832fcb4dfcabd25a8bb8c108a50be8986240681cc",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/test_stream_capture.py",
+      "bytes": 1235,
+      "sha256": "bad7b274740f3c68915f9dd19b32b984c88562f74078b1c912c38b0c4fe651e4",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/full-video/verify_full.py",
+      "bytes": 5698,
+      "sha256": "90aa25ed33f4921909636e5a89fca08b9cc160d8889bc8802b8e9f97dece9c92",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/fix_extra.py",
+      "bytes": 2799,
+      "sha256": "3e8baa9eaef93e4707731331ea861a49f8b9a4e6d2d1dd5f663d0f787b669e96",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/patch_prefix.py",
+      "bytes": 2996,
+      "sha256": "bd465c7303a33b57fddaf0c791fff2f2c43982dd65114ca625f0b897dbbe081f",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/qa-extract.py",
+      "bytes": 774,
+      "sha256": "4b2ad770dfae7aca585a132d8976ed1df976843683465575a82e984125d5c6b2",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/qa-final-mask-validation.py",
+      "bytes": 1695,
+      "sha256": "66e6e547cc34e274176a80e0bf736fcbe06a6c8a2211d59b99a0f634a6658213",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/qa-final-output-check.py",
+      "bytes": 1332,
+      "sha256": "4990302be64975a335dacc388590e4fb5e8bcb893d699dbd6fdd693a944ae7ff",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/qa-final-sample.py",
+      "bytes": 1335,
+      "sha256": "26960b2120175544a5e4bcf0be42a9f299d2a245e3a706a65e212fea27cfba5f",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/qa-models-repair.py",
+      "bytes": 9362,
+      "sha256": "6b6a6d68947f3ca860d89a275704888cb72d48d71da58e4917f65574788f0989",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/qa-publish-samples.py",
+      "bytes": 5695,
+      "sha256": "da88e28b371508299bb5f9f017902da8a374414035f8c1dc68e90c3777062c58",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/render_repairs.py",
+      "bytes": 3840,
+      "sha256": "d5fa18c72e644041507fe5183ac83dc606898aa8a72a3a1ed300cfd59dcb9c34",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/repair_extra.py",
+      "bytes": 3576,
+      "sha256": "fcb878ba039b1446a1d4c5fb2247a2cd26272f7e35f045f520deb57f46eb6d12",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/run_cached.py",
+      "bytes": 1134,
+      "sha256": "fea3a8523570d341d0bf2b6f637b921208278fb1d1908dab440909a3979f5299",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/timeline_report.py",
+      "bytes": 40952,
+      "sha256": "0b34ad4f19736ce5d9eb15468fa587719ef59081d1ed63d1da950fde6c00895c",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/trim_url_rows.py",
+      "bytes": 1142,
+      "sha256": "69fa2ec56b61f27ce48a7664afda12fd9eb073068b4d332eaaadd1349214242b",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/real-video-audit/verify_export.py",
+      "bytes": 3714,
+      "sha256": "8489dcc051a2c57b139a93dcd398710d39e59c3fd6bf16a470221113772d2b21",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/redaction-test/build_comparison.py",
+      "bytes": 1873,
+      "sha256": "ebc6775bf658ff594c65623288dba6b625f9f7d791386447180a20eb949d010d",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/redaction-test/generate_fixture.py",
+      "bytes": 3354,
+      "sha256": "ee45ed10f612f11f5db94319a55be150a2c825e4041c09ba6fb12ea994f87dee",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/redaction-test/verify_fixture.py",
+      "bytes": 4702,
+      "sha256": "28056ad6b7c9e7e8d47a182180dbb7ec38c6c52aaa30842406e9829f0b92bbbf",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/redactor-review/audio_filter_experiment.py",
+      "bytes": 2431,
+      "sha256": "cb7f62f3430a4f13dcab1211212fb5b3e061d1a184ac5df34f6d6f6d5480acea",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/redactor-review/test_parallel_review.py",
+      "bytes": 4841,
+      "sha256": "2453b88396148e72e1f902fb5b7e5748c6f5371b7de3c7fb22f36045a04b626b",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/redactor-review/test_redactor_unit.py",
+      "bytes": 4563,
+      "sha256": "c452196546c437e651230dbc9ff6d89a062644e7917f2b0fbec244b86da345e3",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/redactor-review/test_review.py",
+      "bytes": 8010,
+      "sha256": "ac7fa5e0deefaa0a925fec5e977a1834e70a2eb97b54986cada7270dbfc09021",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/apply_repairs.py",
+      "bytes": 31025,
+      "sha256": "78199022fd066930b36681c2d711211a9735096615b6171705343f71809feffe",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/assemble_revision.py",
+      "bytes": 1895,
+      "sha256": "bd3eb69bee758243ec7f185ac1cd16875ce93f40d3d20a872dabf8b4ba52081b",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/build_full_report.py",
+      "bytes": 36981,
+      "sha256": "8be2f292cc22c06c0bf414b2e747923c1d436b0ec30eaf70d5ff7a6918b0e575",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/finalize_delivery.py",
+      "bytes": 2394,
+      "sha256": "56fd30d665adff12df748cbad683bff118e65e82309b5d8a7a72725ed9dba412",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/finish_revision.py",
+      "bytes": 1629,
+      "sha256": "e086dff8065e33ddd09fa4b8edd3805a76f408acf461e703eb4225c0f690ed7f",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/front_actual_qa.py",
+      "bytes": 1738,
+      "sha256": "536afd4bcffc2f6ecce8ba6113b888841b305c66c7a4b76e4c03c52232605581",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/front_build.py",
+      "bytes": 4053,
+      "sha256": "f15b3988245ea1ce32fdc9a3e719fd1c3dfc3f431e5d6dc6b90080654c5629f5",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/front_finalize.py",
+      "bytes": 2386,
+      "sha256": "daf6d60f3a60a836178b1fcb3fcfdfc75ee97e23762abc2ddd2383eec4678576",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/front_probe.py",
+      "bytes": 626,
+      "sha256": "1d647dc65b6a0e743f7bc6641183ff3b12e26e6f45edd84ef3e2a06d4d534e44",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/front_tighten.py",
+      "bytes": 1037,
+      "sha256": "1533caa73b20c53aee95ba374a611ca4eeab854841a9ea556d7ef7b01cf4250b",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/front_verify.py",
+      "bytes": 1533,
+      "sha256": "cab87a4443e2537b1476e01546a627be3b8171ff8a16567bdc1f2cd4dd612ab7",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_actual_verify.py",
+      "bytes": 2805,
+      "sha256": "8c03385a70dc8a8801ddb908939b706d2ff40bf57e6afaa1f95c2f433e83abc0",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_asset_remove.py",
+      "bytes": 1397,
+      "sha256": "f2b5cbd93e3eaaf76afd0b29987e1059ef252cacf156a0e12517b15bb72f94a9",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_extra.py",
+      "bytes": 2220,
+      "sha256": "53b9e50c5fcb43ee841cd274ee1fb4f3536341566a665a618f7721e7dc781e20",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_merge.py",
+      "bytes": 4091,
+      "sha256": "9bce2457dd5e1cfe145e9a59d5bb65bdc6b8d58e243b463b407ec61918b9a2e1",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_partial_prefix.py",
+      "bytes": 1162,
+      "sha256": "fcc8150bf3fec516e8bb9bc5779c07961902e48306c6b8e72413bda8b1942121",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_path_actual_verify.py",
+      "bytes": 2235,
+      "sha256": "c4fe130a5f7aa67f70effd526ab63e47249c86d8d14470be07bce013ed982209",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_prefix_match.py",
+      "bytes": 1258,
+      "sha256": "f853bbff13a4340031b38102b392b4637d6183a9794d90195f01c859757bce67",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_refine_paths.py",
+      "bytes": 2304,
+      "sha256": "dfd33076b113cc645831924a9f51180a13675e5e2be6d8a0f005ff1f95239b3c",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_refine_words.py",
+      "bytes": 2426,
+      "sha256": "6a6aadf9b0bd695027a11a000acbd47835cf73f7c5c60c8b448c83b3834b92d2",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_scan.py",
+      "bytes": 2202,
+      "sha256": "cc9210e512fad936c174ac7d2098c7f747ee5eda4e62dee893e1332192571b75",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_uri_actual_verify.py",
+      "bytes": 1761,
+      "sha256": "9ea3f69285bde337a0448a2bec78c81b96fcfe762a2ee51aaa0dda3337f8228a",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_uri_tail_fix.py",
+      "bytes": 2808,
+      "sha256": "123449a880ff9c03335e3af3dd662801b18fe0fa1cbf94c306e712030b4f94be",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_vision.swift",
+      "bytes": 3728,
+      "sha256": "517a6c3f0ef0b1ad065b042290c1de79265a768a5e798b407b1990729cb53577",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_word_benchmark.py",
+      "bytes": 660,
+      "sha256": "72479e774abd8090330316e4dd9b1d3458489aac721461bc540908cb78435872",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_word_vision.swift",
+      "bytes": 3591,
+      "sha256": "073c9615a2a629181f3c1107896ef04f81b2d368a2c1b0bc3856bfaf228be9d2",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/late_words.py",
+      "bytes": 1322,
+      "sha256": "3415d61cf01e1d04f18a1bf4baac8973d7a2bf1fce2ecdd7e10cc91d7d148f11",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_actual_pts.py",
+      "bytes": 736,
+      "sha256": "72ba329ba1bc0f5a5331b46af24edf0da4ec5d879967c061f8613e63627ce443",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_actual_qa.py",
+      "bytes": 960,
+      "sha256": "4001a8e0f728fa6520e71f1c412e872e6e4dfe0cc5b6309a264c9326a1a21994",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_boundaries.py",
+      "bytes": 1364,
+      "sha256": "231bfa2b39d3565b4f36f08b08a7a0be0a3db60581dfb7c3c1a3acf960307332",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_build.py",
+      "bytes": 5677,
+      "sha256": "b52e65dea2f3d04d8216a86d8770ddf3d9203b0b9f42cd55d956a5eae875d136",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_dedupe.py",
+      "bytes": 2785,
+      "sha256": "d11b2bfe21eabdc78f66ebe37a3b86696c155559a6d83dc39e4e6ef1b48a819f",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_extra_probe.py",
+      "bytes": 708,
+      "sha256": "3947ae27d8601d8e5fb3f2130c471e25244c9abdc17ef1f37923031379e1a5ca",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_fill_gaps.py",
+      "bytes": 2556,
+      "sha256": "14f2dfd4b747fb22d67a906bb2ea965b091e5a08a3d997ff4e638e5d0254ee77",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_final_extra.py",
+      "bytes": 2860,
+      "sha256": "0171b4e6a278d0bf6e55a4aa47218f4ba8444e32243a52946c83961f03c595ee",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_finalize.py",
+      "bytes": 4261,
+      "sha256": "c3281bea34c6f45b7dc4f27e4f94bb2d307f43d8d9c72a3d479d627c391f26c8",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_html_tail.py",
+      "bytes": 1760,
+      "sha256": "9d136f8cb1e483fc8f87defc404ca1760af524ee8f690e25dee96bbf588df0c2",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_last_boundary.py",
+      "bytes": 2973,
+      "sha256": "65cdd8b5d607fde2b4c76130c1cc55fc458457e9f1b4df5e2c8a25a2ee41ec5d",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_scout.py",
+      "bytes": 595,
+      "sha256": "5bdd3df6bed3059614bcc307b6c7a6f09bdc721321945d01eec4f4bb8199e271",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/middle_skill_probe.py",
+      "bytes": 867,
+      "sha256": "32852911348c75d2214b3d90cb2ca2f67473074a87e2de193241ba4749149c1f",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/render-part00-fix.log",
+      "bytes": 1844,
+      "sha256": "f35e4fae3c13b3494433d615f8d7c44ded0b82d6761bfee7968439815f62a8f6",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        18
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part00-fix.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part00-fix2.log",
+      "bytes": 1846,
+      "sha256": "4a373bbe340133327127e35b1331b4e4be287c02c408531477309b882d43fee8",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        19
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part00-fix2.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part00.log",
+      "bytes": 4246,
+      "sha256": "324790d55f3b8da870af646c4e6112544641af9d14a0d8f0814383f9124d77db",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        20
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part00.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part01-dedupe.log",
+      "bytes": 1870,
+      "sha256": "dd761d4fb41221ef461101e678d4de679e954f69e2acf93c4798870f51e14c0a",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        21
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part01-dedupe.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part01-entry.log",
+      "bytes": 1856,
+      "sha256": "9a65882bb254e535a6c10ea246a1546c6dc1c8178fa4bc1ecbb13d05f6c0d15c",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        22
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part01-entry.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part01-extra.log",
+      "bytes": 2128,
+      "sha256": "3d747a77a37f1949a2dcebc99d7acdc668b6e0a057cc376a1216d71c90ba72bf",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        23
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part01-extra.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part01-last.log",
+      "bytes": 2124,
+      "sha256": "13ea8109c1427ec7dc7d02ccc6c40c4ee4cb4b158e8be398a4fa5accd7a9da2f",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        24
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part01-last.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part01.log",
+      "bytes": 5930,
+      "sha256": "2e217f34d716e9c579c9e5c8eca82611483de18959f619b65c9ac86c6c984736",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        25
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part01.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part02-tail.log",
+      "bytes": 1854,
+      "sha256": "4a50f79d26bff5ef768506dffe3e0b7c8a7405ecba2322b0ece5098359273512",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        26
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part02-tail.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part02.log",
+      "bytes": 2390,
+      "sha256": "0a22a902a9593d79efc664d263932c46e55fbdb7d7ad90af89db26c1167a2524",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        27
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part02.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part03-extra.log",
+      "bytes": 1860,
+      "sha256": "357c70a7780775cb6a600ceb0d146d02d4b251f6abc5b3356f0929dce89f6472",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        28
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part03-extra.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part03-last.log",
+      "bytes": 1864,
+      "sha256": "356a9b6fcaa24ef5cb02d673c202d1416d4b71fccb24b4109de66a91e950df63",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        29
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part03-last.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part03-middle.log",
+      "bytes": 1848,
+      "sha256": "2e5c216c2cd953ad7825705809f0f9bdf462986a0095180f940882f597257d9d",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        30
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part03-middle.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part03.log",
+      "bytes": 2189,
+      "sha256": "de3e87dd17fa4ac665d2f41e816fcb5f903adfe8e39fda28cabf54cfb0516edb",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        31
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part03.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part04.log",
+      "bytes": 1850,
+      "sha256": "2b7e542b008f47bd15076078b22ee5b3cf1c236dc8ceb30b51b9d0795e2dcfb1",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        32
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part04.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part05-tail.log",
+      "bytes": 1675,
+      "sha256": "b64907acfb1106b6813149260ae53b5fd6da958f0e0bd98663e52a8b3a5a4d6c",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        33
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part05-tail.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part05.log",
+      "bytes": 5198,
+      "sha256": "583eaf098a820d2e7b75492b6feb779c7951cf4479cac632b58f68db494c5f95",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        34
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part05.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/render-part06.log",
+      "bytes": 3343,
+      "sha256": "adc9498981c0332867815ddb7ffeacf87623ebefd70ca7e694841f8fb4fe7bc7",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        35
+      ],
+      "metrics_input_paths": [
+        "work/revision-v2/render-part06.log"
+      ]
+    },
+    {
+      "path": "work/revision-v2/stabilize_masks.py",
+      "bytes": 9084,
+      "sha256": "e38bc5b20ddfdf3387aad710435b6cbe5ea5188403d6074e5e7885e6498fbc8d",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/stream_capture.py",
+      "bytes": 1606,
+      "sha256": "034bc237626ddafefff3aadd7f5ce3d6d4f397757c0aa0fdc33f3612a046f537",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/test_stabilize_masks.py",
+      "bytes": 3096,
+      "sha256": "68a7f2dda5c5dcce9db345349d944912b0afbdf22661ab0bd0ef78edb4219582",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/verify_final_chunks.py",
+      "bytes": 1943,
+      "sha256": "aaec5701dfda6eea7eb354561a9b0cb688eb15c76bee38c1cdbfec40c12b05c7",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/verify_full.py",
+      "bytes": 6205,
+      "sha256": "9cfbc1689c38becac6e7359c7020bcd17e26f9d1de0b05c4876cf2c1ded3ffc1",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/write_delivery.py",
+      "bytes": 714,
+      "sha256": "67d2b6798d13b99f80bb9bc1ae9bf68a5406e2d74c7f7fd5ebe2de9ed3aeda42",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v2/write_revision_notes.py",
+      "bytes": 6412,
+      "sha256": "54fbbe0a719bdeae5840feffecd642f6f477bbe8bd43765b63be610fb49e618f",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/apply_repairs.py",
+      "bytes": 34413,
+      "sha256": "cec850a5f2d550902e7a7e266e62c05684561a7bfeac35d08df46a17a6e1d1ad",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/assemble_revision.py",
+      "bytes": 1890,
+      "sha256": "fc0b856f13c1d6255afe007c3f847898754ddf2bf7e5be1e96df761da851f35c",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/build_full_report.py",
+      "bytes": 37122,
+      "sha256": "bd513db26049a3156f24d3c7b28b68c94aae8d2c1f3425838ade4b3b261e44ba",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/finalize_delivery.py",
+      "bytes": 2375,
+      "sha256": "11f1a5d4972462d46d3bb79cee36d4fedbc2ea737d5dee6775376f0f6bddee4b",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/finish_revision.py",
+      "bytes": 2228,
+      "sha256": "cd89616ccd51614eebd2d11e2c7fd0a3cb6790d2d1ee20fb27d45f284fab8e95",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/front_actual_qa.py",
+      "bytes": 3014,
+      "sha256": "bae27374d334e92edf51f8a3b49d2b4b7586648f3bbc827f343008a93cc10054",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/front_build.py",
+      "bytes": 1981,
+      "sha256": "43b631699f4dc889df6be4f54baf630885a4ce36418d7d723804726d967a8d43",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/front_decode.py",
+      "bytes": 756,
+      "sha256": "8bf90ac251799b854a5f05e348f27956ba42de32d904f2fd9da2662944c10f86",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/front_freeze.py",
+      "bytes": 2846,
+      "sha256": "f8d66bf328b925789a0267b1a66a94b4e498249916f2d0a178e78d2e724d6a9e",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/front_preview.py",
+      "bytes": 1279,
+      "sha256": "8a730dda78d9e6e26b4c756a40600032d45066000998596f0d44a3aff767fca9",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_actual_qa.py",
+      "bytes": 1494,
+      "sha256": "a6fbb97f75a56dd8ead6fac834200d7d04e685752044917c94e3167ee98fc916",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_build.py",
+      "bytes": 3842,
+      "sha256": "c564eb5f729ace90368fc855c148f30b6b74796fd82e85bd41953f88f907d766",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_highlight.py",
+      "bytes": 2423,
+      "sha256": "00092b2efb1f72055e9cddea7e042f4ce1f2280058864085e0d9a45a9a5946a6",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_highlight_actual_audit.py",
+      "bytes": 1886,
+      "sha256": "855407a2d37d105a102cb6220dd78b3d5f1b7f985f06894a049561a03206b43f",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_highlight_directory.py",
+      "bytes": 2433,
+      "sha256": "b3dec6367a43c8718d32ffb0baa3917f5b93462cec0a9acb74663e37ea4615fe",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_path.py",
+      "bytes": 4039,
+      "sha256": "26ed15b3fc19677d87e2236902de3f08ac6e07211c06c589539927c027fec2fe",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_probe.py",
+      "bytes": 762,
+      "sha256": "eccafa1bf789aa41cee36c4775cbd20657b7993be87038e6a5e7243c04c6bf29",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_skill_actual_audit.py",
+      "bytes": 1473,
+      "sha256": "33ce4b30d28ab52f0e1be8039f4a674b6498961b26c6d0720948e092f406bb1d",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_skill_rowrepair.py",
+      "bytes": 3931,
+      "sha256": "e6af34dccd3f0481eda248b28e52f3928465890c4008fa4c191ce373ee23ed3a",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_top_actual_qa.py",
+      "bytes": 2085,
+      "sha256": "33347bb90d0f11bd3ec74cb8f1afa0b5ed88245503eefb07a9a637dbbd2fca8d",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/middle_top_probe.py",
+      "bytes": 1047,
+      "sha256": "945db0e642f3d03176953bf6b9752b7a8f1e3da25aad83f5b4c76e342f81fafd",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/render-part00.log",
+      "bytes": 2376,
+      "sha256": "dfe7989b573dcd6a00d511bd063b5ce2ce21f83345454c796528f8cece8e9fc0",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        36
+      ],
+      "metrics_input_paths": [
+        "work/revision-v3/render-part00.log"
+      ]
+    },
+    {
+      "path": "work/revision-v3/render-part01-highlight.log",
+      "bytes": 1880,
+      "sha256": "83029a3121d28f0f35fb32aae35780f076b921c5bfadb2c1db206d69dceb646b",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        37
+      ],
+      "metrics_input_paths": [
+        "work/revision-v3/render-part01-highlight.log"
+      ]
+    },
+    {
+      "path": "work/revision-v3/render-part01-rowrepair.log",
+      "bytes": 2140,
+      "sha256": "be734eabc625a0d015a4c55d4a89b00069fbcae96c12385457249ec49c29311c",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        38
+      ],
+      "metrics_input_paths": [
+        "work/revision-v3/render-part01-rowrepair.log"
+      ]
+    },
+    {
+      "path": "work/revision-v3/render-part01-top.log",
+      "bytes": 2073,
+      "sha256": "97a09b48612cb0bc4b268f0baeffd64f9a8f7bb2976c6dad05ae830110557a26",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        39
+      ],
+      "metrics_input_paths": [
+        "work/revision-v3/render-part01-top.log"
+      ]
+    },
+    {
+      "path": "work/revision-v3/render-part01.log",
+      "bytes": 3969,
+      "sha256": "aaa0fa8ad464958559ee49668e73a86ee02ac6f52e368c7334881a74dcf85b06",
+      "kind": "metrics_input",
+      "historical_source_script": false,
+      "metrics_input_indexes": [
+        40
+      ],
+      "metrics_input_paths": [
+        "work/revision-v3/render-part01.log"
+      ]
+    },
+    {
+      "path": "work/revision-v3/stabilize_masks.py",
+      "bytes": 9084,
+      "sha256": "e38bc5b20ddfdf3387aad710435b6cbe5ea5188403d6074e5e7885e6498fbc8d",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/stream_capture.py",
+      "bytes": 1627,
+      "sha256": "379da976986b459434cd85a916b3782980b20ffdf441ddbd62ebb79dfe6425e2",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/test_stabilize_masks.py",
+      "bytes": 3096,
+      "sha256": "68a7f2dda5c5dcce9db345349d944912b0afbdf22661ab0bd0ef78edb4219582",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/verify_critical_final.py",
+      "bytes": 1621,
+      "sha256": "0a6d8664b7ca38fafe4d5a35d471dd5581f47355f8e1682f2e3230894af34bca",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/verify_final_chunks.py",
+      "bytes": 1749,
+      "sha256": "922b45b7c14e8c06845d4152297187c19aadb9485b3f982c2d4a577fcc37d17a",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/verify_full.py",
+      "bytes": 6233,
+      "sha256": "4bb3a989cc11966797879cb48a96a88f6756054508c795d29dfed64db6e6127a",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/write_delivery.py",
+      "bytes": 738,
+      "sha256": "cd314718beab1e8488a8417b64c31d785d42457c58f8fd2c4135c97535589351",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    },
+    {
+      "path": "work/revision-v3/write_revision_notes.py",
+      "bytes": 5889,
+      "sha256": "f5bbb630f833661be3ca54269e30c17b55864de8a78cae7ad4f0751d66da0797",
+      "kind": "historical_source_script",
+      "historical_source_script": true,
+      "metrics_input_indexes": [],
+      "metrics_input_paths": []
+    }
+  ]
+}

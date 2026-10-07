@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "file_count": 3573,
+  "total_logical_bytes": 68516873763,
+  "all_regular_files": true,
+  "all_sha256_equal_to_origin": true,
+  "source_video_included": true,
+  "all_workspace_work_and_outputs_included": true,
+  "formal_skill_snapshot_pending": false,
+  "elapsed_seconds": 62.92,
+  "independent_review_passed": true,
+  "independent_reproduction_included": true,
+  "catalog_exclusions": [
+    "FILE_CATALOG.json",
+    "BUNDLE_VALIDATION.json"
+  ],
+  "all_paths_relative_and_resolvable": true
+}

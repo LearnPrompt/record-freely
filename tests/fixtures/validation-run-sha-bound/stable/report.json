@@ -1,0 +1,3565 @@
+{
+  "status": "complete",
+  "engine": "macOS Vision + OpenCV",
+  "fps": 24.0,
+  "style": "solid",
+  "padding": 4,
+  "detect_every": 1,
+  "frames": [
+    {
+      "frame": 0,
+      "time": 0.0,
+      "boxes": [
+        [
+          47,
+          183,
+          348,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 1,
+      "time": 0.041667,
+      "boxes": [
+        [
+          52,
+          186,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "time": 0.083333,
+      "boxes": [
+        [
+          56,
+          186,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "time": 0.125,
+      "boxes": [
+        [
+          59,
+          186,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "time": 0.166667,
+      "boxes": [
+        [
+          64,
+          183,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "time": 0.208333,
+      "boxes": [
+        [
+          66,
+          186,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "time": 0.25,
+      "boxes": [
+        [
+          71,
+          185,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "time": 0.291667,
+      "boxes": [
+        [
+          75,
+          183,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "time": 0.333333,
+      "boxes": [
+        [
+          78,
+          182,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 9,
+      "time": 0.375,
+      "boxes": [
+        [
+          84,
+          186,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 10,
+      "time": 0.416667,
+      "boxes": [
+        [
+          88,
+          186,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 11,
+      "time": 0.458333,
+      "boxes": [
+        [
+          92,
+          186,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 12,
+      "time": 0.5,
+      "boxes": [
+        [
+          96,
+          183,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 13,
+      "time": 0.541667,
+      "boxes": [
+        [
+          100,
+          185,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 14,
+      "time": 0.583333,
+      "boxes": [
+        [
+          104,
+          184,
+          346,
+          37
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 15,
+      "time": 0.625,
+      "boxes": [
+        [
+          107,
+          183,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 16,
+      "time": 0.666667,
+      "boxes": [
+        [
+          110,
+          182,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 17,
+      "time": 0.708333,
+      "boxes": [
+        [
+          116,
+          186,
+          346,
+          36
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 18,
+      "time": 0.75,
+      "boxes": [
+        [
+          119,
+          183,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 19,
+      "time": 0.791667,
+      "boxes": [
+        [
+          124,
+          184,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 20,
+      "time": 0.833333,
+      "boxes": [
+        [
+          128,
+          183,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 21,
+      "time": 0.875,
+      "boxes": [
+        [
+          130,
+          184,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 22,
+      "time": 0.916667,
+      "boxes": [
+        [
+          135,
+          184,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 23,
+      "time": 0.958333,
+      "boxes": [
+        [
+          138,
+          183,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 24,
+      "time": 1.0,
+      "boxes": [
+        [
+          140,
+          182,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 25,
+      "time": 1.041667,
+      "boxes": [
+        [
+          146,
+          182,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 26,
+      "time": 1.083333,
+      "boxes": [
+        [
+          148,
+          182,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 27,
+      "time": 1.125,
+      "boxes": [
+        [
+          153,
+          182,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 28,
+      "time": 1.166667,
+      "boxes": [
+        [
+          157,
+          182,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 29,
+      "time": 1.208333,
+      "boxes": [
+        [
+          161,
+          184,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 30,
+      "time": 1.25,
+      "boxes": [
+        [
+          165,
+          183,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 31,
+      "time": 1.291667,
+      "boxes": [
+        [
+          169,
+          184,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 32,
+      "time": 1.333333,
+      "boxes": [
+        [
+          171,
+          183,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 33,
+      "time": 1.375,
+      "boxes": [
+        [
+          174,
+          184,
+          352,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 34,
+      "time": 1.416667,
+      "boxes": [
+        [
+          183,
+          183,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 35,
+      "time": 1.458333,
+      "boxes": [
+        [
+          188,
+          182,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 36,
+      "time": 1.5,
+      "boxes": [
+        [
+          191,
+          182,
+          348,
+          41
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 37,
+      "time": 1.541667,
+      "boxes": [
+        [
+          196,
+          183,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 38,
+      "time": 1.583333,
+      "boxes": [
+        [
+          199,
+          183,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 39,
+      "time": 1.625,
+      "boxes": [
+        [
+          201,
+          183,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 40,
+      "time": 1.666667,
+      "boxes": [
+        [
+          205,
+          183,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 41,
+      "time": 1.708333,
+      "boxes": [
+        [
+          209,
+          183,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 42,
+      "time": 1.75,
+      "boxes": [
+        [
+          212,
+          183,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 43,
+      "time": 1.791667,
+      "boxes": [
+        [
+          217,
+          184,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 44,
+      "time": 1.833333,
+      "boxes": [
+        [
+          220,
+          184,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 45,
+      "time": 1.875,
+      "boxes": [
+        [
+          225,
+          184,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 46,
+      "time": 1.916667,
+      "boxes": [
+        [
+          226,
+          184,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 47,
+      "time": 1.958333,
+      "boxes": [
+        [
+          230,
+          184,
+          352,
+          39
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00000",
+          "kind": "http(s)",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U001"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 48,
+      "time": 2.0,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 49,
+      "time": 2.041667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 50,
+      "time": 2.083333,
+      "boxes": [
+        [
+          323,
+          237,
+          202,
+          38
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00001",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U002"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 51,
+      "time": 2.125,
+      "boxes": [
+        [
+          323,
+          237,
+          202,
+          38
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00001",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U002"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 52,
+      "time": 2.166667,
+      "boxes": [
+        [
+          323,
+          237,
+          202,
+          38
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00001",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U002"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 53,
+      "time": 2.208333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 54,
+      "time": 2.25,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 55,
+      "time": 2.291667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 56,
+      "time": 2.333333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 57,
+      "time": 2.375,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 58,
+      "time": 2.416667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 59,
+      "time": 2.458333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 60,
+      "time": 2.5,
+      "boxes": [
+        [
+          290,
+          396,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 61,
+      "time": 2.541667,
+      "boxes": [
+        [
+          290,
+          392,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 62,
+      "time": 2.583333,
+      "boxes": [
+        [
+          291,
+          390,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 63,
+      "time": 2.625,
+      "boxes": [
+        [
+          291,
+          387,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 64,
+      "time": 2.666667,
+      "boxes": [
+        [
+          291,
+          382,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 65,
+      "time": 2.708333,
+      "boxes": [
+        [
+          291,
+          379,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 66,
+      "time": 2.75,
+      "boxes": [
+        [
+          292,
+          374,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 67,
+      "time": 2.791667,
+      "boxes": [
+        [
+          288,
+          372,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 68,
+      "time": 2.833333,
+      "boxes": [
+        [
+          290,
+          366,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 69,
+      "time": 2.875,
+      "boxes": [
+        [
+          290,
+          363,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 70,
+      "time": 2.916667,
+      "boxes": [
+        [
+          291,
+          358,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 71,
+      "time": 2.958333,
+      "boxes": [
+        [
+          291,
+          355,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 72,
+      "time": 3.0,
+      "boxes": [
+        [
+          291,
+          350,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 73,
+      "time": 3.041667,
+      "boxes": [
+        [
+          291,
+          347,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 74,
+      "time": 3.083333,
+      "boxes": [
+        [
+          291,
+          342,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 75,
+      "time": 3.125,
+      "boxes": [
+        [
+          291,
+          339,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 76,
+      "time": 3.166667,
+      "boxes": [
+        [
+          290,
+          334,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 77,
+      "time": 3.208333,
+      "boxes": [
+        [
+          290,
+          331,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 78,
+      "time": 3.25,
+      "boxes": [
+        [
+          290,
+          326,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 79,
+      "time": 3.291667,
+      "boxes": [
+        [
+          290,
+          323,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 80,
+      "time": 3.333333,
+      "boxes": [
+        [
+          290,
+          318,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 81,
+      "time": 3.375,
+      "boxes": [
+        [
+          291,
+          315,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 82,
+      "time": 3.416667,
+      "boxes": [
+        [
+          292,
+          310,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 83,
+      "time": 3.458333,
+      "boxes": [
+        [
+          291,
+          307,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 84,
+      "time": 3.5,
+      "boxes": [
+        [
+          291,
+          302,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 85,
+      "time": 3.541667,
+      "boxes": [
+        [
+          291,
+          299,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 86,
+      "time": 3.583333,
+      "boxes": [
+        [
+          291,
+          294,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 87,
+      "time": 3.625,
+      "boxes": [
+        [
+          291,
+          291,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 88,
+      "time": 3.666667,
+      "boxes": [
+        [
+          291,
+          286,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 89,
+      "time": 3.708333,
+      "boxes": [
+        [
+          292,
+          283,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 90,
+      "time": 3.75,
+      "boxes": [
+        [
+          292,
+          278,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 91,
+      "time": 3.791667,
+      "boxes": [
+        [
+          292,
+          274,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 92,
+      "time": 3.833333,
+      "boxes": [
+        [
+          292,
+          270,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 93,
+      "time": 3.875,
+      "boxes": [
+        [
+          292,
+          266,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 94,
+      "time": 3.916667,
+      "boxes": [
+        [
+          292,
+          262,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 95,
+      "time": 3.958333,
+      "boxes": [
+        [
+          292,
+          258,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 96,
+      "time": 4.0,
+      "boxes": [
+        [
+          292,
+          254,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 97,
+      "time": 4.041667,
+      "boxes": [
+        [
+          292,
+          250,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 98,
+      "time": 4.083333,
+      "boxes": [
+        [
+          292,
+          246,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 99,
+      "time": 4.125,
+      "boxes": [
+        [
+          292,
+          242,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 100,
+      "time": 4.166667,
+      "boxes": [
+        [
+          292,
+          238,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 101,
+      "time": 4.208333,
+      "boxes": [
+        [
+          291,
+          235,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 102,
+      "time": 4.25,
+      "boxes": [
+        [
+          291,
+          231,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 103,
+      "time": 4.291667,
+      "boxes": [
+        [
+          291,
+          227,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 104,
+      "time": 4.333333,
+      "boxes": [
+        [
+          291,
+          222,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 105,
+      "time": 4.375,
+      "boxes": [
+        [
+          291,
+          219,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 106,
+      "time": 4.416667,
+      "boxes": [
+        [
+          292,
+          215,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 107,
+      "time": 4.458333,
+      "boxes": [
+        [
+          291,
+          210,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 108,
+      "time": 4.5,
+      "boxes": [
+        [
+          291,
+          206,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 109,
+      "time": 4.541667,
+      "boxes": [
+        [
+          291,
+          202,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 110,
+      "time": 4.583333,
+      "boxes": [
+        [
+          291,
+          201,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 111,
+      "time": 4.625,
+      "boxes": [
+        [
+          291,
+          197,
+          308,
+          40
+        ]
+      ],
+      "origins": [
+        "record_freely_stabilized"
+      ],
+      "regions": [
+        {
+          "id": "S00002",
+          "kind": "domain",
+          "box_method": "coverage_safe_moving",
+          "ocr_confidence": 1.0,
+          "origin": "record_freely_stabilized",
+          "source_ids": [
+            "U003"
+          ],
+          "source_origins": [
+            "ocr"
+          ],
+          "stability_mode": "moving"
+        }
+      ]
+    },
+    {
+      "frame": 112,
+      "time": 4.666667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 113,
+      "time": 4.708333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 114,
+      "time": 4.75,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 115,
+      "time": 4.791667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 116,
+      "time": 4.833333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 117,
+      "time": 4.875,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 118,
+      "time": 4.916667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 119,
+      "time": 4.958333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 120,
+      "time": 5.0,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 121,
+      "time": 5.041667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 122,
+      "time": 5.083333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 123,
+      "time": 5.125,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 124,
+      "time": 5.166667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 125,
+      "time": 5.208333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 126,
+      "time": 5.25,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 127,
+      "time": 5.291667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 128,
+      "time": 5.333333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 129,
+      "time": 5.375,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 130,
+      "time": 5.416667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 131,
+      "time": 5.458333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 132,
+      "time": 5.5,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 133,
+      "time": 5.541667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 134,
+      "time": 5.583333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 135,
+      "time": 5.625,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 136,
+      "time": 5.666667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 137,
+      "time": 5.708333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 138,
+      "time": 5.75,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 139,
+      "time": 5.791667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 140,
+      "time": 5.833333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 141,
+      "time": 5.875,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 142,
+      "time": 5.916667,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    },
+    {
+      "frame": 143,
+      "time": 5.958333,
+      "boxes": [],
+      "origins": [],
+      "regions": []
+    }
+  ],
+  "scene_cuts": [
+    112
+  ],
+  "warnings": [
+    "OCR and tracking are heuristic. Inspect the preview before publication; missed links remain possible.",
+    "Output uses constant frame rate and original metadata is removed."
+  ],
+  "privacy": "Local only. OCR text and URL contents are not saved in the report.",
+  "start": 0,
+  "selected_duration": null,
+  "source_sha256": "97cc824dbee370eb48709dab3355e3e91d38c668c8551f4bb2c2f3097c09f99c",
+  "source_signature": {
+    "size": 127872,
+    "mtime_ns": 1791367935455956312
+  },
+  "audio_policy": "AAC re-encode; stream count verified, packet identity not promised",
+  "ocr_workers": 3,
+  "width": 960,
+  "height": 540,
+  "source_video_stream": 0,
+  "hold_seconds": 0.35,
+  "lookback_frames": 8,
+  "tld_snapshot": "# Version 2026100600, Last Updated Tue Oct  6 07:07:01 2026 UTC",
+  "processed_frames": 144,
+  "duration": 6.0,
+  "masked_frames": 103,
+  "audio_streams": 1,
+  "elapsed_seconds": 8.27,
+  "verification": {
+    "frame_count": "passed",
+    "duration": "passed",
+    "audio_stream_count": "passed"
+  },
+  "refinement_original_source_signature": {
+    "size": 127872,
+    "mtime_ns": 1791367935455956312
+  },
+  "stability_statistics": {
+    "segments": [
+      {
+        "start_frame": 0,
+        "end_frame_exclusive": 112,
+        "tracks": 3,
+        "static_runs": 0,
+        "moving_runs": 12,
+        "source_regions": 103,
+        "coalesced_regions": 103,
+        "final_regions": 103
+      },
+      {
+        "start_frame": 112,
+        "end_frame_exclusive": 144,
+        "tracks": 0,
+        "static_runs": 0,
+        "moving_runs": 0,
+        "source_regions": 0,
+        "coalesced_regions": 0,
+        "final_regions": 0
+      }
+    ],
+    "source_regions": 103,
+    "final_regions": 103
+  },
+  "refinement_baseline_sha256": "f814530925c0507a630de3b676bc44f4bc4fca9592360415624c2d5922f51913",
+  "refinement_style": "solid",
+  "publication_review_required": true,
+  "refinement_elapsed_seconds": 0.37,
+  "refinement_verification": {
+    "frame_count": true,
+    "duration": true,
+    "audio_stream_count": true,
+    "full_codec_decode": true,
+    "source_signature_unchanged": true,
+    "source_sha256_bound_before_render": true
+  }
+}

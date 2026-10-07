@@ -1,0 +1,14 @@
+{"part": "part-00", "stage": "staging", "local_window": [1685, 2434], "global_window": [1685, 2434], "local_windows": [[1685, 2434]], "rendered_frames": 749, "added_regions": 811, "removed_regions": 809, "duplicate_regions_skipped": 0, "affected_frames": 409, "masked_frames_before": 2270, "masked_frames_after": 2271, "new_masked_frames": 1, "removed_masked_frames": 0, "masked_frames_delta": 1, "remove_ids": [], "patches": [{"file": "front-final-part00.json", "sha256": "e951b911b99bfccc9d3ce88f4833a3e04cc07b3d26517fb7e1afe738ad994f8b", "id_prefix": "Re951b911b99b", "matched_frames": 409, "added_regions": 811}]}
+{"stage": "rendering_repair", "local_frames": 60, "total": 749}
+{"stage": "rendering_repair", "local_frames": 120, "total": 749}
+{"stage": "rendering_repair", "local_frames": 180, "total": 749}
+{"stage": "rendering_repair", "local_frames": 240, "total": 749}
+{"stage": "rendering_repair", "local_frames": 300, "total": 749}
+{"stage": "rendering_repair", "local_frames": 360, "total": 749}
+{"stage": "rendering_repair", "local_frames": 420, "total": 749}
+{"stage": "rendering_repair", "local_frames": 480, "total": 749}
+{"stage": "rendering_repair", "local_frames": 540, "total": 749}
+{"stage": "rendering_repair", "local_frames": 600, "total": 749}
+{"stage": "rendering_repair", "local_frames": 660, "total": 749}
+{"stage": "rendering_repair", "local_frames": 720, "total": 749}
+{"part": "part-00", "status": "patched", "added_regions": 811, "removed_regions": 809, "duplicate_regions_skipped": 0, "affected_frames": 409, "masked_frames_before": 2270, "masked_frames_after": 2271, "new_masked_frames": 1, "removed_masked_frames": 0, "masked_frames_delta": 1, "remove_ids": [], "patches": [{"file": "front-final-part00.json", "sha256": "e951b911b99bfccc9d3ce88f4833a3e04cc07b3d26517fb7e1afe738ad994f8b", "id_prefix": "Re951b911b99b", "matched_frames": 409, "added_regions": 811}], "mode": "keyframe_windows", "local_render_window": [1685, 2434], "global_render_window": [1685, 2434], "local_render_windows": [[1685, 2434]], "global_render_windows": [[1685, 2434]], "rendered_frames": 749, "backup": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/revision-v3/patch-backups/part-00/20261007T091702.957055Z", "verification": {"frames": 9000, "duration": 300.0, "packet_pts": "passed", "aac_packet_hash": "passed"}, "elapsed_seconds": 39.89}

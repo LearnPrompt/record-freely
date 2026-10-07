@@ -1,0 +1,73 @@
+{
+  "source": "/Users/carl/Downloads/带封面.mp4",
+  "source_size": 6950202751,
+  "source_mtime_ns": 1791205442000000000,
+  "fps": 30,
+  "source_frames": 63871,
+  "approved_first_frames": 9000,
+  "parts": [
+    {
+      "index": 1,
+      "name": "part-01",
+      "start_frame": 9000,
+      "frames": 9000,
+      "start_seconds": 300.0,
+      "duration_seconds": 300.0,
+      "cache": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/full-video/cache/part-01.mkv"
+    },
+    {
+      "index": 2,
+      "name": "part-02",
+      "start_frame": 18000,
+      "frames": 9000,
+      "start_seconds": 600.0,
+      "duration_seconds": 300.0,
+      "cache": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/full-video/cache/part-02.mkv"
+    },
+    {
+      "index": 3,
+      "name": "part-03",
+      "start_frame": 27000,
+      "frames": 9000,
+      "start_seconds": 900.0,
+      "duration_seconds": 300.0,
+      "cache": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/full-video/cache/part-03.mkv"
+    },
+    {
+      "index": 4,
+      "name": "part-04",
+      "start_frame": 36000,
+      "frames": 9000,
+      "start_seconds": 1200.0,
+      "duration_seconds": 300.0,
+      "cache": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/full-video/cache/part-04.mkv"
+    },
+    {
+      "index": 5,
+      "name": "part-05",
+      "start_frame": 45000,
+      "frames": 9000,
+      "start_seconds": 1500.0,
+      "duration_seconds": 300.0,
+      "cache": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/full-video/cache/part-05.mkv"
+    },
+    {
+      "index": 6,
+      "name": "part-06",
+      "start_frame": 54000,
+      "frames": 9000,
+      "start_seconds": 1800.0,
+      "duration_seconds": 300.0,
+      "cache": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/full-video/cache/part-06.mkv"
+    },
+    {
+      "index": 7,
+      "name": "part-07",
+      "start_frame": 63000,
+      "frames": 871,
+      "start_seconds": 2100.0,
+      "duration_seconds": 29.033333333333335,
+      "cache": "/Users/carl/Documents/Codex/2026-10-06/1-openai-gpt-6-1-ultra/work/full-video/cache/part-07.mkv"
+    }
+  ]
+}
