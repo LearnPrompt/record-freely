@@ -23,7 +23,7 @@
 正文配三组同帧对照图，入口如下；发布措辞需在根交付流程确认上传和实际下载后使用。
 
 - 源码与三语说明：[LearnPrompt/record-freely](https://github.com/LearnPrompt/record-freely)
-- 安装包与一分钟样片：[Release v1.0.0](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0)
+- 安装包与一分钟样片：[Release v1.0.1](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1)
 - 在线前后对比：[互动滑杆](https://learnprompt.github.io/record-freely/)
 - 文件清单、指标来源和复查范围：[公开复查说明](public-review.md)
 

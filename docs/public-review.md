@@ -1,6 +1,6 @@
 # 在公开网页复查，不必搬走整部电影
 
-仓库：[LearnPrompt/record-freely](https://github.com/LearnPrompt/record-freely) · [Release v1.0.0](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0) · [在线互动对比](https://learnprompt.github.io/record-freely/)
+仓库：[LearnPrompt/record-freely](https://github.com/LearnPrompt/record-freely) · [Release v1.0.1](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [在线互动对比](https://learnprompt.github.io/record-freely/)
 
 另一台电脑不需要容纳约 68.5 GB 的历史资料。公开复查从源码、证据和一分钟真实样片开始。下列地址是交付入口；上线及附件下载需以实际发布验证为准。
 
@@ -14,13 +14,13 @@
 | 历史案例取证 | [public-case/index.json](../evidence/public-case/index.json) | 46 个指标输入记录的公开映射，以及历史 Python/Swift 实现；不是只剩作者结论 |
 | 指标与匿名摘录 | [metrics.json](../evidence/metrics.json)、[Codex token 摘录](../evidence/codex-token-excerpts.json)、[独立复查](independent-review.md) | 耗时口径、父线程遥测与历史复查结果；不包含完整聊天或凭证 |
 | 全量历史资料清单 | [full-review-file-catalog.json](../evidence/full-review-file-catalog.json)、[full-review-validation.json](../evidence/full-review-validation.json) | 本地完整归档的路径、大小、哈希与验证；不能据此宣称全部媒体已上传 |
-| 一分钟实际输入 | [trial-source-00m55s-01m55s.mp4](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.0/trial-source-00m55s-01m55s.mp4)、[样片记录](../evidence/trial-source.json) | 原片 00:55–01:55，60 秒、1800 帧、3840×2160、30fps；约 57.35 MiB |
+| 一分钟实际输入 | [trial-source-00m55s-01m55s.mp4](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-source-00m55s-01m55s.mp4)、[样片记录](../evidence/trial-source.json) | 原片 00:55–01:55，60 秒、1800 帧、3840×2160、30fps；约 57.35 MiB |
 
 完整 35 分钟原片、每一版全片和所有历史中间视频留在本机 full-review-bundle。公开源码、历史证据映射和清单支持网页审阅；重新验证全片媒体哈希需要该本地资料，不能仅凭公开清单独立重算。
 
 ## 可直接交给新 Agent 的任务
 
-> 请从 https://github.com/LearnPrompt/record-freely 读取并取得 Skill，不以作者结论代替检查。在新目录运行测试，取得 v1.0.0 Release 的 trial-source-00m55s-01m55s.mp4，按 SKILL.md 给这一分钟真实录屏打码。只遮疑似链接，保留教学文字；独立检查移动、缩放、短暂出现、切镜、误遮和漏遮。分别交付自动初稿、必要的审阅修订、实际视频、报告、运行耗时、依赖检查与源片 SHA-256。报告自动能力和人工修订的区别。不要改原片、历史证据或作者快照；不要上传新的内容或将未知 Codex 额度补成估算。若只能看网页，明确没有实跑，返回带文件位置的代码/证据发现。
+> 请从 https://github.com/LearnPrompt/record-freely 读取并取得 Skill，不以作者结论代替检查。在新目录运行测试，取得 v1.0.1 Release 的 trial-source-00m55s-01m55s.mp4，按 SKILL.md 给这一分钟真实录屏打码。只遮疑似链接，保留教学文字；独立检查移动、缩放、短暂出现、切镜、误遮和漏遮。分别交付自动初稿、必要的审阅修订、实际视频、报告、运行耗时、依赖检查与源片 SHA-256。报告自动能力和人工修订的区别。不要改原片、历史证据或作者快照；不要上传新的内容或将未知 Codex 额度补成估算。若只能看网页，明确没有实跑，返回带文件位置的代码/证据发现。
 
 试用输出中的帧号和时间从短片 0 开始；对应原片时间需加 **55 秒**。例如短片 00:07 对应原片 01:02。不要把这次短片重新编码的音频称作历史 v3 的原 AAC 编码包复制。
 

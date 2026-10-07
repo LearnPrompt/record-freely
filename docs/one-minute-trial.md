@@ -1,6 +1,6 @@
 # 新 Agent 独立试用：放心录 · Record Freely
 
-公开附件：[一分钟输入](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.0/trial-source-00m55s-01m55s.mp4) · [自动初稿](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.0/trial-automatic.mp4) · [纯稳框](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.0/trial-stable.mp4) · [人工修订试用版（仍有漏码）](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.0/trial-reviewed.mp4) · [完整一分钟复查包](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.0/complete-one-minute-review.zip)。
+公开附件：[一分钟输入](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-source-00m55s-01m55s.mp4) · [自动初稿](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-automatic.mp4) · [纯稳框](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-stable.mp4) · [人工修订试用版（仍有漏码）](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-reviewed.mp4) · [完整一分钟复查包](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/complete-one-minute-review.zip)。
 
 下文为新 Agent 原始报告。绝对路径记录真实执行位置；复跑时换成你本机输入路径和新输出目录。完整包包括输入、所有输出、补丁、审阅帧、辅助脚本和测试源码快照，排除 Git 配置与缓存。
 

@@ -2,7 +2,7 @@
 
 **Record the idea first. Let your Agent handle the parts that need masking.**
 
-[中文](README.md) · [日本語](README_JA.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [Downloads and one-minute clip](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0) · [Public review](docs/public-review.md)
+[中文](README.md) · [日本語](README_JA.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [Downloads and one-minute clip](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [Public review](docs/public-review.md)
 
 [Before / after](assets/comparisons/index.html) · [Implementation](references/implementation.md) · [Cost and time](docs/cost-and-time.md) · [Online comparison sliders](https://learnprompt.github.io/record-freely/)
 
@@ -12,7 +12,7 @@ Record Freely grew from an actual **35:29, 4K, 30fps** screen recording of a wor
 
 That follows LearnPrompt’s story: see what is possible, learn how to do it, and turn it into something you can use again. A visible address should not interrupt your willingness to share.
 
-A fresh Agent ran a real one-minute 4K clip: **4m54s** automatic, 50s stabilization, and41s final patch rendering. Agent review/correction spanned about33min including waits and overlapping computation; these are not additive or human hands-on time. A12-frame title-overlap leak remains. See the [actual trial, reports and videos](docs/one-minute-trial.md).
+A fresh Agent ran a real one-minute 4K clip: **4m54s** automatic, 50s stabilization, and 41s final patch rendering. Agent review/correction spanned about 33 min including waits and overlapping computation; these are not additive or human hands-on time. A 12-frame title-overlap leak remains. See the [actual trial, reports and videos](docs/one-minute-trial.md).
 
 ## Same-frame comparisons
 
@@ -78,7 +78,7 @@ The current 70 code tests pass, including a regression for repeated whole-line V
 
 ## Review from another machine
 
-Start with the [public review guide](docs/public-review.md). Browse source, tests, three-language documentation, same-frame comparisons, and anonymized evidence without downloading the full film. For a real run, get `trial-source-00m55s-01m55s.mp4` from the [v1.0.0 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0): the original **00:55–01:55** segment, one minute, 4K, 30fps. A fresh Agent trial requires its own actual output and report; the historical case does not establish that result.
+Start with the [public review guide](docs/public-review.md). Browse source, tests, three-language documentation, same-frame comparisons, and anonymized evidence without downloading the full film. For a real run, get `trial-source-00m55s-01m55s.mp4` from the [v1.0.1 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1): the original **00:55–01:55** segment, one minute, 4K, 30fps. A fresh Agent trial requires its own actual output and report; the historical case does not establish that result.
 
 The complete historical **full-review-bundle/** remains local: original video, every work/ and outputs/ file, and the original and formal Skill snapshots, approximately **68.5 GB**. The public [file catalog](evidence/full-review-file-catalog.json) records paths, sizes, and SHA-256 hashes; it is not a download of all media. See [reviewer handoff](docs/reviewer-handoff.md) for the different scopes of lightweight public review and full local auditing.
 

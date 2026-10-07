@@ -2,7 +2,7 @@
 
 **先把内容录下来，再把需要遮挡的地方交给 Agent。**
 
-[English](README_EN.md) · [日本語](README_JA.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [下载与一分钟样片](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0) · [公开复查](docs/public-review.md)
+[English](README_EN.md) · [日本語](README_JA.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [下载与一分钟样片](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [公开复查](docs/public-review.md)
 
 [前后对比](assets/comparisons/index.html) · [实现说明](references/implementation.md) · [成本与耗时](docs/cost-and-time.md) · [在线拖动滑杆](https://learnprompt.github.io/record-freely/)
 
@@ -86,7 +86,7 @@ OCR 先找文字，再用离线域名规则筛选疑似链接；OpenCV 模板匹
 
 ## 交给下一个 Agent
 
-从 [公开复查入口](docs/public-review.md)开始：网页可读源码、测试、三语说明、同帧对照与匿名指标证据，不必下载整部原片。需要实跑时，在 [v1.0.0 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0)取得 `trial-source-00m55s-01m55s.mp4`：原片 **00:55–01:55**，1 分钟、4K、30fps。新 Agent 的实跑结果需另看实际报告，不能从历史案例推断。
+从 [公开复查入口](docs/public-review.md)开始：网页可读源码、测试、三语说明、同帧对照与匿名指标证据，不必下载整部原片。需要实跑时，在 [v1.0.1 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1)取得 `trial-source-00m55s-01m55s.mp4`：原片 **00:55–01:55**，1 分钟、4K、30fps。新 Agent 的实跑结果需另看实际报告，不能从历史案例推断。
 
 完整历史数据集保存在本机 **full-review-bundle/**：原片、全部 work/ 与 outputs/、原实现和正式包快照，约 **68.5 GB**。公开的[全文件清单](evidence/full-review-file-catalog.json)记录路径、大小和 SHA-256；清单不是全部媒体的下载包。轻量公开复查与全量本地审计的范围见[复查说明](docs/reviewer-handoff.md)。
 

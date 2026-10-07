@@ -2,7 +2,7 @@
 
 **まず伝えたいことを録画する。隠す必要がある部分は、あとから Agent に任せる。**
 
-[中文](README.md) · [English](README_EN.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [ダウンロード・1分の素材](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0) · [公開レビュー](docs/public-review.md)
+[中文](README.md) · [English](README_EN.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [ダウンロード・1分の素材](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [公開レビュー](docs/public-review.md)
 
 [処理前と処理後](assets/comparisons/index.html) · [実装](references/implementation.md) · [コストと処理時間](docs/cost-and-time.md) · [オンライン比較](https://learnprompt.github.io/record-freely/)
 
@@ -78,7 +78,7 @@ OCR で文字の位置を取得し、オフラインのドメイン規則でリ�
 
 ## 別のマシンから復査する
 
-[公開レビューの手順](docs/public-review.md)から始めてください。ソース、テスト、三言語の説明、同フレーム比較、匿名化した根拠資料は、元動画全体をダウンロードせずに読めます。実行用には [v1.0.0 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0) の `trial-source-00m55s-01m55s.mp4` を使います。元動画の **00:55–01:55**、1分、4K、30fps の区間です。新しい Agent の試用結果には、その実際の出力とレポートが必要です。過去の事例から結果を推定しません。
+[公開レビューの手順](docs/public-review.md)から始めてください。ソース、テスト、三言語の説明、同フレーム比較、匿名化した根拠資料は、元動画全体をダウンロードせずに読めます。実行用には [v1.0.1 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) の `trial-source-00m55s-01m55s.mp4` を使います。元動画の **00:55–01:55**、1分、4K、30fps の区間です。新しい Agent の試用結果には、その実際の出力とレポートが必要です。過去の事例から結果を推定しません。
 
 約 **68.5 GB** の完全な履歴資料 **full-review-bundle/** はローカルに保存しています。元動画、work/ と outputs/ の全ファイル、元実装と正式パッケージのスナップショットを含みます。公開する[全ファイル一覧](evidence/full-review-file-catalog.json)は、パス、サイズ、SHA-256 の記録であり、全動画のダウンロードではありません。軽量な公開レビューとローカルの全量監査の範囲は[引き継ぎ説明](docs/reviewer-handoff.md)に記載しています。
 

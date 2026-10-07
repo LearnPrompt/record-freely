@@ -32,7 +32,7 @@
 
 ## 公开发布与本地复查
 
-对照帧的 BEFORE 按作者本次要求展示输入文字，源片原有灰块也保留，未伪造无灰块对照。完整复查包含原视频与身份路径，按用户授权用于本地 Agent 复查。公开入口是 [LearnPrompt/record-freely](https://github.com/LearnPrompt/record-freely) 与 [v1.0.0 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0)。完整数据集清单和本地验证记录见 [full-review-file-catalog.json](../evidence/full-review-file-catalog.json) 与 [full-review-validation.json](../evidence/full-review-validation.json)；46 个指标来源和历史实现映射见 [public-case/index.json](../evidence/public-case/index.json)。历史全量媒体留在本机，不宣称已公开上传，也不要求远端机器下载。新一分钟试用需另看实际输出和报告。
+对照帧的 BEFORE 按作者本次要求展示输入文字，源片原有灰块也保留，未伪造无灰块对照。完整复查包含原视频与身份路径，按用户授权用于本地 Agent 复查。公开入口是 [LearnPrompt/record-freely](https://github.com/LearnPrompt/record-freely) 与 [v1.0.1 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1)。完整数据集清单和本地验证记录见 [full-review-file-catalog.json](../evidence/full-review-file-catalog.json) 与 [full-review-validation.json](../evidence/full-review-validation.json)；46 个指标来源和历史实现映射见 [public-case/index.json](../evidence/public-case/index.json)。历史全量媒体留在本机，不宣称已公开上传，也不要求远端机器下载。新一分钟试用需另看实际输出和报告。
 
 ## 指标复核
 
