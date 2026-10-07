@@ -2,7 +2,7 @@
 
 仓库：[LearnPrompt/record-freely](https://github.com/LearnPrompt/record-freely) · [Release v1.0.1](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [在线互动对比](https://learnprompt.github.io/record-freely/)
 
-另一台电脑不需要容纳约 68.5 GB 的历史资料。公开复查从源码、证据和一分钟真实样片开始。下列地址是交付入口；上线及附件下载需以实际发布验证为准。
+另一台电脑不需要容纳约 68.5 GB 的历史资料。公开复查从源码、证据和一分钟真实样片开始。下列公开入口已验证：Release 的 10 个附件大小及 GitHub 计算的 SHA-256 均与本地一致，所有附件均测试了匿名下载入口；Skill ZIP 另做了完整下载哈希校验。见[发布验证凭据](../evidence/public-release-verification.json)和[一分钟包文件清单](../evidence/one-minute-review-file-catalog.json)。
 
 ## 文件在哪里
 

@@ -1,0 +1,166 @@
+{
+  "checked_at_utc": "2026-10-07T13:17:55.455450+00:00",
+  "repository": "https://github.com/LearnPrompt/record-freely",
+  "release_url": "https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1",
+  "version": "v1.0.1",
+  "tag_commit": "86de110eaa068182ab6cc5e9ad7a6c9b9fb4f4c0",
+  "draft": false,
+  "asset_count": 10,
+  "assets": [
+    {
+      "name": "record-freely-v1.0.1.zip",
+      "bytes": 11296877,
+      "sha256": "0c7c2dd37c1b1e929a138f1b3f49a2be82a7b495ea2fc40b1868fe060c19a464",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/record-freely-v1.0.1.zip",
+      "github_computed_digest": "sha256:0c7c2dd37c1b1e929a138f1b3f49a2be82a7b495ea2fc40b1868fe060c19a464",
+      "github_size_matches": true,
+      "anonymous_http_status": 200,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "full_stream_sha256",
+      "verified": true
+    },
+    {
+      "name": "trial-source-00m55s-01m55s.mp4",
+      "bytes": 60131532,
+      "sha256": "efd875d321d814a1a50e13cf259325dbf2b7377250d3d9fb2a3914e619f592f4",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-source-00m55s-01m55s.mp4",
+      "github_computed_digest": "sha256:efd875d321d814a1a50e13cf259325dbf2b7377250d3d9fb2a3914e619f592f4",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    },
+    {
+      "name": "trial-automatic.mp4",
+      "bytes": 104178263,
+      "sha256": "b7cf7de26efcc153d3812f9f359e90497eaf1b1acdfcca738412edb4ed394df2",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-automatic.mp4",
+      "github_computed_digest": "sha256:b7cf7de26efcc153d3812f9f359e90497eaf1b1acdfcca738412edb4ed394df2",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    },
+    {
+      "name": "trial-stable.mp4",
+      "bytes": 103949757,
+      "sha256": "76363282ebfc50cfeba61353d409ba77003c90cc4327a75f69817755aa8359e9",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-stable.mp4",
+      "github_computed_digest": "sha256:76363282ebfc50cfeba61353d409ba77003c90cc4327a75f69817755aa8359e9",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    },
+    {
+      "name": "trial-reviewed.mp4",
+      "bytes": 104220984,
+      "sha256": "b86ae7f85c1ddff942f1ce0c032b25418ae4439beb62f472a875535c9af4999b",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-reviewed.mp4",
+      "github_computed_digest": "sha256:b86ae7f85c1ddff942f1ce0c032b25418ae4439beb62f472a875535c9af4999b",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    },
+    {
+      "name": "complete-one-minute-review.zip",
+      "bytes": 886980680,
+      "sha256": "852d2192262d8a6abb9a06e7af435a08fee0f6ecb90422b4d015d61bd62b31ec",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/complete-one-minute-review.zip",
+      "github_computed_digest": "sha256:852d2192262d8a6abb9a06e7af435a08fee0f6ecb90422b4d015d61bd62b31ec",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    },
+    {
+      "name": "one-minute-review-file-catalog.json",
+      "bytes": 90866,
+      "sha256": "d3b52918a2392d0a34ea33ff665518bddd390bdfb341117162464110cf629bdd",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/one-minute-review-file-catalog.json",
+      "github_computed_digest": "sha256:d3b52918a2392d0a34ea33ff665518bddd390bdfb341117162464110cf629bdd",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    },
+    {
+      "name": "trial-report.md",
+      "bytes": 8655,
+      "sha256": "8cd0dae36b267c556f43947139b6f7650826b644c73683bb209a998aeb6369ac",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-report.md",
+      "github_computed_digest": "sha256:8cd0dae36b267c556f43947139b6f7650826b644c73683bb209a998aeb6369ac",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    },
+    {
+      "name": "trial-result.json",
+      "bytes": 16983,
+      "sha256": "eb2f94ece327f5f8364e49f2e4452de7f7b2b4d3e733949e906d031eaf384c05",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/trial-result.json",
+      "github_computed_digest": "sha256:eb2f94ece327f5f8364e49f2e4452de7f7b2b4d3e733949e906d031eaf384c05",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 807,
+      "sha256": "dd94c4bc423ecc4d9467aec99bc756275a8994f7334f5988d1535eb893c173f9",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/SHA256SUMS.txt",
+      "github_computed_digest": "sha256:dd94c4bc423ecc4d9467aec99bc756275a8994f7334f5988d1535eb893c173f9",
+      "github_size_matches": true,
+      "anonymous_http_status": 206,
+      "download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix_only",
+      "verified": true
+    }
+  ],
+  "anonymous_page_checks": [
+    {
+      "url": "https://github.com/LearnPrompt/record-freely",
+      "http_status": 200,
+      "read_bytes": 4096
+    },
+    {
+      "url": "https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1",
+      "http_status": 200,
+      "read_bytes": 4096
+    },
+    {
+      "url": "https://learnprompt.github.io/record-freely/",
+      "http_status": 200,
+      "read_bytes": 243
+    },
+    {
+      "url": "https://raw.githubusercontent.com/LearnPrompt/record-freely/v1.0.1/SKILL.md",
+      "http_status": 200,
+      "read_bytes": 3387
+    }
+  ],
+  "validation_scope": "All release asset sizes and GitHub-computed SHA-256 digests match local files. All asset URLs were tested anonymously. Install ZIP was fully streamed and hashed; remaining assets used a range prefix, not a full re-download. Prior technical verification decoded all four complete trial outputs and checked frame/audio properties.",
+  "public_trial_publish_ready": false,
+  "known_12_frame_gap_original": "01:13.700 through 01:14.067; exclusive end 01:14.100",
+  "full_history_bytes": 68516873763,
+  "full_history_uploaded": false,
+  "secret_scan": {
+    "text_files_scanned": 534,
+    "findings": 0
+  },
+  "code_tests": {
+    "passed": 70,
+    "elapsed_seconds": 2.04
+  }
+}
