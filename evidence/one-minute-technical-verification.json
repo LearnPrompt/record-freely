@@ -1,0 +1,93 @@
+{
+  "input_sha256_after": "efd875d321d814a1a50e13cf259325dbf2b7377250d3d9fb2a3914e619f592f4",
+  "input_sha256_expected": "efd875d321d814a1a50e13cf259325dbf2b7377250d3d9fb2a3914e619f592f4",
+  "input_size_bytes": 60131532,
+  "source_unchanged": true,
+  "outputs": {
+    "automatic": {
+      "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/automatic/redacted.mp4",
+      "sha256": "b7cf7de26efcc153d3812f9f359e90497eaf1b1acdfcca738412edb4ed394df2",
+      "size_bytes": 104178263,
+      "width": 3840,
+      "height": 2160,
+      "frame_count": 1800,
+      "video_duration": 60.0,
+      "fps": "30/1",
+      "audio_stream_count": 1,
+      "audio_duration": [
+        60.0
+      ],
+      "audio_codec": [
+        "aac"
+      ],
+      "full_decode_exit_code": 0,
+      "full_decode_stderr": "",
+      "decode_elapsed_seconds": 7.16,
+      "passed": true
+    },
+    "stable": {
+      "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/stable/redacted.mp4",
+      "sha256": "76363282ebfc50cfeba61353d409ba77003c90cc4327a75f69817755aa8359e9",
+      "size_bytes": 103949757,
+      "width": 3840,
+      "height": 2160,
+      "frame_count": 1800,
+      "video_duration": 60.0,
+      "fps": "30/1",
+      "audio_stream_count": 1,
+      "audio_duration": [
+        60.0
+      ],
+      "audio_codec": [
+        "aac"
+      ],
+      "full_decode_exit_code": 0,
+      "full_decode_stderr": "",
+      "decode_elapsed_seconds": 7.07,
+      "passed": true
+    },
+    "reviewed": {
+      "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/reviewed/redacted.mp4",
+      "sha256": "60a82c72899d55a1fd369faee249941882c55519e12b073595a938297847989e",
+      "size_bytes": 104220165,
+      "width": 3840,
+      "height": 2160,
+      "frame_count": 1800,
+      "video_duration": 60.0,
+      "fps": "30/1",
+      "audio_stream_count": 1,
+      "audio_duration": [
+        60.0
+      ],
+      "audio_codec": [
+        "aac"
+      ],
+      "full_decode_exit_code": 0,
+      "full_decode_stderr": "",
+      "decode_elapsed_seconds": 7.16,
+      "passed": true
+    },
+    "reviewed-v2": {
+      "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/reviewed-v2/redacted.mp4",
+      "sha256": "b86ae7f85c1ddff942f1ce0c032b25418ae4439beb62f472a875535c9af4999b",
+      "size_bytes": 104220984,
+      "width": 3840,
+      "height": 2160,
+      "frame_count": 1800,
+      "video_duration": 60.0,
+      "fps": "30/1",
+      "audio_stream_count": 1,
+      "audio_duration": [
+        60.0
+      ],
+      "audio_codec": [
+        "aac"
+      ],
+      "full_decode_exit_code": 0,
+      "full_decode_stderr": "",
+      "decode_elapsed_seconds": 2.08,
+      "passed": true
+    }
+  },
+  "verified_epoch": 1791377937.480785
+}

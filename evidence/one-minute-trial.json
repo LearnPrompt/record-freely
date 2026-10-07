@@ -1,0 +1,671 @@
+{
+  "trial_completed": true,
+  "publish_ready": false,
+  "fully_automatic": false,
+  "zero_missed_links_claim": false,
+  "skill_name": "record-freely / 放心录 · Record Freely",
+  "public_repository": "https://github.com/LearnPrompt/record-freely",
+  "clone_commit": "602a2fcb02678ce69142f838563d9758ecd293e0",
+  "public_clone_modified": false,
+  "independence": {
+    "local_installed_skill_used": false,
+    "private_fixes_used": false,
+    "historical_v3_outputs_read_or_used": false,
+    "upstream_report_metadata_fix_used": false,
+    "global_install_performed": false,
+    "source_authorized_for_public_review": true
+  },
+  "input": {
+    "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/assets/trial-source-00m55s-01m55s.mp4",
+    "sha256": "efd875d321d814a1a50e13cf259325dbf2b7377250d3d9fb2a3914e619f592f4",
+    "original_start_seconds": 55,
+    "original_end_seconds": 115,
+    "duration_seconds": 60,
+    "frames": 1800,
+    "width": 3840,
+    "height": 2160,
+    "fps": 30,
+    "preexisting_gray_masks": true
+  },
+  "environment": {
+    "os": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+    "opencv": "4.13.0",
+    "numpy": "2.0.2",
+    "ffmpeg": "8.1",
+    "xcode_command_line_tools": "/Library/Developer/CommandLineTools",
+    "ocr": "macOS Vision, 3 persistent Swift workers",
+    "new_models_downloaded": false
+  },
+  "timing": {
+    "automatic_process_seconds": 293.58,
+    "stable_process_seconds": 50.05,
+    "first_manual_render_seconds": 34.3,
+    "final_manual_render_seconds": 40.93,
+    "rejected_geometry_assistance_seconds": 36.51,
+    "agent_review_and_patch_wall_seconds": 1991.26,
+    "agent_manual_correction_attempt_to_report_completion_wall_seconds": 1554.59,
+    "human_hands_on_seconds": null,
+    "timing_basis": "Process seconds are tool wall clocks. Agent review/manual correction wall spans include reading, inspection, code, render/decode waits and concurrent work; no human stopwatch and not an additive total."
+  },
+  "patch": {
+    "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/reviewed-patch-v2.json",
+    "sha256": "9ee3103e13484bc7c8c2746278c9400b28b7716f259eec27d2ab61acf4df6f4a",
+    "automatic_report_sha256": "4704347db490a3bff28569299856d920f82fd3ec7e3cccf99a41501e050dd39d",
+    "changed_frames": 620,
+    "geometry_method": "Manual source-pixel grid for Github x=208..1036 on frames206..518, per-frame observed line y/height; lower Feishu source fixed line x=1216..2890 y=1706..1814 on frames1517..1799. No string-length pixel guesses, no interpolated missing Github masks, no white/orange pixel restoration.",
+    "first_attempt_issue": "First patch matched stabilized id rather than source_ids; verification caught three classes of unremoved false positives. First output and patch retained; final v2 fixes matching and extends lower URL by 6 observed pixels."
+  },
+  "suspected_url_events": [
+    {
+      "label": "Github install links",
+      "first_observed_frame": 206,
+      "last_observed_frame": 613,
+      "clip_seconds": [
+        6.866666666666666,
+        20.433333333333334
+      ],
+      "original_seconds": [
+        61.86666666666667,
+        75.43333333333334
+      ],
+      "bounds_basis": "Automatic observation plus inspected source boundary frames205/206 and613/614; not exhaustive human frame audit",
+      "motion": "Static, vertical scroll from near490, zoom and orange chapter overlap from519. Names preserved only206..518 by manual patch."
+    },
+    {
+      "label": "Models.dev product/query domain",
+      "example_frames": [
+        1098,
+        1128,
+        1350,
+        1505
+      ],
+      "clip_example_seconds": [
+        36.6,
+        37.6,
+        45,
+        50.166667
+      ],
+      "original_example_seconds": [
+        91.6,
+        92.6,
+        100,
+        105.166667
+      ],
+      "issue": "Bare domain product name masked in short query frames but green product heading remains; policy/recognition consistency unresolved."
+    },
+    {
+      "label": "AI news API hostname",
+      "example_frames": [
+        1110
+      ],
+      "clip_example_seconds": [
+        37
+      ],
+      "original_example_seconds": [
+        92
+      ],
+      "issue": "One-frame visible command URL observed; kept its valid mask while removing datetime false positive."
+    },
+    {
+      "label": "HN API URL",
+      "observed_frames": [
+        1124,
+        1134
+      ],
+      "clip_seconds": [
+        37.46666666666667,
+        37.8
+      ],
+      "original_seconds": [
+        92.46666666666667,
+        92.8
+      ],
+      "issue": "Visible command URL; urllib.parse false positive removed separately."
+    },
+    {
+      "label": "X URL in highlighted news result",
+      "observed_frames": [
+        1346,
+        1431
+      ],
+      "clip_seconds": [
+        44.86666666666667,
+        47.7
+      ],
+      "original_seconds": [
+        99.86666666666667,
+        102.7
+      ],
+      "motion": "Hard switch and vertical scrolling; mask retained from stable."
+    },
+    {
+      "label": "API docs URL in highlighted news result",
+      "observed_frames": [
+        1346,
+        1487
+      ],
+      "clip_seconds": [
+        44.86666666666667,
+        49.56666666666667
+      ],
+      "original_seconds": [
+        99.86666666666667,
+        104.56666666666666
+      ],
+      "motion": "Vertical scrolling and top-edge exit; retained stable masks."
+    },
+    {
+      "label": "Feishu document URL twice",
+      "observed_frames": [
+        1506,
+        1799
+      ],
+      "clip_seconds": [
+        50.2,
+        59.96666666666667
+      ],
+      "original_seconds": [
+        105.2,
+        114.96666666666667
+      ],
+      "motion": "Initial zoom; upper line stable; lower command partially occluded by presenter and OCR rectangles fluctuate."
+    }
+  ],
+  "observed_false_positives": [
+    {
+      "label": "datetime.datetime.now code",
+      "frames": [
+        1110,
+        1110
+      ],
+      "fixed": true
+    },
+    {
+      "label": "urllib.parse code",
+      "frames": [
+        1124,
+        1134
+      ],
+      "fixed": true
+    },
+    {
+      "label": "top chapter title",
+      "frames": [
+        1182,
+        1193
+      ],
+      "fixed": true
+    },
+    {
+      "label": "lark-cli docs command",
+      "frames": [
+        1580,
+        1799
+      ],
+      "intermittent": true,
+      "fixed": true
+    }
+  ],
+  "unresolved": [
+    {
+      "label": "Github zoom/orange chapter overlap, missing boxes and suffix preservation",
+      "frames": [
+        519,
+        613
+      ],
+      "clip_seconds": [
+        17.3,
+        20.433333
+      ],
+      "original_seconds": [
+        72.3,
+        75.433333
+      ],
+      "status": "stable retained; no guessed correction"
+    },
+    {
+      "label": "explicit 12-frame Github leak",
+      "frames": [
+        561,
+        572
+      ],
+      "clip_seconds_first_last": [
+        18.7,
+        19.066667
+      ],
+      "clip_end_exclusive_seconds": 19.1,
+      "original_seconds_first_last": [
+        73.7,
+        74.066667
+      ],
+      "original_end_exclusive_seconds": 74.1,
+      "status": "remains visible in final; needs clean chapter layer or confirmed manual geometry"
+    },
+    {
+      "label": "2-frame partial Github prefix dropout",
+      "frames": [
+        531,
+        532
+      ],
+      "clip_seconds": [
+        17.7,
+        17.733333
+      ],
+      "original_seconds": [
+        72.7,
+        72.733333
+      ],
+      "status": "orange overlaps; not forced to large masks"
+    },
+    {
+      "label": "Bare-domain product-name policy",
+      "status": "Models.dev naming/URL treatment remains inconsistent; no zero-miss claim"
+    }
+  ],
+  "review_coverage": {
+    "source_contact_sampling_seconds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "first_manual_output_contact_sampling_seconds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "final_v2_verified_difference_frames": [
+      1110,
+      1128,
+      1182,
+      1650,
+      1691
+    ],
+    "automatic_contacts_inspected_seconds": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "stable_contacts_inspected_seconds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "source_automatic_overlay_event_frames": [
+      187,
+      195,
+      205,
+      531,
+      565,
+      590,
+      614,
+      1098,
+      1110,
+      1128,
+      1182,
+      1193,
+      1505
+    ],
+    "first_and_final_pixel_comparison_frames": [
+      300,
+      510,
+      1110,
+      1128,
+      1182,
+      1650,
+      1691,
+      1791
+    ],
+    "all_frames_ocr_scanned": 1800,
+    "all_frames_human_visually_inspected": false,
+    "all_frames_audio_listened": false,
+    "notes": "Source and first manual output contacts cover seconds0..59. Final v2 is inspected at changed difference frames; unchanged intervals reuse first-round samples. Pixel comparisons combine first-round and final-v2 evidence. These are not exhaustive 1800-frame visual ground truth or precision/recall scoring."
+  },
+  "validation": {
+    "public_clone_tests": "69 passed in 2.74s at clone602a",
+    "technical": {
+      "input_sha256_after": "efd875d321d814a1a50e13cf259325dbf2b7377250d3d9fb2a3914e619f592f4",
+      "input_sha256_expected": "efd875d321d814a1a50e13cf259325dbf2b7377250d3d9fb2a3914e619f592f4",
+      "input_size_bytes": 60131532,
+      "source_unchanged": true,
+      "outputs": {
+        "automatic": {
+          "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/automatic/redacted.mp4",
+          "sha256": "b7cf7de26efcc153d3812f9f359e90497eaf1b1acdfcca738412edb4ed394df2",
+          "size_bytes": 104178263,
+          "width": 3840,
+          "height": 2160,
+          "frame_count": 1800,
+          "video_duration": 60.0,
+          "fps": "30/1",
+          "audio_stream_count": 1,
+          "audio_duration": [
+            60.0
+          ],
+          "audio_codec": [
+            "aac"
+          ],
+          "full_decode_exit_code": 0,
+          "full_decode_stderr": "",
+          "decode_elapsed_seconds": 7.16,
+          "passed": true
+        },
+        "stable": {
+          "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/stable/redacted.mp4",
+          "sha256": "76363282ebfc50cfeba61353d409ba77003c90cc4327a75f69817755aa8359e9",
+          "size_bytes": 103949757,
+          "width": 3840,
+          "height": 2160,
+          "frame_count": 1800,
+          "video_duration": 60.0,
+          "fps": "30/1",
+          "audio_stream_count": 1,
+          "audio_duration": [
+            60.0
+          ],
+          "audio_codec": [
+            "aac"
+          ],
+          "full_decode_exit_code": 0,
+          "full_decode_stderr": "",
+          "decode_elapsed_seconds": 7.07,
+          "passed": true
+        },
+        "reviewed": {
+          "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/reviewed/redacted.mp4",
+          "sha256": "60a82c72899d55a1fd369faee249941882c55519e12b073595a938297847989e",
+          "size_bytes": 104220165,
+          "width": 3840,
+          "height": 2160,
+          "frame_count": 1800,
+          "video_duration": 60.0,
+          "fps": "30/1",
+          "audio_stream_count": 1,
+          "audio_duration": [
+            60.0
+          ],
+          "audio_codec": [
+            "aac"
+          ],
+          "full_decode_exit_code": 0,
+          "full_decode_stderr": "",
+          "decode_elapsed_seconds": 7.16,
+          "passed": true
+        },
+        "reviewed-v2": {
+          "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/reviewed-v2/redacted.mp4",
+          "sha256": "b86ae7f85c1ddff942f1ce0c032b25418ae4439beb62f472a875535c9af4999b",
+          "size_bytes": 104220984,
+          "width": 3840,
+          "height": 2160,
+          "frame_count": 1800,
+          "video_duration": 60.0,
+          "fps": "30/1",
+          "audio_stream_count": 1,
+          "audio_duration": [
+            60.0
+          ],
+          "audio_codec": [
+            "aac"
+          ],
+          "full_decode_exit_code": 0,
+          "full_decode_stderr": "",
+          "decode_elapsed_seconds": 2.08,
+          "passed": true
+        }
+      },
+      "verified_epoch": 1791377937.480785
+    },
+    "source_unchanged": true,
+    "live_deployment_or_platform_moderation_verified": false,
+    "audio_bit_identity_claim": false
+  },
+  "outputs": {
+    "automatic": {
+      "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/automatic/redacted.mp4",
+      "sha256": "b7cf7de26efcc153d3812f9f359e90497eaf1b1acdfcca738412edb4ed394df2",
+      "size_bytes": 104178263,
+      "width": 3840,
+      "height": 2160,
+      "frame_count": 1800,
+      "video_duration": 60.0,
+      "fps": "30/1",
+      "audio_stream_count": 1,
+      "audio_duration": [
+        60.0
+      ],
+      "audio_codec": [
+        "aac"
+      ],
+      "full_decode_exit_code": 0,
+      "full_decode_stderr": "",
+      "decode_elapsed_seconds": 7.16,
+      "passed": true
+    },
+    "stable": {
+      "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/stable/redacted.mp4",
+      "sha256": "76363282ebfc50cfeba61353d409ba77003c90cc4327a75f69817755aa8359e9",
+      "size_bytes": 103949757,
+      "width": 3840,
+      "height": 2160,
+      "frame_count": 1800,
+      "video_duration": 60.0,
+      "fps": "30/1",
+      "audio_stream_count": 1,
+      "audio_duration": [
+        60.0
+      ],
+      "audio_codec": [
+        "aac"
+      ],
+      "full_decode_exit_code": 0,
+      "full_decode_stderr": "",
+      "decode_elapsed_seconds": 7.07,
+      "passed": true
+    },
+    "reviewed": {
+      "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/reviewed/redacted.mp4",
+      "sha256": "60a82c72899d55a1fd369faee249941882c55519e12b073595a938297847989e",
+      "size_bytes": 104220165,
+      "width": 3840,
+      "height": 2160,
+      "frame_count": 1800,
+      "video_duration": 60.0,
+      "fps": "30/1",
+      "audio_stream_count": 1,
+      "audio_duration": [
+        60.0
+      ],
+      "audio_codec": [
+        "aac"
+      ],
+      "full_decode_exit_code": 0,
+      "full_decode_stderr": "",
+      "decode_elapsed_seconds": 7.16,
+      "passed": true
+    },
+    "reviewed-v2": {
+      "path": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/reviewed-v2/redacted.mp4",
+      "sha256": "b86ae7f85c1ddff942f1ce0c032b25418ae4439beb62f472a875535c9af4999b",
+      "size_bytes": 104220984,
+      "width": 3840,
+      "height": 2160,
+      "frame_count": 1800,
+      "video_duration": 60.0,
+      "fps": "30/1",
+      "audio_stream_count": 1,
+      "audio_duration": [
+        60.0
+      ],
+      "audio_codec": [
+        "aac"
+      ],
+      "full_decode_exit_code": 0,
+      "full_decode_stderr": "",
+      "decode_elapsed_seconds": 2.08,
+      "passed": true
+    }
+  },
+  "recommended_review_output": "/Users/carl/Downloads/放心录-视频打码-2026-10-07/publication/fresh-agent-trial/reviewed-v2/redacted.mp4",
+  "cost": {
+    "codex_tokens_or_dollars": null,
+    "reason": "No same-scope before/after billing or usage snapshots; local OCR not a cloud model API charge but Agent work is not claimed free."
+  },
+  "completed_epoch": 1791378213.093096
+}

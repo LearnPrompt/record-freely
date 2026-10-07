@@ -9,7 +9,7 @@
 | 内容 | 公开入口 | 能核实什么 |
 | --- | --- | --- |
 | Skill 与便携源码 | [SKILL.md](../SKILL.md)、[scripts](../scripts)、[实现说明](../references/implementation.md) | Apple Vision、链接规则、跟踪、稳框、人工修订与输入 SHA 绑定 |
-| 测试与合成夹具 | [tests](../tests) | 69 项代码测试、144 帧真 OCR 夹具及其验收范围 |
+| 测试与合成夹具 | [tests](../tests) | 当前 70 项代码测试；历史 144 帧真 OCR 夹具及其验收范围 |
 | 同帧真实对照 | [对照目录](../assets/comparisons)、[在线滑杆](https://learnprompt.github.io/record-freely/) | 01:02、06:39、09:00 的范围选择；BEFORE 保留源片原有灰块 |
 | 历史案例取证 | [public-case/index.json](../evidence/public-case/index.json) | 46 个指标输入记录的公开映射，以及历史 Python/Swift 实现；不是只剩作者结论 |
 | 指标与匿名摘录 | [metrics.json](../evidence/metrics.json)、[Codex token 摘录](../evidence/codex-token-excerpts.json)、[独立复查](independent-review.md) | 耗时口径、父线程遥测与历史复查结果；不包含完整聊天或凭证 |
@@ -26,7 +26,7 @@
 
 ## 实跑所需环境与算法
 
-目前支持 macOS，需要 Xcode Command Line Tools、FFmpeg、Python 3、OpenCV 与 NumPy。引擎调用系统 Apple Vision，**不需额外下载 YOLO 或 OCR 模型权重**，也不逐帧调用云视觉 API。OCR 字符框与离线域名规则选出链接区域；OpenCV 模板匹配处理移动和缩放；稳框按连续观测区间固定或平滑覆盖框；FFmpeg 导出新视频。详见[实现说明](../references/implementation.md)。
+目前支持 macOS，需要 Xcode Command Line Tools、FFmpeg、Python 3、OpenCV 与 NumPy。约 57.35 MiB 是输入样片的下载量；实际运行还需要输出和 FFV1 中间片的临时磁盘空间，不能把下载量当作峰值占用。引擎调用系统 Apple Vision，**不需额外下载 YOLO 或 OCR 模型权重**，也不逐帧调用云视觉 API。OCR 字符框与离线域名规则选出链接区域；OpenCV 模板匹配处理移动和缩放；稳框按连续观测区间固定或平滑覆盖框；FFmpeg 导出新视频。详见[实现说明](../references/implementation.md)。
 
 自动初稿默认不会把所有个人路径、邮箱或 `.html` 当网址；保留作者/Skill 名、特定路径段和指定词，需要源帧审阅及精确补丁。新 Agent 的一分钟试用结果必须来自它自己的输出，历史测试不证明此次视频零漏码。
 
@@ -35,3 +35,7 @@
 Review the source and evidence on GitHub, then download the approximately 57.35 MiB one-minute Release input if you need a real run. The full 68.5 GB historical archive stays local. Catalogs record its contents; they do not provide all media or let a remote reviewer independently rehash unavailable files. Trial time starts at zero; add 55 seconds for the original recording. macOS is required, with native Apple Vision, OpenCV, and FFmpeg; no separate model weights are needed.
 
 GitHub 上でソースと根拠を確認し、実行する場合だけ約 57.35 MiB の1分素材を Release から取得してください。68.5 GB の履歴資料全体はローカルに保存しています。公開一覧は全動画のダウンロードではなく、入手できないファイルのハッシュを遠隔で再計算できるわけではありません。短片の時刻に55秒を加えると元動画の時刻になります。macOS 内蔵 Apple Vision・OpenCV・FFmpeg を使い、モデル重みの別途ダウンロードは不要です。
+
+## 已完成的一分钟独立试用
+
+[真实试用报告](one-minute-trial.md)记录自动4分54秒、修订、验收、审阅跨度和仍然存在的漏框。报告、原始输入与各版输出随 Release 提供；完整一分钟包可选下载，网页读代码与对照无需下载它。

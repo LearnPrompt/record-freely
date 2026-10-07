@@ -1,0 +1,18 @@
+{
+  "frame": 300,
+  "clip_seconds": 10,
+  "original_seconds": 65,
+  "actual_vision_ocr": true,
+  "source_frame_sha256": "7522a8d37065863d853e0030c6c6e2655ec2af53c42e5cb7f429b81f8fbf6b4d",
+  "boxes_identical": true,
+  "old_methods": [
+    "characters",
+    "characters"
+  ],
+  "new_methods": [
+    "repeated_character_boxes",
+    "repeated_character_boxes"
+  ],
+  "new_engine_sha256": "ffbaa46b5144c396332d579a0a05d1a4cd1cb69b6468907fdc1576bc70781bd4",
+  "scope": "Report geometry label only; no masking extent or URL detection improvement is claimed. No recognized text retained."
+}

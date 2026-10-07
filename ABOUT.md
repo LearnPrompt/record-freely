@@ -1,10 +1,15 @@
 # About / プロジェクト紹介
 
 **名称 / Name / 名前**：放心录 · Record Freely
+
 **Skill slug / Repository**：`record-freely`
+
 **Repository**：[LearnPrompt/record-freely](https://github.com/LearnPrompt/record-freely)
+
 **Downloads**：[v1.0.0 Release](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.0)
+
 **Review**：[公开轻量复查](docs/public-review.md)；68.5 GB 历史全量资料保留本机。仓库和附件的实际可用状态以发布验证为准。
+
 
 ## 中文
 
@@ -19,7 +24,9 @@ Record the idea first. An Agent Skill to mask visible links and personal paths, 
 まず自由に録画する。見えるリンクや個人パスを隠し、動きに追従しながら説明を残す Agent Skill。LearnPrompt より。
 
 **Website**：https://learnprompt.pro
+
 **Suggested topics**：`agent-skill`, `video-redaction`, `screen-recording`, `opencv`, `ffmpeg`, `macos`, `learnprompt`
+
 
 ## 名字为什么这样取
 

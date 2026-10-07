@@ -185,3 +185,21 @@ def test_source_audio_outside_selected_window_is_silent_export(tmp_path,monkeypa
     assert sum(s['codec_type']=='audio' for s in info['streams'])==1
     pcm=subprocess.check_output(['ffmpeg','-v','error','-i',str(output/'redacted.mp4'),'-map','0:a:0','-f','f32le','-ac','1','-ar','48000','pipe:1'])
     assert np.max(np.abs(np.frombuffer(pcm,np.float32)))==0
+
+
+def test_vision_repeated_whole_line_bounds_are_not_reported_as_precise_characters():
+    # Observed with real screen-recording OCR: each URL character got the same
+    # whole-line bounds. Keep the conservative mask and disclose the degradation.
+    text = "example.com"
+    bounds = [.1, .2, .7, .1]
+    observation = {"text": text, "box": bounds,
+                   "chars": [{"start": i, "end": i + 1, "box": bounds[:]} for i in range(len(text))]}
+    metadata = []
+    assert r.detection_boxes([observation], 1000, 1000, 0, metadata) == [[100, 200, 700, 100]]
+    assert metadata[0]["box_method"] == "repeated_character_boxes"
+    # Valid per-character boxes must still be reported as such.
+    for i, char in enumerate(observation["chars"]):
+        char["box"] = [.1 + i * .7 / len(text), .2, .7 / len(text), .1]
+    metadata.clear()
+    r.detection_boxes([observation], 1000, 1000, 0, metadata)
+    assert metadata[0]["box_method"] == "characters"

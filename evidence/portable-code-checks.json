@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-10-07T12:59:57.693726+00:00",
+  "pytest": {
+    "passed": 70,
+    "elapsed_seconds": 2.04
+  },
+  "geometry_regression": "metadata-geometry-regression.json",
+  "tests_added": "Real-Vision repeated whole-line character-bound degradation; conservative pixels unchanged and distinct character bounds stay classified correctly.",
+  "script_sha256": {
+    "scripts/iana-tlds.txt": "1ba454ada32b7b9ae6a1240f1d1ce882c14106ec70593d167848a0414ae10ebe",
+    "scripts/stabilize_masks.py": "159b65122e612d8a8a9f996eac14e76e1566cdbc8d2be7420b738a261fcb3bf5",
+    "scripts/refine_video.py": "3c5f806e2ebe0fb3f445ddf978560ad3caedfefc8a6319e6d87b2399d8c70ba9",
+    "scripts/redact_video.py": "ffbaa46b5144c396332d579a0a05d1a4cd1cb69b6468907fdc1576bc70781bd4",
+    "scripts/vision_ocr.swift": "d0f97389faac71b3b7b55cb5abe749ba6fba4a3af77b8feceb60430f1b1adbd5"
+  },
+  "historical_144_frame_fixture_scope": "Earlier engine snapshot; do not claim a fresh complete real-OCR fixture rerun for this metadata-only change."
+}

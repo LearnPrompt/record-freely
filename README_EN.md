@@ -12,6 +12,8 @@ Record Freely grew from an actual **35:29, 4K, 30fps** screen recording of a wor
 
 That follows LearnPrompt’s story: see what is possible, learn how to do it, and turn it into something you can use again. A visible address should not interrupt your willingness to share.
 
+A fresh Agent ran a real one-minute 4K clip: **4m54s** automatic, 50s stabilization, and41s final patch rendering. Agent review/correction spanned about33min including waits and overlapping computation; these are not additive or human hands-on time. A12-frame title-overlap leak remains. See the [actual trial, reports and videos](docs/one-minute-trial.md).
+
 ## Same-frame comparisons
 
 Both sides use the same decoded source frame, crop, and display scale. BEFORE intentionally shows the original visible text so you can inspect the masking choice.
@@ -72,7 +74,7 @@ The Skill finds **visible text that resembles a URL**, follows movement and scal
 
 This helps reduce visible-address concerns before publishing. It cannot guarantee platform approval or zero missed text. Check appearances, disappearances, zooms, cuts, and adjacent text. One older case item remains unlocated: the reported `.html` at 25:41, where the exact source frame shows a scales animation.
 
-69 code tests and the 144-frame real-OCR synthetic fixture passed. An independent Agent reran the code, checked all six real comparison images pixel for pixel, and recalculated the dataset hashes. The discovered source-binding flaw was fixed and retested. See the [independent review](docs/independent-review.md).
+The current 70 code tests pass, including a regression for repeated whole-line Vision character bounds discovered in the fresh trial. The historical 144-frame real-OCR synthetic fixture passed. An independent Agent reran the code, checked all six real comparison images pixel for pixel, and recalculated the dataset hashes. The discovered source-binding flaw was fixed and retested. See the [independent review](docs/independent-review.md).
 
 ## Review from another machine
 

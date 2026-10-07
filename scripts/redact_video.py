@@ -104,6 +104,12 @@ def detection_boxes(observations, width, height, padding, metadata=None, identit
             valid = all(b[2] > 0 and b[3] > 0 and b[0] >= outer[0] - .01
                         and b[1] >= outer[1] - .01 and b[0] + b[2] <= outer[0] + outer[2] + .01
                         and b[1] + b[3] <= outer[1] + outer[3] + .01 for b in parts)
+            # Vision can return the same whole-line bounds for every requested
+            # character. Preserve the conservative rectangle, but do not report
+            # that degraded geometry as precise character localization.
+            repeated = len(parts) > 1 and all(
+                all(abs(a - b) <= 1e-6 for a, b in zip(part, parts[0]))
+                for part in parts[1:])
             # Missing/degenerate character boxes must not produce a partial or
             # huge URL mask. Prefer the containing line when subranges fail.
             box = union(parts) if parts and complete and valid else outer
@@ -123,7 +129,8 @@ def detection_boxes(observations, width, height, padding, metadata=None, identit
                     metadata.append({"id": identity,
                                      "kind": "http(s)" if re.match(r"https?[:：]", compact) else
                                              "www" if compact.startswith("www.") else "domain",
-                                     "box_method": "characters" if parts and complete and valid else "line_fallback",
+                                     "box_method": ("repeated_character_boxes" if repeated else "characters")
+                                                   if parts and complete and valid else "line_fallback",
                                      "ocr_confidence": float(observation.get("confidence", 0))})
     return boxes
 
