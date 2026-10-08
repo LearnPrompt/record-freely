@@ -1,0 +1,56 @@
+{
+  "checked_at_utc": "2026-10-08T06:25:23.906311+00:00",
+  "client_date": "2026-10-08",
+  "repository": "https://github.com/LearnPrompt/record-freely",
+  "release": "https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1",
+  "release_tag_commit_unchanged": "86de110eaa068182ab6cc5e9ad7a6c9b9fb4f4c0",
+  "supplement_assets": [
+    {
+      "name": "all-masked-segments.mp4",
+      "bytes": 157827836,
+      "sha256": "9ecfbb5a58d2b6f68fd4112177c30364352550c0210e0d2af692d14b3dc208f2",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/all-masked-segments.mp4",
+      "github_computed_digest": "sha256:9ecfbb5a58d2b6f68fd4112177c30364352550c0210e0d2af692d14b3dc208f2",
+      "anonymous_http_status": 206,
+      "final_download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix; full bytes verified by GitHub-computed SHA256 against local SHA256",
+      "passed": true
+    },
+    {
+      "name": "masked-segment-clips.zip",
+      "bytes": 162362685,
+      "sha256": "0d9cbda0bfd301907e3aa1034fbd298ba20aa97e362cf8d34c179bf56491acca",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/masked-segment-clips.zip",
+      "github_computed_digest": "sha256:0d9cbda0bfd301907e3aa1034fbd298ba20aa97e362cf8d34c179bf56491acca",
+      "anonymous_http_status": 206,
+      "final_download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix; full bytes verified by GitHub-computed SHA256 against local SHA256",
+      "passed": true
+    },
+    {
+      "name": "full-frame-showcase-source.zip",
+      "bytes": 33891283,
+      "sha256": "eaf297a882053629b61b791e4814f716c438feacc8ac8e0fa38c45217b76c329",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/full-frame-showcase-source.zip",
+      "github_computed_digest": "sha256:eaf297a882053629b61b791e4814f716c438feacc8ac8e0fa38c45217b76c329",
+      "anonymous_http_status": 206,
+      "final_download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix; full bytes verified by GitHub-computed SHA256 against local SHA256",
+      "passed": true
+    },
+    {
+      "name": "SHA256SUMS-SHOWCASE.txt",
+      "bytes": 278,
+      "sha256": "b49298d1531303693b7fd2ccc10216344accde337a348f4f408ea83fef068121",
+      "url": "https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/SHA256SUMS-SHOWCASE.txt",
+      "github_computed_digest": "sha256:b49298d1531303693b7fd2ccc10216344accde337a348f4f408ea83fef068121",
+      "anonymous_http_status": 206,
+      "final_download_host": "release-assets.githubusercontent.com",
+      "anonymous_download_method": "range_prefix; full bytes verified by GitHub-computed SHA256 against local SHA256",
+      "passed": true
+    }
+  ],
+  "original_ten_release_assets_unchanged": true,
+  "full_historical_media_uploaded": false,
+  "checks": "Asset upload, computed SHA256, size and anonymous range-download availability. Local complete decode, frame/PTS coverage and clip endpoint checks are documented separately. UI and playback checks are separate."
+}

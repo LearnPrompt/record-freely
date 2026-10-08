@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-10-08T06:31:20.867Z",
+  "page": "https://learnprompt.github.io/record-freely/assets/comparisons/index.html",
+  "buttons": [
+    {
+      "case": 0,
+      "split": "100%",
+      "value": "100"
+    },
+    {
+      "case": 0,
+      "split": "0%",
+      "value": "0"
+    },
+    {
+      "case": 1,
+      "split": "100%",
+      "value": "100"
+    },
+    {
+      "case": 1,
+      "split": "0%",
+      "value": "0"
+    },
+    {
+      "case": 2,
+      "split": "100%",
+      "value": "100"
+    },
+    {
+      "case": 2,
+      "split": "0%",
+      "value": "0"
+    }
+  ],
+  "video": {
+    "currentTime": 16.701781,
+    "duration": 460.9,
+    "error": null,
+    "height": 1080,
+    "paused": true,
+    "readyState": 4,
+    "width": 1920
+  },
+  "readme_languages_above_title": [
+    "中文",
+    "English",
+    "日本語"
+  ],
+  "mermaid": {
+    "url": "https://github.com/LearnPrompt/record-freely",
+    "rendered": true,
+    "verified_node_count": 12,
+    "ocr_and_existing_tracking_branches_present": true
+  },
+  "comparison_images": {
+    "loaded_count": 6,
+    "width": 3840,
+    "height": 2160
+  },
+  "third_slider_keyboard_check": {
+    "key_sequence": [
+      "End",
+      "ArrowLeft"
+    ],
+    "value": "99",
+    "css_split": "99%"
+  },
+  "screenshots": [
+    {
+      "path": "evidence/ui/pagecollection-proof.jpg",
+      "sha256": "078219160c4c0857867f76c50228314eed24bf8ed299e9c6946ef43a52757cc4"
+    },
+    {
+      "path": "evidence/ui/github-algorithm-proof.jpg",
+      "sha256": "24e499a3d9321e20f2e9dfa0d6cffb4b16ed2162849f51aaa776068488d9f1b9"
+    }
+  ],
+  "verification_scope": "Actual browser UI interactions and rendered DOM. Video playback reached currentTime > 10 seconds, duration 460.9 seconds, 1920x1080, readyState 4, no media error; subsequently paused. Separate FFmpeg checks cover the complete media, frame mapping and audio timing."
+}
