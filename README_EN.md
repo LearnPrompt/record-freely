@@ -1,10 +1,12 @@
+[中文](README.md) · [English](README_EN.md) · [日本語](README_JA.md)
+
 # Record Freely · 放心录
 
 **Record the idea first. Let your Agent handle the parts that need masking.**
 
-[中文](README.md) · [日本語](README_JA.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [Downloads and one-minute clip](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [Public review](docs/public-review.md)
+[GitHub](https://github.com/LearnPrompt/record-freely) · [Downloads and one-minute clip](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [Public review](docs/public-review.md)
 
-[Before / after](assets/comparisons/index.html) · [Implementation](references/implementation.md) · [Cost and time](docs/cost-and-time.md) · [Online comparison sliders](https://learnprompt.github.io/record-freely/)
+[Before / after](https://learnprompt.github.io/record-freely/) · [Implementation](references/implementation.md) · [Cost and time](docs/cost-and-time.md) · [Online comparison sliders](https://learnprompt.github.io/record-freely/)
 
 A URL appears in your terminal. A file path reveals your username. A zoom makes a small address fill the screen. You pause, record again, or spend the evening adjusting masks. The thing you wanted to teach gets interrupted.
 
@@ -14,17 +16,46 @@ That follows LearnPrompt’s story: see what is possible, learn how to do it, an
 
 A fresh Agent ran a real one-minute 4K clip: **4m54s** automatic, 50s stabilization, and 41s final patch rendering. Agent review/correction spanned about 33 min including waits and overlapping computation; these are not additive or human hands-on time. A 12-frame title-overlap leak remains. See the [actual trial, reports and videos](docs/one-minute-trial.md).
 
-## Same-frame comparisons
+## Full-frame before and after
 
-Both sides use the same decoded source frame, crop, and display scale. BEFORE intentionally shows the original visible text so you can inspect the masking choice.
+Each board shows the **entire frame**: the input above and the v3 output below, at the same instant. The presenter, subtitles, and terminal remain visible. Existing masks in the input are preserved; this pass adds the solid masks visible in the lower frame.
 
-![01:02: keep the author and Skill name](assets/comparisons/01-02-comparison.jpg)
+### 01:02: hide the URL prefix, retain its author and Skill name
 
-![06:39: preserve the two identifying Skill components](assets/comparisons/06-39-comparison.jpg)
+![01:02 full-frame comparison; input above, v3 below](assets/full-frame-comparisons/01-02-full-comparison.jpg)
 
-![09:00: hide the personal prefix, retain directories and filenames](assets/comparisons/09-00-comparison.jpg)
+### 06:39: mask enlarged addresses while preserving how to find the Skill
 
-[Move the comparison sliders](assets/comparisons/index.html). This is an independent creator’s technical example involving Media Storm content, not a claim of an official partnership.
+![06:39 full-frame comparison; input above, v3 below](assets/full-frame-comparisons/06-39-full-comparison.jpg)
+
+### 09:00: hide personal path prefixes in a Media Storm editing tutorial
+
+The recording shows a workflow that selects shots with three or more people from Media Storm material. The full frame retains the presenter, subtitles, detection results, and useful filenames. Personal prefixes were selected through reviewed edits.
+
+![09:00 full-frame comparison with the editing workflow intact](assets/full-frame-comparisons/09-00-full-comparison.jpg)
+
+[Full-frame sliders](https://learnprompt.github.io/record-freely/) · [Original-size 4K frame files](assets/full-frame-comparisons/) · [Exact frame IDs and hashes](assets/full-frame-comparisons/manifest.json)
+
+<details>
+<summary>Inspect the cropped masking boundaries</summary>
+
+Retained author/Skill components were verified from the source text, not inferred automatically.
+
+![01:02 masking detail](assets/comparisons/01-02-comparison.jpg)
+
+![06:39 masking detail](assets/comparisons/06-39-comparison.jpg)
+
+![09:00 masking detail](assets/comparisons/09-00-comparison.jpg)
+
+</details>
+
+This creator's recording documents learning and applying a workflow using Media Storm material. The name describes the case background, not an official partnership.
+
+## Every masked segment, collected
+
+[Watch/download the collection](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/all-masked-segments.mp4) · [55 individual clips and reproduction files](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/masked-segment-clips.zip) · [Original and collection timeline index](docs/masked-segment-collection.md)
+
+The final v3 frame reports identify 106 contiguous masked runs, totaling 13,407 masked frames. Joining gaps of at most one second produces **55 clips and a 7m40.9s collection**, including 14 seconds explicitly marked as context. Every reported masked frame is retained at original speed, with full framing and matching audio, exported at 1080p30. This is not a selection of successful examples. Masks already present in the recording are outside the scope of these added-mask reports.
 
 ## Use it
 
@@ -55,6 +86,35 @@ OCR locates text, and offline domain rules select likely links. OpenCV template 
 
 See [implementation notes](references/implementation.md) for reviewed rectangle edits and stabilization. Automatic detection, reviewed edits, and final inspection are distinct stages. The source remains intact; outputs go into a new directory.
 
+## How the algorithm works
+
+This diagram follows the current source. The default run produces an automatic first pass; the Agent reviews it and optionally stabilizes or patches it. HDR input is rejected and needs a separate SDR conversion workflow first.
+
+```mermaid
+flowchart TD
+  A["Input: probe SDR and frame rate / calculate full source SHA-256"]
+  B["FFmpeg decode / FFV1 constant-frame-rate intermediate"]
+  C["Detect cuts per frame / clear old tracks and look-back cache at cuts"]
+  D["Apple Vision OCR / text and character bounds"]
+  E["Offline HTTP(S), www and IANA domain rules"]
+  F["Mask bounds: character boxes / missing bounds fall back to line; repeated bounds marked degraded"]
+  G["OpenCV multi-scale template tracking and visual backfill / stop on mismatch or timeout"]
+  H["Automatic video + per-frame report.json"]
+  I["refine: verify source SHA-256 again"]
+  J["Optional stabilization: fixed static envelopes / split motion and zoom / break at cuts and missing frames"]
+  K["Agent reviews source frames / optional manual patch bound to report SHA-256"]
+  L["FFmpeg re-render H.264 + AAC / check frame count, duration, audio streams and full decoding"]
+  A --> B --> C
+  C --> D --> E --> F
+  C -->|"Existing tracks can match even without current OCR boxes"| G
+  F -->|"New detections seed tracks / visual backfill"| G
+  G --> H --> I --> J --> K --> L
+```
+
+The diagram shows logical stages, not a strict per-frame sequence. OCR workers may prefetch concurrently. Existing tracks can continue through visual matching without current OCR boxes, and later detections may visually backfill earlier frames.
+
+Degraded character bounds can overmask; stabilization and tracking can still miss text. Inspect the actual frames: technical checks are not visual acceptance. See [implementation notes](references/implementation.md).
+
 ## What we measured
 
 | Item | Evidence |
@@ -74,7 +134,7 @@ The Skill finds **visible text that resembles a URL**, follows movement and scal
 
 This helps reduce visible-address concerns before publishing. It cannot guarantee platform approval or zero missed text. Check appearances, disappearances, zooms, cuts, and adjacent text. One older case item remains unlocated: the reported `.html` at 25:41, where the exact source frame shows a scales animation.
 
-The current 70 code tests pass, including a regression for repeated whole-line Vision character bounds discovered in the fresh trial. The historical 144-frame real-OCR synthetic fixture passed. An independent Agent reran the code, checked all six real comparison images pixel for pixel, and recalculated the dataset hashes. The discovered source-binding flaw was fixed and retested. See the [independent review](docs/independent-review.md).
+The current 70 core code tests and 9 collection-tool tests pass, including a regression for repeated whole-line Vision character bounds discovered in the fresh trial. The historical 144-frame real-OCR synthetic fixture passed. An independent Agent reran the code, checked all six real comparison images pixel for pixel, and recalculated the dataset hashes. The discovered source-binding flaw was fixed and retested. See the [independent review](docs/independent-review.md).
 
 ## Review from another machine
 

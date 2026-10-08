@@ -1,0 +1,80 @@
+{
+  "checks": [
+    {
+      "frame": 1860,
+      "side": "before",
+      "full_dimensions": [
+        3840,
+        2160
+      ],
+      "prior_crop_pixels_identical": true,
+      "mean_abs_error": 0.0
+    },
+    {
+      "frame": 1860,
+      "side": "after",
+      "full_dimensions": [
+        3840,
+        2160
+      ],
+      "prior_crop_pixels_identical": true,
+      "mean_abs_error": 0.0
+    },
+    {
+      "frame": 11970,
+      "side": "before",
+      "full_dimensions": [
+        3840,
+        2160
+      ],
+      "prior_crop_pixels_identical": true,
+      "mean_abs_error": 0.0
+    },
+    {
+      "frame": 11970,
+      "side": "after",
+      "full_dimensions": [
+        3840,
+        2160
+      ],
+      "prior_crop_pixels_identical": true,
+      "mean_abs_error": 0.0
+    },
+    {
+      "frame": 16200,
+      "side": "before",
+      "full_dimensions": [
+        3840,
+        2160
+      ],
+      "prior_crop_pixels_identical": true,
+      "mean_abs_error": 0.0
+    },
+    {
+      "frame": 16200,
+      "side": "after",
+      "full_dimensions": [
+        3840,
+        2160
+      ],
+      "prior_crop_pixels_identical": true,
+      "mean_abs_error": 0.0
+    }
+  ],
+  "method": "The full 4K decoded frames were cropped and resized using the original comparison extractor formula; each matches its previously independently verified PNG pixel-for-pixel. No display-board pixels are used as raw evidence.",
+  "reproduction_with_filter_reinit_disabled": {
+    "output_files_byte_identical": [
+      "01-02-full-comparison.jpg",
+      "06-39-after.png",
+      "09-00-full-comparison.jpg",
+      "01-02-before.png",
+      "09-00-after.png",
+      "01-02-after.png",
+      "09-00-before.png",
+      "06-39-full-comparison.jpg",
+      "06-39-before.png"
+    ],
+    "generator_sha256": "802c8db968f48b9dfe33d75dc8dc6ca9b9e3dd5fbb9c2cca2dd1d29cf56f9e7a",
+    "passed": true
+  }
+}

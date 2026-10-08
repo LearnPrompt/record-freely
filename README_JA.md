@@ -1,10 +1,12 @@
+[中文](README.md) · [English](README_EN.md) · [日本語](README_JA.md)
+
 # 放心录 · Record Freely
 
 **まず伝えたいことを録画する。隠す必要がある部分は、あとから Agent に任せる。**
 
-[中文](README.md) · [English](README_EN.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [ダウンロード・1分の素材](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [公開レビュー](docs/public-review.md)
+[GitHub](https://github.com/LearnPrompt/record-freely) · [ダウンロード・1分の素材](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [公開レビュー](docs/public-review.md)
 
-[処理前と処理後](assets/comparisons/index.html) · [実装](references/implementation.md) · [コストと処理時間](docs/cost-and-time.md) · [オンライン比較](https://learnprompt.github.io/record-freely/)
+[処理前と処理後](https://learnprompt.github.io/record-freely/) · [実装](references/implementation.md) · [コストと処理時間](docs/cost-and-time.md) · [オンライン比較](https://learnprompt.github.io/record-freely/)
 
 ターミナルに URL が現れる。ファイルパスに自分のユーザー名が映る。画面を拡大すると、小さなアドレスが目立つ。気になって録り直したり、一コマずつマスクを直したりするうちに、本来伝えたかった内容が中断されてしまいます。
 
@@ -14,17 +16,46 @@ LearnPrompt が続けている「できると知る → やり方を学ぶ → �
 
 新しい Agent が公開 Skill で実際の1分4K動画を処理しました。自動初稿 **4分54秒**、安定化50秒、最終パッチ出力41秒。Agent の確認・修正は待機や重複計算を含む約33分で、合算や人の操作時間とは異なります。タイトルと重なる12フレームの漏れが残っています。[実際の試用・報告・動画](docs/one-minute-trial.md)を参照してください。
 
-## 同じフレームで比べる
+## 画面全体で処理前と処理後を比べる
 
-処理前と処理後は、同じデコード済みフレーム、切り出し範囲、表示倍率です。BEFORE には元の文字が表示され、隠す範囲を確認できます。
+各画像の**上が元動画、下が v3 の処理結果**です。同じ時刻の画面全体を使い、説明者、字幕、ターミナルを切り落としていません。録画時からあるマスクはそのまま残し、今回追加した矩形を下の画面で確認できます。
 
-![01:02：作者名と Skill 名を残す](assets/comparisons/01-02-comparison.jpg)
+### 01:02：URL の前半を隠し、作者名と Skill 名を残す
 
-![06:39：Skill を見つけるための二つのパス要素を残す](assets/comparisons/06-39-comparison.jpg)
+![01:02：上が元動画、下が v3 の全画面比較](assets/full-frame-comparisons/01-02-full-comparison.jpg)
 
-![09:00：個人情報の接頭部分を隠し、ディレクトリとファイル名を残す](assets/comparisons/09-00-comparison.jpg)
+### 06:39：拡大されたアドレスも隠し、Skill の探し方を残す
 
-[スライダーで比較する](assets/comparisons/index.html)。影视飓风の名称は事例の背景を説明するもので、公式な協業を示すものではありません。
+![06:39：上が元動画、下が v3 の全画面比較](assets/full-frame-comparisons/06-39-full-comparison.jpg)
+
+### 09:00：影视飓风の素材を扱う編集チュートリアルで個人パスを隠す
+
+この録画では、影视飓风（Media Storm）の素材から3人以上が同時に映るショットを抽出する流れを説明しています。説明者、字幕、検出結果、ファイルの用途を残し、映像を確認したパッチで個人パスの接頭部分を隠しています。
+
+![09:00：編集ワークフローを残した全画面比較](assets/full-frame-comparisons/09-00-full-comparison.jpg)
+
+[全画面スライダー](https://learnprompt.github.io/record-freely/) · [元サイズの4Kフレーム](assets/full-frame-comparisons/) · [フレーム番号とハッシュ](assets/full-frame-comparisons/manifest.json)
+
+<details>
+<summary>マスク境界の拡大図を見る</summary>
+
+作者名と Skill 名は元の文字を確認して残しています。自動推測ではありません。
+
+![01:02：マスク境界](assets/comparisons/01-02-comparison.jpg)
+
+![06:39：マスク境界](assets/comparisons/06-39-comparison.jpg)
+
+![09:00：マスク境界](assets/comparisons/09-00-comparison.jpg)
+
+</details>
+
+事例は、制作者が影视飓风の素材を使った編集ワークフローを学び、実践する録画です。名称は背景の説明であり、公式な協業を示すものではありません。
+
+## マスクした全区間をまとめて確認する
+
+[まとめ動画を再生・ダウンロード](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/all-masked-segments.mp4) · [55本の個別動画と再現資料](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/masked-segment-clips.zip) · [元動画とまとめ動画の時刻一覧](docs/masked-segment-collection.md)
+
+v3 の最終フレーム報告にある追加マスクは、連続106区間、13,407フレームです。1秒以下の間隔を結合すると、**55本、7分40.9秒**になります。そのうち14秒は前後関係を残す区間として明記しています。報告中のマスクフレームをすべて通常速度で残し、画面全体と対応する音声を1080p・30fpsで出力しています。成功例だけの抜粋ではありません。録画時からあったマスクは今回の追加マスク報告の集計対象外です。
 
 ## 使い方
 
@@ -55,6 +86,35 @@ OCR で文字の位置を取得し、オフラインのドメイン規則でリ�
 
 確認済みの矩形修正とマスク安定化については、[実装説明](references/implementation.md)を参照してください。自動検出、映像を見て行う修正、最終確認は別の工程です。元動画は変更せず、新しい出力先を使います。
 
+## アルゴリズムの流れ
+
+現在のソースに対応した図です。通常は自動初稿を作成し、Agent が確認して、必要に応じて枠の安定化やパッチを行います。HDR 入力は拒否されるため、別の手順で SDR に変換する必要があります。
+
+```mermaid
+flowchart TD
+  A["入力：SDR とフレームレートを確認 / 元ファイル全体の SHA-256 を計算"]
+  B["FFmpeg でデコード / FFV1 の固定フレームレート中間動画"]
+  C["毎フレームでカット検出 / カット時に古い追跡と遡りキャッシュを消去"]
+  D["Apple Vision OCR / 文字と文字境界を取得"]
+  E["HTTP(S)、www、IANA ドメインのオフライン規則"]
+  F["マスク範囲：文字枠 / 欠落時は行全体；重複枠は精度低下と記録"]
+  G["OpenCV 多尺度テンプレート追跡と視覚根拠による遡り補完 / 不一致か期限超過で停止"]
+  H["自動初稿動画 + フレーム別 report.json"]
+  I["refine：元ファイルの SHA-256 を再確認"]
+  J["任意の安定化：静止は固定包絡 / 移動とズームを分割 / カットと欠落フレームで区切る"]
+  K["Agent が元フレームを確認 / 任意の手動パッチを report の SHA-256 に紐付け"]
+  L["FFmpeg で H.264 + AAC に再出力 / フレーム数、長さ、音声トラック、全デコードを確認"]
+  A --> B --> C
+  C --> D --> E --> F
+  C -->|"今回の OCR 枠がなくても既存の追跡で照合"| G
+  F -->|"新しい検出で追跡を開始 / 視覚的に補完"| G
+  G --> H --> I --> J --> K --> L
+```
+
+図は論理的な工程を示し、毎フレームの厳密な逐次処理ではありません。OCR ワーカーは並行して先読みできます。今回の OCR 枠がなくても既存の追跡を画像照合で継続し、後の検出から前のフレームを視覚的に補完できます。
+
+文字枠の精度低下で余分な文字が隠れることがあり、安定化や追跡にも検出漏れが残ります。実際の画面を確認してください。技術チェックは視覚的な合格判定とは別です。[実装説明](references/implementation.md)を参照してください。
+
 ## 今回確認できたこと
 
 | 項目 | 確認結果 |
@@ -74,7 +134,7 @@ OCR で文字の位置を取得し、オフラインのドメイン規則でリ�
 
 公開前のアドレス表示に関する不安を減らすためのツールです。プラットフォームの審査通過や検出漏れゼロを保証するものではありません。出現・消失、ズーム、カット、隣の文字を確認してください。以前の指摘のうち、25:41 の `.html` はまだ特定できていません。該当する正確な元フレームは天秤のアニメーションでした。
 
-現在の70件のコードテストが通りました。新しい試用で見つかった Vision の同一行範囲を返す文字枠について、レポート表示の回帰テストを含みます。以前の144フレームの実 OCR 合成動画テストも通っています。独立した Agent がソースから再実行し、実フレームの比較画像6枚を画素単位で照合し、資料全体のハッシュも再計算しました。発見された元動画の紐付け不具合は修正・再検証済みです。[独立復査](docs/independent-review.md)を参照してください。
+現在の70件のコアコードテストと9件のまとめ動画ツールテストが通りました。新しい試用で見つかった Vision の同一行範囲を返す文字枠について、レポート表示の回帰テストを含みます。以前の144フレームの実 OCR 合成動画テストも通っています。独立した Agent がソースから再実行し、実フレームの比較画像6枚を画素単位で照合し、資料全体のハッシュも再計算しました。発見された元動画の紐付け不具合は修正・再検証済みです。[独立復査](docs/independent-review.md)を参照してください。
 
 ## 別のマシンから復査する
 

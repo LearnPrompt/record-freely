@@ -1,10 +1,12 @@
+[中文](README.md) · [English](README_EN.md) · [日本語](README_JA.md)
+
 # 放心录 · Record Freely
 
 **先把内容录下来，再把需要遮挡的地方交给 Agent。**
 
-[English](README_EN.md) · [日本語](README_JA.md) · [GitHub](https://github.com/LearnPrompt/record-freely) · [下载与一分钟样片](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [公开复查](docs/public-review.md)
+[GitHub](https://github.com/LearnPrompt/record-freely) · [下载与一分钟样片](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [公开复查](docs/public-review.md)
 
-[前后对比](assets/comparisons/index.html) · [实现说明](references/implementation.md) · [成本与耗时](docs/cost-and-time.md) · [在线拖动滑杆](https://learnprompt.github.io/record-freely/)
+[前后对比](https://learnprompt.github.io/record-freely/) · [实现说明](references/implementation.md) · [成本与耗时](docs/cost-and-time.md) · [在线拖动滑杆](https://learnprompt.github.io/record-freely/)
 
 录教程时，总有一些瞬间让人停下来：终端里突然出现链接，文件路径带着自己的用户名，页面一放大，原本不起眼的地址占了半个屏幕。怕发布时被误判，于是重录、剪掉、逐帧补码。最后，被打断的是你想分享的那件事。
 
@@ -16,23 +18,44 @@
 
 ## 看看改了什么
 
-同一源帧、同一裁切范围，前后都保留真实文字。对照图中 BEFORE 展示原本可见的地址；它用于解释遮挡范围。
+下面先看**完整画面**：每张对照图上方是输入原片，下方是 v3 打码终稿，来自同一时刻，不裁去讲解者、字幕或终端上下文。源片已有灰块照原样保留；下方新增的实色框才是这次处理的结果。
 
-### 留下 Skill 的找法
+### 01:02：链接前半段遮住，作者和 Skill 名留下
 
-只遮链接前半段，留下作者和 Skill 名字。这项选择由人工确认源字形，再写入修改区域；不是默认自动猜作者。
+![01:02 完整画面对比，上方原片，下方 v3](assets/full-frame-comparisons/01-02-full-comparison.jpg)
 
-![01:02 同帧对照：保留作者和 Skill 名称](assets/comparisons/01-02-comparison.jpg)
+### 06:39：放大的地址也遮住，Skill 的找法仍然可读
 
-![06:39 同帧对照：缩放后仍保留 Skill 的作者与名称](assets/comparisons/06-39-comparison.jpg)
+![06:39 完整画面对比，上方原片，下方 v3](assets/full-frame-comparisons/06-39-full-comparison.jpg)
 
-### 文件路径保留用途，身份前缀收起来
+### 09:00：在影视飓风素材的剪辑教程里，只收起个人路径前缀
 
-`Downloads/…/clips` 和文件名帮助观众理解工作流。遮掉身份前缀，观众仍然能跟着操作。连续帧检查覆盖了鼠标高亮、滚动、边缘裁切和章节标题交叠。
+这段录屏展示如何给影视飓风素材筛选三人及以上同框的片段。完整画面保留讲解者、字幕、检测结果和文件用途，能看见这个 Skill 实际用在什么教程里。这里对个人路径前缀的处理来自逐帧审阅后的补丁。
 
-![09:00 同帧对照：遮身份前缀，保留目录和文件名](assets/comparisons/09-00-comparison.jpg)
+![09:00 完整画面对比，保留影视飓风剪辑工作流](assets/full-frame-comparisons/09-00-full-comparison.jpg)
 
-[拖动滑杆查看真实前后对比](assets/comparisons/index.html)。这是围绕影视飓风内容展开的独立创作者技术示例；名称用于交代案例背景，不表示官方合作。
+[拖动完整画面滑杆](https://learnprompt.github.io/record-freely/) · [查看原尺寸 4K 源帧与成片帧](assets/full-frame-comparisons/) · [准确帧号与文件哈希](assets/full-frame-comparisons/manifest.json)
+
+<details>
+<summary>展开局部细节，检查遮挡边界</summary>
+
+作者和 Skill 名由源字形审阅确认，不是默认自动推断；文件目录和文件名保留用途。
+
+![01:02 局部遮挡边界](assets/comparisons/01-02-comparison.jpg)
+
+![06:39 局部遮挡边界](assets/comparisons/06-39-comparison.jpg)
+
+![09:00 局部遮挡边界](assets/comparisons/09-00-comparison.jpg)
+
+</details>
+
+案例来自创作者学习和实践影视飓风相关剪辑工作流的录屏，名称交代素材背景；不表示官方合作。
+
+## 所有打码片段，单独看一遍
+
+[播放／下载打码片段合集](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/all-masked-segments.mp4) · [下载 55 个独立片段及复现资料](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/masked-segment-clips.zip) · [原片时间与合集位置索引](docs/masked-segment-collection.md)
+
+按 v3 最终逐帧报告提取全部新增打码画面：106 段严格连续区间，共 13,407 个打码帧。合并不超过 1 秒的短间隙后，得到 **55 个片段、7分40.9秒** 的合集，额外 14 秒是明确标记的上下文。片段保持原速和完整画面，输出 1080p、30fps，保留对应音频；不是只挑几个成功镜头。源片录制时已有的灰块不在这份新增打码记录的统计范围内。
 
 ## 怎么用
 
@@ -63,6 +86,35 @@ OCR 先找文字，再用离线域名规则筛选疑似链接；OpenCV 模板匹
 
 人工修改和稳框入口见 [实现说明](references/implementation.md)。自动检测、人工修补和最终检查是不同阶段，报告会分别说明。输入源片保持不变，输出使用新目录。
 
+## 算法怎样工作
+
+下图对应当前源码；默认先生成自动初稿，再由 Agent 审阅，按需稳框和修补。HDR 输入会被拒绝，需要先用单独流程转为 SDR。
+
+```mermaid
+flowchart TD
+  A["输入视频：探测 SDR 与帧率 / 计算完整源 SHA-256"]
+  B["FFmpeg 解码 / FFV1 恒定帧率中间片"]
+  C["逐帧检测切镜 / 切镜时清空旧追踪与回看缓存"]
+  D["Apple Vision OCR / 文字与字符边界"]
+  E["离线规则筛选 HTTP(S)、www、IANA 域名"]
+  F["定位遮挡框：字符框 / 缺失则整行；重复框标记退化"]
+  G["OpenCV 多尺度模板跟踪与视觉回补 / 失配或超时停止"]
+  H["自动初稿视频 + 逐帧 report.json"]
+  I["refine：重新核对源 SHA-256"]
+  J["可选稳框：静止固定包络 / 移动与缩放分段 / 切镜和缺帧断开"]
+  K["Agent 审阅源帧 / 可选人工补丁绑定 report SHA-256"]
+  L["FFmpeg 重渲染 H.264 + AAC / 帧数、时长、音轨与完整解码检查"]
+  A --> B --> C
+  C --> D --> E --> F
+  C -->|"已有轨迹：当前 OCR 没有框时仍可匹配"| G
+  F -->|"新检测用于建轨 / 视觉回补"| G
+  G --> H --> I --> J --> K --> L
+```
+
+图示逻辑阶段，并非每帧严格串行。OCR worker 可以并行预取；当前 OCR 没有检测框时，已有轨迹仍可依靠画面匹配续接，后续检测也可视觉回补前帧。
+
+字符框退化可能多挡；稳框与跟踪也可能漏码。最后仍要检查实际画面，技术检查不等于视觉验收。详见 [实现说明](references/implementation.md)。
+
 ## 这次实测
 
 | 项目 | 可核实结果 |
@@ -82,7 +134,7 @@ OCR 先找文字，再用离线域名规则筛选疑似链接；OpenCV 模板匹
 
 这能减少发布前可见地址带来的顾虑，但平台规则与识别结果不由 Skill 控制；它不能保证过审。最终仍要看链接首尾、缩放、切镜与邻近文字。本案例还有一个旧反馈未定位：25:41 的 `.html`，准确源帧为天平动画，保留在复查记录中。
 
-当前 70 项代码测试通过，包含新试用发现的 Vision 重复整行框报告标签回归。历史版本的 144 帧真实 OCR 合成夹具通过。独立 Agent 从源码复跑、逐像素核对六张真实对照图，并重新计算完整复查数据集哈希；发现的源视频绑定问题已修复并复验。见[独立复查](docs/independent-review.md)。
+当前 70 项核心代码测试与 9 项合集工具测试通过，包含新试用发现的 Vision 重复整行框报告标签回归。历史版本的 144 帧真实 OCR 合成夹具通过。独立 Agent 从源码复跑、逐像素核对六张真实对照图，并重新计算完整复查数据集哈希；发现的源视频绑定问题已修复并复验。见[独立复查](docs/independent-review.md)。
 
 ## 交给下一个 Agent
 

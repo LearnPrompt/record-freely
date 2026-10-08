@@ -1,0 +1,85 @@
+{
+  "source": "带封面.mp4",
+  "final": "v3/redacted.mp4",
+  "source_existing_masks_preserved": true,
+  "rows": [
+    {
+      "id": "01-02",
+      "global_frame": 1860,
+      "time_seconds": 62.0,
+      "full_frame_size": [
+        3840,
+        2160
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        3840,
+        2160
+      ],
+      "comparison_method": "Source and v3 at the same verified 30fps frame. Full-frame PNGs are unscaled; display board scales both equally, with BEFORE above AFTER and a neutral separator outside the frames. No text or mask replacement.",
+      "before": "01-02-before.png",
+      "after": "01-02-after.png",
+      "board": "01-02-full-comparison.jpg",
+      "file_sha256": {
+        "01-02-before.png": "863494ec53420ab21ca9751693da7883ef37d1dbff942a70ecaec2a577276d9f",
+        "01-02-after.png": "5db75d0c21a5bd32efdc671e396d953e0a04ab9bfa3bba1b622afab620b97f3b",
+        "01-02-full-comparison.jpg": "9533cbc5df63fe004a335357aca4750cd236bfa75b6a68cb7d242c125f299813"
+      }
+    },
+    {
+      "id": "06-39",
+      "global_frame": 11970,
+      "time_seconds": 399.0,
+      "full_frame_size": [
+        3840,
+        2160
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        3840,
+        2160
+      ],
+      "comparison_method": "Source and v3 at the same verified 30fps frame. Full-frame PNGs are unscaled; display board scales both equally, with BEFORE above AFTER and a neutral separator outside the frames. No text or mask replacement.",
+      "before": "06-39-before.png",
+      "after": "06-39-after.png",
+      "board": "06-39-full-comparison.jpg",
+      "file_sha256": {
+        "06-39-before.png": "f1c880d3d88345ebedaf1dff1c74c293f2998aa3b7bbb2774381171bf8b39145",
+        "06-39-after.png": "afceabe836d72958a6fd82e3d417c787c78a0a24058ea0bd963e41454fb6c0a5",
+        "06-39-full-comparison.jpg": "e38e8eb3362d968c664f1536f5f201e4f5665638cdee65e5000a81f9d386702f"
+      }
+    },
+    {
+      "id": "09-00",
+      "global_frame": 16200,
+      "time_seconds": 540.0,
+      "full_frame_size": [
+        3840,
+        2160
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        3840,
+        2160
+      ],
+      "comparison_method": "Source and v3 at the same verified 30fps frame. Full-frame PNGs are unscaled; display board scales both equally, with BEFORE above AFTER and a neutral separator outside the frames. No text or mask replacement.",
+      "before": "09-00-before.png",
+      "after": "09-00-after.png",
+      "board": "09-00-full-comparison.jpg",
+      "file_sha256": {
+        "09-00-before.png": "d0f194f72437f2ceae3dabdc45e4cd52130a42a486ff7940f303c1c689d3d99e",
+        "09-00-after.png": "dd73cbc7eef213d5000362aa81eefc65fe72ce4eaf7728c965a5067eeadf0c81",
+        "09-00-full-comparison.jpg": "07480ddfa7e2e4649154b0f4ebf284e74d7686f74e69bbbc387db6a55093d52d"
+      }
+    }
+  ],
+  "source_bytes": 6950202751,
+  "source_sha256": "b779a1a123733bab21059d2130ad6e44d22fd30bab7201ed214fd0c7fe268682",
+  "final_bytes": 4868016834,
+  "final_sha256": "c52e1fdc3a43ef5c97ced886ad23c4aadf95ad471cf41297d18bcabfc4c5db72",
+  "generator_sha256": "802c8db968f48b9dfe33d75dc8dc6ca9b9e3dd5fbb9c2cca2dd1d29cf56f9e7a",
+  "reinit_filter": 0
+}

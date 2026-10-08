@@ -1,2 +1,5 @@
 # Preserve byte-exact historical forensic sources; whitespace is part of the evidence.
 evidence/public-case/** -whitespace
+
+# Preserve CSV evidence bytes while accepting the standard CRLF record terminator.
+evidence/masked-collection-frame-mapping.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

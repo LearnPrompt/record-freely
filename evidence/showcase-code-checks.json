@@ -1,0 +1,19 @@
+{
+  "checked_on_client_date": "2026-10-08",
+  "scope": "Presentation and collection of already-delivered v3 frames. No detector or masking changes.",
+  "code_tests": {
+    "passed": 79,
+    "seconds": 2.2,
+    "core_tests": 70,
+    "collection_tests": 9
+  },
+  "test_discovery_fix": "pytest.ini restricts test discovery to tests/. Archived forensic source scripts are preserved byte-for-byte and not collected as active project tests.",
+  "feedback_files": [
+    "Xnip2026-10-08_13-43-36.jpg",
+    "Xnip2026-10-08_13-48-19.jpg",
+    "Xnip2026-10-08_13-47-49.jpg",
+    "Xnip2026-10-08_13-46-41.jpg"
+  ],
+  "full_frame_verification": "evidence/full-frame-comparison-verification.json",
+  "collection_verification": "evidence/masked-collection-validation.json"
+}
