@@ -20,48 +20,10 @@ import time
 import cv2
 import numpy as np
 
-DOMAIN = r"(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?[.．])+[a-z]{2,24}(?![a-z0-9-])"
-# Repair spacing only for common TLDs; generic '. Word' is usually sentence
-# punctuation, not a link. Never freely join arbitrary prose across spaces.
-SPACED_DOMAIN = (r"(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\s*[.．]\s*)+"
-                 r"(?:com|net|org|edu|gov|io|ai|cn|tw|hk|app|dev|pro|co|me|xyz|site|online|tech)(?![a-z0-9-])")
-ANY_DOMAIN = r"(?:" + DOMAIN + "|" + SPACED_DOMAIN + ")"
-URL_PATTERN = re.compile(
-    r"(?<![a-z0-9_@])(?:https?\s*[:：]\s*[/／]{2}\s*[^\s<>\"'，。]+|"
-    r"www\s*[.．]\s*" + ANY_DOMAIN + r"(?:[/／?#][^\s<>\"'，。]*)?|"
-    + ANY_DOMAIN + r"(?::\d{1,5})?(?:[/／?#][^\s<>\"'，。]*)?)", re.IGNORECASE)
-FILE_EXTENSIONS = {"py", "md", "txt", "json", "yaml", "yml", "csv", "ts", "js", "jsx", "tsx",
-                   "css", "html", "swift", "png", "jpg", "jpeg", "gif", "webp", "pdf", "docx", "pptx",
-                   "xlsx", "mp4", "mov", "mkv", "zip", "exe", "dmg", "log", "sh", "opml", "xml",
-                   "toml", "ini", "conf", "config", "lock", "sqlite", "svg", "mjs", "cjs", "wasm"}
-EMAIL_PATTERN = re.compile(r"[^\s<>\"，。]+@[^\s<>\"，。]+")
-TLD_FILE = Path(__file__).with_name("iana-tlds.txt")
-KNOWN_TLDS = {line.strip().lower() for line in TLD_FILE.read_text().splitlines() if line and not line.startswith("#")}
-
-
-def url_spans(text):
-    """Return original-string spans; never persist recognized URL contents."""
-    result = []
-    emails = [m.span() for m in EMAIL_PATTERN.finditer(text)]
-    for match in URL_PATTERN.finditer(text):
-        value = match.group().rstrip(".,;:!?)]}，。；：！")
-        compact = re.sub(r"\s+", "", value).replace("．", ".").replace("／", "/")
-        explicit = bool(re.match(r"https?[:：]|www\.", compact, re.I))
-        if not re.match(r"https?[:：]", compact, re.I) and any(
-                a < match.end() and b > match.start() for a, b in emails):
-            continue
-        host = re.split(r"[/:?#]", compact)[0]
-        if not explicit:
-            suffix = host.rsplit(".", 1)[-1].lower()
-            has_url_tail = len(compact) > len(host) and compact[len(host)] in "/:?#"
-            if (suffix in FILE_EXTENSIONS and not has_url_tail) or \
-                    suffix not in KNOWN_TLDS | {"test", "local", "localhost", "internal", "invalid"}:
-                continue
-            if re.match(r"\((?:[a-z0-9_'\"]|\))", text[match.end():], re.I) and not has_url_tail:
-                continue
-        if value:
-            result.append((match.start(), match.start() + len(value)))
-    return result
+from review_candidates import (
+    DOMAIN, SPACED_DOMAIN, ANY_DOMAIN, URL_PATTERN, FILE_EXTENSIONS,
+    EMAIL_PATTERN, TLD_FILE, KNOWN_TLDS, url_spans, observation_candidates,
+)
 
 
 def clamp(box, width, height):
@@ -84,54 +46,34 @@ def overlap(a, b):
     return intersection / max(1, a[2] * a[3] + b[2] * b[3] - intersection)
 
 
-def detection_boxes(observations, width, height, padding, metadata=None, identities=None):
+def detection_boxes(observations, width, height, padding, metadata=None, identities=None,
+                    privacy=False, review=None):
     boxes = []
-    for observation in observations:
-        for start, end in url_spans(observation["text"]):
-            value = observation["text"][start:end]
-            # Bare domains from low-confidence OCR often come from mixed CJK
-            # headings. Explicit URL prefixes remain eligible at low confidence.
-            if not re.match(r"https?\s*[:：]|www\s*[.．]", value, re.I) and \
-                    observation.get("confidence", 1) < .5:
-                continue
-            chars = [c for c in observation.get("chars", []) if c["start"] < end and c["end"] > start
-                     and any(not observation["text"][i].isspace()
-                             for i in range(max(start, c["start"]), min(end, c["end"])))]
-            parts = [c["box"] for c in chars]
-            complete = all(any(c["start"] <= i < c["end"] for c in chars)
-                           for i in range(start, end) if not observation["text"][i].isspace())
-            outer = observation["box"]
-            valid = all(b[2] > 0 and b[3] > 0 and b[0] >= outer[0] - .01
-                        and b[1] >= outer[1] - .01 and b[0] + b[2] <= outer[0] + outer[2] + .01
-                        and b[1] + b[3] <= outer[1] + outer[3] + .01 for b in parts)
-            # Vision can return the same whole-line bounds for every requested
-            # character. Preserve the conservative rectangle, but do not report
-            # that degraded geometry as precise character localization.
-            repeated = len(parts) > 1 and all(
-                all(abs(a - b) <= 1e-6 for a, b in zip(part, parts[0]))
-                for part in parts[1:])
-            # Missing/degenerate character boxes must not produce a partial or
-            # huge URL mask. Prefer the containing line when subranges fail.
-            box = union(parts) if parts and complete and valid else outer
-            x, y, w, h = box
-            padded = clamp([x * width - padding, y * height - padding,
-                            w * width + 2 * padding, h * height + 2 * padding], width, height)
-            if padded[2] and padded[3] and not any(overlap(padded, b) > .8 for b in boxes):
-                boxes.append(padded)
-                if metadata is not None:
-                    value = observation["text"][start:end]
-                    compact = re.sub(r"\s+", "", value).lower()
-                    identity = None
-                    if identities is not None:
-                        if compact not in identities:
-                            identities[compact] = f"U{len(identities) + 1:03}"
-                        identity = identities[compact]
-                    metadata.append({"id": identity,
-                                     "kind": "http(s)" if re.match(r"https?[:：]", compact) else
-                                             "www" if compact.startswith("www.") else "domain",
-                                     "box_method": ("repeated_character_boxes" if repeated else "characters")
-                                                   if parts and complete and valid else "line_fallback",
-                                     "ocr_confidence": float(observation.get("confidence", 0))})
+    for candidate in observation_candidates(observations,width,height,padding,privacy):
+        if review is not None:
+            review.append({k:v for k,v in candidate.items() if k not in {'observation_index','span'}})
+        if candidate['status'] != 'mask':
+            continue
+        padded = candidate['box']
+        if any(overlap(padded,b)>.8 for b in boxes):
+            continue
+        boxes.append(padded)
+        if metadata is not None:
+            observation=observations[candidate['observation_index']]
+            a,b=candidate['span']
+            compact=re.sub(r"\s+", "", observation.get('text','')[a:b]).lower()
+            if candidate['kind']=='qr_code':
+                compact='qr:' + str(padded)
+            identity=None
+            if identities is not None:
+                key=(candidate['kind'],compact)
+                if key not in identities:
+                    identities[key]=f"U{len(identities)+1:03}"
+                identity=identities[key]
+            metadata.append({'id':identity,'kind':candidate['kind'],
+                             'box_method':candidate['box_method'],
+                             'ocr_confidence':candidate['confidence'],
+                             'decision':'mask','reason':candidate['reason']})
     return boxes
 
 
@@ -143,11 +85,12 @@ class VisionOCR:
         self.process = subprocess.Popen([str(binary)], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                         stderr=subprocess.DEVNULL, text=True, bufsize=1)
         self.image = scratch / "ocr.png"
+        self.privacy = False
 
     def read(self, frame):
         if not cv2.imwrite(str(self.image), frame):
             raise RuntimeError("Could not write OCR frame")
-        self.process.stdin.write(json.dumps({"path": str(self.image)}) + "\n")
+        self.process.stdin.write(json.dumps({"path": str(self.image), "privacy": self.privacy}) + "\n")
         self.process.stdin.flush()
         line = self.process.stdout.readline()
         if not line:
@@ -155,7 +98,7 @@ class VisionOCR:
         result = json.loads(line)
         if "error" in result:
             raise RuntimeError("Vision OCR failed: " + result["error"])
-        return result["observations"]
+        return result["observations"] + result.get("codes", [])
 
     def close(self):
         try:
@@ -277,6 +220,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path)
     parser.add_argument("--output-dir", type=Path, required=True, help="Must be a new directory")
+    parser.add_argument("--privacy", action="store_true", help="Also mask emails, contact numbers, QR codes and identity path prefixes; unresolved candidates remain for review")
     parser.add_argument("--padding", type=int, default=4, help="Extra pixels around text; default 4")
     parser.add_argument("--detect-every", type=int, default=1, help="1 scans every frame; higher values can miss flashes")
     parser.add_argument("--ocr-workers", type=int, choices=[1, 2, 3], default=1,
@@ -323,6 +267,9 @@ def main():
     report = {"status": "processing", "engine": "macOS Vision + OpenCV", "fps": fps,
               "style": args.style, "padding": args.padding, "detect_every": args.detect_every,
               "frames": [], "scene_cuts": [], "warnings": [],
+              "privacy_mode": args.privacy, "review_candidates": [],
+              "coverage": {"visual": {"state": "processing", "scanned_frames": 0},
+                  "audio": "not_checked", "embedded_subtitles": "not_checked", "platform_rules": "not_checked"},
               "privacy": "Local only. OCR text and URL contents are not saved in the report."}
     report.update(start=args.start, selected_duration=args.duration,
                   source_sha256=file_sha256(source),
@@ -344,6 +291,7 @@ def main():
     encoder = None
     ocr_pool = None
     extra_ocr = []
+    scanned_frames = 0
     try:
         with tempfile.TemporaryDirectory(prefix="link-redactor-") as temp:
             scratch = Path(temp)
@@ -363,11 +311,13 @@ def main():
             expected = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
             report.update(width=width, height=height, source_video_stream=video["index"])
             ocr = VisionOCR(scratch)
+            ocr.privacy = args.privacy
             if args.detect_every == 1 and args.ocr_workers > 1:
                 for worker_index in range(1, args.ocr_workers):
                     worker_dir = scratch / f"ocr-worker-{worker_index}"
                     worker_dir.mkdir()
                     extra_ocr.append(VisionOCR(worker_dir))
+                    extra_ocr[-1].privacy = args.privacy
                 ocr_pool = ThreadPoolExecutor(max_workers=args.ocr_workers)
             silent = scratch / "masked.mp4"
             encoder = subprocess.Popen(["ffmpeg", "-v", "error", "-nostdin", "-n", "-f", "rawvideo", "-pix_fmt", "bgr24",
@@ -386,6 +336,7 @@ def main():
             sample_interval = max(1, round(expected / 10))
             sample_shape = (min(640, width), round(height * min(640, width) / width))
             number = 0
+            scanned_frames = 0
             future_frames = deque()
             next_frame = 0
 
@@ -435,10 +386,17 @@ def main():
                     tracks = []
                     while pending:
                         emit(pending.popleft())
-                details = []
+                details, candidates = [], []
+                should_scan = number % args.detect_every == 0 or cut
                 detected = detection_boxes(observations if observations is not None else ocr.read(frame),
-                                           width, height, args.padding, details, identities) \
-                    if number % args.detect_every == 0 or cut else []
+                                           width, height, args.padding, details, identities,
+                                           privacy=args.privacy, review=candidates) if should_scan else []
+                for candidate in candidates:
+                    report['review_candidates'].append(dict(candidate, frame=number,
+                        time=round(number/fps,6), normalized_source_time=round(args.start+number/fps,6),
+                        action='masked' if candidate['status']=='mask' else
+                               'preserved' if candidate['status']=='keep' else 'pending'))
+                scanned_frames += int(should_scan)
                 current, boxes, origins = [], list(detected), ["ocr"] * len(detected)
                 regions = [dict(d, origin="ocr") for d in details]
                 for track in tracks:
@@ -527,10 +485,21 @@ def main():
                 raise RuntimeError("Input changed during processing")
             report.update(status="complete", processed_frames=number, duration=clip_duration,
                           masked_frames=sum(bool(f["boxes"]) for f in report["frames"]),
+                          output_sha256=file_sha256(args.output_dir / 'redacted.mp4'),
                           audio_streams=audio_count, elapsed_seconds=round(time.monotonic() - started, 2),
-                          verification={"frame_count": "passed", "duration": "passed", "audio_stream_count": "passed"})
+                          verification={"frame_count": "passed", "duration": "passed", "audio_stream_count": "passed"},
+                          coverage={"visual": {"state": "complete", "mode": "every_normalized_frame" if args.detect_every==1 else "sampled_plus_scene_cuts",
+                              "scanned_frames": scanned_frames, "total_frames": number,
+                              "timeline": "CFR normalized window; normalized_source_time = selected start + frame/fps; not original VFR PTS"},
+                              "audio": "not_checked", "embedded_subtitles": "not_checked", "platform_rules": "not_checked"})
+            report['review_summary']={state:sum(c['status']==state for c in report['review_candidates'])
+                                      for state in ('mask','needs_review','keep')}
+            report['acceptance']='needs_review' if report['review_summary']['needs_review'] else 'not_verified'
+            report['warnings'].append("Export completion is not visual acceptance. Independently rescan the encoded output with review_video.py.")
     except BaseException:
         report["status"] = "failed"
+        report['coverage']['visual'].update(state='failed',scanned_frames=scanned_frames)
+        report['acceptance']='not_verified'
         raise
     finally:
         cleanup_errors = []

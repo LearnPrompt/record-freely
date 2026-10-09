@@ -54,6 +54,43 @@ xcrun --find swiftc
 
 SDR 支持 1–120 fps，输出 CFR H.264/yuv420p；奇数尺寸右/下补到偶数。AAC 输出保持音轨数量和所选窗口的延迟，音频重新编码。VFR/旋转/HDR 或复杂音轨需额外审阅。自动报告完成时检查帧数、时长和音轨数量；refine 另做 `ffmpeg -xerror` 完整解码，仍不等同于完整的视觉漏码审查。
 
+## 候选、隐私模式与检查覆盖
+
+`redact_video.py --privacy` 使用共享候选判断层；默认仍是 URL 模式。隐私模式额外检查邮箱、大陆手机号、有电话标签的号码、个人身份路径前缀以及二维码。普通本地文件扩展名不是网址，编号后面的缩写（例如 `2. AI Coding`）应待审而不是自动遮。未明确识别的电话号码也不能一律遮掉，避免误挡日期、版本号、帧号和教学数据。
+
+候选的处理状态与定位分开：
+
+| 状态 | 含义 | 后续动作 |
+| --- | --- | --- |
+| `mask` | 检测类型及位置足够明确 | 加入遮挡，仍验收像素效果 |
+| `needs_review` | 类型、置信度、位置或上下文需要确认 | 不凭猜测框自动遮，交给 Agent 核对 |
+| `keep` | 当前策略保留 | 记录决定，不冒充平台许可 |
+
+自动报告增加匿名 `review_candidates`、状态汇总 `review_summary`、`privacy_mode` 与 `coverage`。候选保留时间／帧、类型、定位或定位缺失、决定与原因代码，不保留 OCR 地址／联系方式原文。`coverage` 说明视觉检查频率及处理窗口；打码引擎的音频、嵌入字幕、平台检查属于未检查状态。这些字段可审计检测与决定，不改变 SHA 绑定的补丁规则。
+
+`review_video.py` 输出新目录中的 `review.json`，是独立复扫入口：对最终编码的视频重新做检测，不依赖初稿检测框，不重渲染输入。`--output-dir` 必须是新目录；默认 `--detect-every 1` 逐帧 OCR，增大数值就是抽样。`--start` 与 `--duration` 限定窗口，报告不得将窗口外算入覆盖。检测失败与未发现候选要分开记录，抽样不能证明没有短闪；逐帧识别也不能保证零漏码。
+
+```bash
+python3 scripts/review_video.py /absolute/final.mp4 \
+  --output-dir /absolute/new-review --privacy --detect-every 1
+python3 scripts/review_video.py /absolute/final.mp4 \
+  --output-dir /absolute/new-review-with-speech --privacy \
+  --asr-model /absolute/local-whisper-model.bin \
+  --subtitle /absolute/captions.srt --subtitle /absolute/other-captions.srt
+```
+
+覆盖使用归一化 CFR 的时间轴，变帧率素材可能重复或丢弃源帧。音轨逐条检查，画面、音频、字幕同步受选定窗口限制；提供的 SRT 时间须从源视频零点开始，不能使用片段相对时间。
+
+语音可选且只走本地：`--asr-model` 指向已存在的模型，运行时需要已有 `whisper-cli`；没有提供模型是未检查，没有音轨是无音轨，执行失败是失败。不会自动下载模型，也不会调用云服务。转写只在临时目录用于候选检测，不在匿名报告保存原文。已有 SRT 字幕是独立输入来源，不代表已审阅嵌入视频的所有字幕。语音、字幕候选不自动静音或修改媒体；Agent 仍需判断指代、举例、否定、引用等语境。
+
+## 发布前语义复查
+
+[发布前检查流程](../docs/prepublication-review.md)与[记录模板](platform-review-template.json)供 Agent 使用，并非内置平台规则库。其顺序是：确定场景 → 核现行官方来源 → 检查实际覆盖 → 审阅候选及反证 → 决定修改 → 对成片再检查 → 单独记录真实反馈。规则日期／来源／场景与用户偏好分开；来源过期、规则不适用、原因不明确都保留未知状态。
+
+实际平台反馈不会自动训练模型，也不自动成为规则。通用提示、流量数和“修改后能发布”只能作为观察记录，无法排除同时变化的账号、时间、标题或平台状态。`confirmed_reason` 默认 `null`；只有具体、可核实的反馈依据才可填写。平台发布验证与本地技术、语义检查分别记录，不宣称保证过审。
+
+此流程借鉴 [guoshen](https://github.com/huangbai-AI/guoshen) 的证据、候选与反馈分层思路；放心录按自身架构实现候选、定位、渲染与独立复扫，没有复制整套代码或规则库。涉及长视频抽帧时还应核验真实时间戳与数量对应，不能用文件序号冒充时间：滤镜重初始化、变帧率和失败解码都可能打破这种假设。
+
 ## 匿名人工补丁 v1
 
 补丁 SHA256 必须绑定**传给 refine 的那份原始 report.json 字节**。帧号是 `report.json` 内的本次处理片段编号，从 0 开始；即使原片预览从 60 秒开始也用片段帧号。坐标是归一化源片尺寸的像素 `[x, y, width, height]`，整数、在画面内。
@@ -104,3 +141,6 @@ python3 tests/verify_fixture.py /absolute/new-fixture/stable/redacted.mp4 \
 ## 来源与维护
 
 引擎、Swift worker、TLD 快照及原回归单测来自本项目实测的 `video-link-redactor`；稳框核心来自本片 v3 的 `stabilize_masks.py`，现在明确支持报告场景边界与不连续索引，不硬编码 30 fps 或分块起点。IANA TLD 文件是附带离线快照，不运行更新请求。提交时把快照、Swift 源码与测试一同保留；可以从源码重新编译，不能仅交付某台机器的二进制。
+
+成片报告含 `output_sha256`；`review_video.py --redaction-report` 在创建复查目录前验证它与输入视频相符。refine 更新成片哈希，继承的候选账本明确标为自动初稿记录，并非人工修改后的重新识别结果。
+同画面空间邻近的地址片段只合成匿名待审线索；跨时间的拆分仍需人工回看，不能自动套用扩大矩形。身份前缀缺少可信字符框时待审，避免把目录用途一起遮住。

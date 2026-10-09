@@ -1,0 +1,118 @@
+{
+  "template_version": 1,
+  "purpose": "Agent prepublication review record, not an executable platform rule library",
+  "record_visibility": "private",
+  "public_case_opt_in": false,
+  "scenario": {
+    "platform": null,
+    "publication_surface": null,
+    "content_type": null,
+    "reviewed_at": null,
+    "planned_publication_at": null
+  },
+  "user_preferences": {
+    "redaction_mode": "links_only",
+    "retain_components": [],
+    "additional_private_preferences": []
+  },
+  "source_media": {
+    "source_sha256": null,
+    "encoded_output_sha256": null,
+    "duration_seconds": null,
+    "private_local_reference": null
+  },
+  "policy_sources": [],
+  "policy_source_record_shape": {
+    "id": null,
+    "title": null,
+    "url": null,
+    "authority": "unknown",
+    "published_at": null,
+    "effective_at": null,
+    "verified_at": null,
+    "freshness": "unverified",
+    "applicable_platforms": [],
+    "applicable_scenarios": [],
+    "rule_summary": null,
+    "limitations": []
+  },
+  "evidence_coverage": {
+    "visual": {
+      "status": "not_checked",
+      "mode": null,
+      "timeline": null,
+      "window_start": null,
+      "window_duration": null,
+      "checked_frames": null,
+      "failed_frames": null,
+      "skipped_frames": null,
+      "limitations": []
+    },
+    "audio": {
+      "status": "not_checked",
+      "tracks": [],
+      "asr_model_local": false,
+      "transcript_persisted": false,
+      "limitations": []
+    },
+    "subtitles": {
+      "status": "not_checked",
+      "sources": [],
+      "limitations": []
+    },
+    "platform_semantic_review": {
+      "status": "not_checked",
+      "limitations": []
+    }
+  },
+  "local_candidates": [],
+  "candidate_record_shape": {
+    "id": null,
+    "source_kind": null,
+    "time_seconds": null,
+    "frame_index": null,
+    "category": null,
+    "bounds": null,
+    "status": "needs_review",
+    "reason_codes": [],
+    "recognized_private_text_persisted": false
+  },
+  "semantic_findings": [],
+  "semantic_finding_record_shape": {
+    "id": null,
+    "evidence_refs": [],
+    "context_summary_without_private_values": null,
+    "supporting_policy_source_ids": [],
+    "counterevidence": [],
+    "assessment": "unconfirmed",
+    "suggested_action": null,
+    "uncertainties": []
+  },
+  "change_and_validation": {
+    "changes": [],
+    "technical_check": "not_run",
+    "visual_acceptance": "not_run",
+    "independent_output_review": "not_run",
+    "publication_validation": "not_run"
+  },
+  "platform_feedback": [],
+  "feedback_record_shape": {
+    "observed_at": null,
+    "visibility": "private",
+    "private_feedback_reference": null,
+    "observation_summary_without_private_values": null,
+    "confirmed_reason": null,
+    "reason_evidence_reference": null,
+    "causal_inference": "not_established",
+    "promoted_to_rule": false
+  },
+  "confirmed_reason": null,
+  "unknowns": [],
+  "notes": [
+    "Template shapes document fields only; replace them with actual private records when used.",
+    "mask/needs_review/keep are local processing decisions, not platform violation labels.",
+    "Dates, source authority and applicable scenario must be checked separately from user preferences.",
+    "No observations or feedback automatically become causal claims, learned models or rules.",
+    "Keep private values and transcripts out of public repositories."
+  ]
+}

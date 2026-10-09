@@ -86,6 +86,38 @@ OCR locates text, and offline domain rules select likely links. OpenCV template 
 
 See [implementation notes](references/implementation.md) for reviewed rectangle edits and stabilization. Automatic detection, reviewed edits, and final inspection are distinct stages. The source remains intact; outputs go into a new directory.
 
+## Optional privacy checks and independent output review
+
+The default still masks likely URLs only. Add `--privacy` to check email addresses, mainland Chinese mobile numbers, labeled phone numbers, personal path prefixes, and QR codes as well, while retaining useful path components where possible. Candidates without reliable recognition or bounds stay in a review queue. Each is marked `mask`, `needs_review`, or `keep`; reports omit the recognized addresses and contact details.
+
+```bash
+# Make a short privacy-mode first pass
+python3 scripts/redact_video.py /absolute/input.mp4 \
+  --output-dir /absolute/privacy-preview --privacy --start 60 --duration 20
+
+# Independently scan the encoded output
+python3 scripts/review_video.py /absolute/final.mp4 \
+  --output-dir /absolute/new-review --privacy --detect-every 1
+
+# Optionally inspect local speech and existing SRT subtitles
+python3 scripts/review_video.py /absolute/final.mp4 \
+  --output-dir /absolute/new-review-with-speech --privacy \
+  --asr-model /absolute/local-whisper-model.bin \
+  --subtitle /absolute/captions.srt
+```
+
+Speech inspection requires an installed `whisper-cli` and an existing local model. It neither downloads a model automatically nor uploads media. Without `--asr-model`, audio is explicitly recorded as unchecked, separately from absent audio or transcription failure. Temporary transcripts are cleaned up; anonymous reports omit ASR text. Existing subtitles are independent sources, and `--subtitle` may be repeated. Speech and subtitle candidates are reminders; the scripts do not mute speech, edit subtitles, or rewrite content.
+
+Review writes `review.json` and checks audio tracks separately. SRT timestamps must start at the original video’s zero point, not the selected clip’s zero point. Output review defaults to OCR on every normalized CFR frame. `--detect-every N` enables sampling and records coverage and failures. `--start` and `--duration` limit the inspected window; content outside it remains unchecked. Normalizing variable frame rates to CFR may duplicate or omit source frames. Even every-frame OCR can fail or miss text. Inspect flashes, scrolling, transitions, first appearances, clipped edges, and subtitle overlaps. Review leaves the input intact.
+
+Platform review is a separate Agent workflow using audiovisual context and sourced policies. Keep source dates, applicable scenarios, user preferences, observed feedback, and inferred causes separate. Tool names and unverified feedback do not become platform keyword bans. See the [prepublication workflow](docs/prepublication-review.md) and [blank record template](references/platform-review-template.json). Approval is not guaranteed.
+
+The workflow draws on [guoshen](https://github.com/huangbai-AI/guoshen)'s evidence, candidate review, and feedback separation, implemented around Record Freely's own engine without importing its full code or policy library. Historical 4K and one-minute results describe their original versions, not validation of these new modules.
+
+The new implementation passed **121 tests**, including real Vision single-frame flash/QR rescans, audio-track offsets, independent subtitle sources and rejection of mismatched output hashes. Separate local runs verified concealment in a 36-frame synthetic video and checked two synthesized speech tracks with an existing Whisper model. See [validation scope](docs/privacy-review-validation.md). This does not establish zero missed content in long videos or platform approval.
+
+Use `--redaction-report /absolute/final/report.json` to bind a rescan to the final output hash; use the newest report after refinement. Identity prefixes with unreliable character geometry remain pending. Spatially adjacent address fragments produce review hints, never automatic enlarged masks.
+
 ## How the algorithm works
 
 This diagram follows the current source. The default run produces an automatic first pass; the Agent reviews it and optionally stabilizes or patches it. HDR input is rejected and needs a separate SDR conversion workflow first.
@@ -134,7 +166,7 @@ The Skill finds **visible text that resembles a URL**, follows movement and scal
 
 This helps reduce visible-address concerns before publishing. It cannot guarantee platform approval or zero missed text. Check appearances, disappearances, zooms, cuts, and adjacent text. One older case item remains unlocated: the reported `.html` at 25:41, where the exact source frame shows a scales animation.
 
-The current 70 core code tests and 9 collection-tool tests pass, including a regression for repeated whole-line Vision character bounds discovered in the fresh trial. The historical 144-frame real-OCR synthetic fixture passed. An independent Agent reran the code, checked all six real comparison images pixel for pixel, and recalculated the dataset hashes. The discovered source-binding flaw was fixed and retested. See the [independent review](docs/independent-review.md).
+The previously published version passed 70 core code tests and 9 collection-tool tests, including a regression for repeated whole-line Vision character bounds discovered in the fresh trial. The historical 144-frame real-OCR synthetic fixture passed. An independent Agent reran the code, checked all six real comparison images pixel for pixel, and recalculated the dataset hashes. The discovered source-binding flaw was fixed and retested. See the [independent review](docs/independent-review.md).
 
 ## Review from another machine
 

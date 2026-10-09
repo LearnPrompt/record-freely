@@ -86,6 +86,38 @@ OCR 先找文字，再用离线域名规则筛选疑似链接；OpenCV 模板匹
 
 人工修改和稳框入口见 [实现说明](references/implementation.md)。自动检测、人工修补和最终检查是不同阶段，报告会分别说明。输入源片保持不变，输出使用新目录。
 
+## 可选隐私检查与成片复查
+
+默认仍只处理疑似网址。加 `--privacy` 后，可同时检查邮箱、大陆手机号、有标签的电话、个人路径前缀和二维码；路径后面的目录与文件用途尽量保留。低置信度或缺少位置证据的候选留在待审清单，不凭猜测画框。候选分别记录为 `mask`（可遮挡）、`needs_review`（待确认）或 `keep`（保留），报告不保存识别到的地址或联系方式原文。
+
+```bash
+# 新建隐私模式初稿；先选与实际素材相符的短片段
+python3 scripts/redact_video.py /absolute/input.mp4 \
+  --output-dir /absolute/privacy-preview --privacy --start 60 --duration 20
+
+# 对最终编码文件独立复扫，不沿用初稿的框作为检测结论
+python3 scripts/review_video.py /absolute/final.mp4 \
+  --output-dir /absolute/new-review --privacy --detect-every 1
+
+# 可选：本地完整音轨转写，并分别检查一个或多个现有 SRT 字幕来源
+python3 scripts/review_video.py /absolute/final.mp4 \
+  --output-dir /absolute/new-review-with-speech --privacy \
+  --asr-model /absolute/local-whisper-model.bin \
+  --subtitle /absolute/captions.srt
+```
+
+语音检查需要已有的 `whisper-cli` 和本地模型；不自动下载模型，不向云端传送音视频。未提供 `--asr-model` 时会明确记录“音频未检查”，与“没有音轨”或“转写失败”分开。临时转写用于检测后清理，匿名报告不保留 ASR 原文；已有字幕作为独立来源，`--subtitle` 可以重复指定。语音、字幕候选只提醒，脚本不自动静音、改字幕或重写视频内容。
+
+复查输出 `review.json`，各音轨分别检查；SRT 时间须从原视频零点开始，不能使用片段相对时间。成片复查默认每个归一化 CFR 帧 OCR；`--detect-every N` 改为抽样时，报告保留覆盖与失败记录。`--start` 和 `--duration` 可限定复查窗口；窗口外不属于已检查范围。逐帧也可能识别失败，变帧率转为 CFR 时可能重复或丢弃源帧。未发现候选不等于零泄漏。最终仍需看短闪、滚动、转场、首次出现、上下缘裁切与字幕交叉处。复查不修改输入影片。
+
+平台发布前检查另交给 Agent：结合画面、语音、字幕、上下文和有来源的规则，记录来源日期、适用场景及真实反馈；用户想多遮哪些内容单独记录。它不把工具名或未经验证的反馈写成平台禁词，也不承诺过审。见[发布前检查工作流](docs/prepublication-review.md)与[空白记录模板](references/platform-review-template.json)。
+
+这些流程借鉴了 [guoshen](https://github.com/huangbai-AI/guoshen) 的证据提取、候选复核和反馈区分思路，由放心录按原有遮挡引擎实现；未复制整套代码或平台规则库。历史 4K 案例与一分钟试用的成绩只对应当时版本，不是新增隐私和复扫模块的测试结果。
+
+新增实现已通过本次 **121 项测试**，包括真实 Vision 的单帧短闪／二维码复扫、双音轨时间偏移、字幕多来源和错误成片哈希拒绝。另用36帧合成视频验证遮挡像素，并用已有 Whisper 模型检查两条本地合成语音轨。详见[本次新增能力验证](docs/privacy-review-validation.md)。这些结果不代表长视频零遗漏或平台通过。
+
+可加 `--redaction-report /absolute/final/report.json` 核对成片哈希；稳框／人工补丁重渲染后用最新报告。身份路径字符框不可靠时留待复核，同画面相邻的拆分地址仅生成待审线索，不自动扩大遮挡。
+
 ## 算法怎样工作
 
 下图对应当前源码；默认先生成自动初稿，再由 Agent 审阅，按需稳框和修补。HDR 输入会被拒绝，需要先用单独流程转为 SDR。
@@ -134,7 +166,7 @@ flowchart TD
 
 这能减少发布前可见地址带来的顾虑，但平台规则与识别结果不由 Skill 控制；它不能保证过审。最终仍要看链接首尾、缩放、切镜与邻近文字。本案例还有一个旧反馈未定位：25:41 的 `.html`，准确源帧为天平动画，保留在复查记录中。
 
-当前 70 项核心代码测试与 9 项合集工具测试通过，包含新试用发现的 Vision 重复整行框报告标签回归。历史版本的 144 帧真实 OCR 合成夹具通过。独立 Agent 从源码复跑、逐像素核对六张真实对照图，并重新计算完整复查数据集哈希；发现的源视频绑定问题已修复并复验。见[独立复查](docs/independent-review.md)。
+此前公开版本的 70 项核心代码测试与 9 项合集工具测试通过，包含新试用发现的 Vision 重复整行框报告标签回归。历史版本的 144 帧真实 OCR 合成夹具通过。独立 Agent 从源码复跑、逐像素核对六张真实对照图，并重新计算完整复查数据集哈希；发现的源视频绑定问题已修复并复验。见[独立复查](docs/independent-review.md)。
 
 ## 交给下一个 Agent
 

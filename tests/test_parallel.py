@@ -50,7 +50,7 @@ def test_parallel_ocr_worker_exclusive_and_frames_ordered(tmp_path,monkeypatch,w
     def probe(path):
         if path.name=='redacted.mp4':return {'streams':[{'codec_type':'video','nb_frames':str(frame_count),'duration':str(frame_count/30)}]}
         return {'streams':[{'index':0,'codec_type':'video','avg_frame_rate':'30/1'}]}
-    def detection(obs,w,h,pad,details,identities):
+    def detection(obs,w,h,pad,details,identities,**kwargs):
         details.append({'id':str(obs[0]['value'])})
         return [[obs[0]['value'],2,1,1]]
     def run(command):
