@@ -26,21 +26,23 @@
 
 ```bash
 python3 scripts/review_video.py /absolute/final.mp4 \
-  --output-dir /absolute/new-review --privacy --detect-every 1
+  --output-dir /absolute/new-review --privacy --detect-every 1 \
+  --redaction-report /absolute/final/report.json
 ```
 
 输出 `review.json`。可加 `--redaction-report /absolute/final/report.json` 将检查绑定到该报告的最终输出 SHA-256，避免选错版本。默认对每个归一化 CFR 帧做 OCR；`--detect-every N` 是抽样，覆盖中记录间隔和未检查帧。帧编号与时间必须来自实际解码／归一化时间轴，不能将文件序号直接当原片时间。变帧率归一化可能重复或丢弃源帧，因此“归一化全帧检查”也不等于查看原始编码的每一帧。
 
-语音和现有 SRT 是独立来源：
+语音和现有 SRT 是独立来源；完整 PCM／语言／私有诊断操作见 [音频示例](audio-review-examples.md)：
 
 ```bash
 python3 scripts/review_video.py /absolute/final.mp4 \
   --output-dir /absolute/new-review-with-speech --privacy \
+  --redaction-report /absolute/final/report.json \
   --asr-model /absolute/local-whisper-model.bin \
   --subtitle /absolute/captions.srt --subtitle /absolute/other-captions.srt
 ```
 
-`whisper-cli` 与模型须已存在本地，不自动下载或云上传。所有音轨分别转写；任一轨失败不能记作音频完整通过。模型未提供时是未检查，不是无音轨或没有发现联系方式。转写临时使用后清理，匿名报告不保存 ASR 原文。先核实音轨存在及实际信号；数字静音可用完整解码 PCM 的峰值等证据确认。静音上的重复 ASR 文字属于待排除的幻觉，不能当作真实口播；低音量也不能直接判静音。多语言片段若被默认语言遗漏，使用已授权的本地模型补转写，记录片段语言、源片起点与时间偏移，保留首次结果以便诊断。工具专名错写须与声音、画面或字幕核对。提供的 SRT 使用从原视频零点开始的时间，不是片段相对时间；已有字幕文件本身保留不变。限定 `--start`／`--duration` 时，画面、音轨、字幕只检查该窗口。
+`whisper-cli` 与模型须已存在本地，不自动下载或云上传。所有音轨分别解码并核信号；数字静音窗口跳过 ASR，其他窗口分别转写；任一轨失败不能记作音频完整通过。模型未提供时是未检查，不是无音轨或没有发现联系方式。转写临时使用后清理，匿名报告不保存 ASR 原文。先核实音轨存在及实际信号；数字静音可用完整解码 PCM 的峰值等证据确认。静音上的重复 ASR 文字属于待排除的幻觉，不能当作真实口播；低音量也不能直接判静音。多语言片段若被默认语言遗漏，用 `--asr-language en` 等指定语言和已授权的本地模型补转写，记录片段语言、源片起点与时间偏移，按音频示例在授权的私有目录保存首次结果以便诊断；匿名 `review.json` 不保存原文，脚本临时 SRT 会清理。工具专名错写须与声音、画面或字幕核对。提供的 SRT 使用从原视频零点开始的时间，不是片段相对时间；已有字幕文件本身保留不变。限定 `--start`／`--duration` 时，画面、音轨、字幕只检查该窗口。
 
 需要语义判断时，Agent 回看候选所在的本地源片及前后语境，而非只读命中词。核对字幕是否来自人写、ASR 还是嵌入画面；OCR 与 ASR 错字不能当成真实发言。画面打码不代表声音已经处理，字幕文件检查也不等于嵌入字幕全部检查。
 
@@ -92,3 +94,5 @@ python3 scripts/review_video.py /absolute/final.mp4 \
 ## 本次新增的验证边界
 
 新增模块的验证结果应以本次运行的测试和 `review.json` 为准。历史公开案例、独立复查和一分钟试用仍属于原版本记录；此工作流模板不是实际投稿结果，也不提供过审保证。
+
+实际打码导航用 [时间轴导出工具](actual-mask-timeline.md)，独立实跑失败与修复边界见 [本轮修复记录](independent-audit-fixes.md)。

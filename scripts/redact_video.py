@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 from collections import deque
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError
 from dataclasses import dataclass, field
 import hashlib
 import json
@@ -19,6 +19,9 @@ import time
 
 import cv2
 import numpy as np
+
+from ocr_worker import JSONLineWorker, OCRWorkerError, positive_timeout, valid_ocr_response
+from encoding import add_encoding_arguments, encoding_config, video_encoding_options, verify_encoding
 
 from review_candidates import (
     DOMAIN, SPACED_DOMAIN, ANY_DOMAIN, URL_PATTERN, FILE_EXTENSIONS,
@@ -47,9 +50,10 @@ def overlap(a, b):
 
 
 def detection_boxes(observations, width, height, padding, metadata=None, identities=None,
-                    privacy=False, review=None):
+                    privacy=False, review=None, path_policy="identity-prefix", github_policy="full"):
     boxes = []
-    for candidate in observation_candidates(observations,width,height,padding,privacy):
+    for candidate in observation_candidates(observations,width,height,padding,privacy,
+                                            path_policy=path_policy, github_policy=github_policy):
         if review is not None:
             review.append({k:v for k,v in candidate.items() if k not in {'observation_index','span'}})
         if candidate['status'] != 'mask':
@@ -83,35 +87,27 @@ class VisionOCR:
         binary = scratch / "vision-ocr"
         run(["xcrun", "swiftc", "-O", str(source), "-o", str(binary)])
         self.process = subprocess.Popen([str(binary)], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                        stderr=subprocess.DEVNULL, text=True, bufsize=1)
+                                        stderr=subprocess.DEVNULL, bufsize=0)
+        self.ipc = JSONLineWorker(self.process)
+        self.timeout = 60.
         self.image = scratch / "ocr.png"
         self.privacy = False
 
     def read(self, frame):
         if not cv2.imwrite(str(self.image), frame):
             raise RuntimeError("Could not write OCR frame")
-        self.process.stdin.write(json.dumps({"path": str(self.image), "privacy": self.privacy}) + "\n")
-        self.process.stdin.flush()
-        line = self.process.stdout.readline()
-        if not line:
-            raise RuntimeError("Vision OCR worker exited unexpectedly")
-        result = json.loads(line)
-        if "error" in result:
-            raise RuntimeError("Vision OCR failed: " + result["error"])
+        self.ipc.timeout = self.timeout
+        result = self.ipc.request({"path": str(self.image), "privacy": self.privacy})
+        if not valid_ocr_response(result, "codes"):
+            self.abort()
+            raise OCRWorkerError("ocr_invalid_response")
         return result["observations"] + result.get("codes", [])
 
+    def abort(self):
+        self.ipc.abort()
+
     def close(self):
-        try:
-            self.process.stdin.close()
-        except (BrokenPipeError, OSError):
-            pass
-        try:
-            self.process.wait(timeout=10)
-        except subprocess.TimeoutExpired:
-            self.process.kill()
-            self.process.wait()
-        finally:
-            self.process.stdout.close()
+        self.ipc.close()
 
 
 def run(command):
@@ -216,11 +212,13 @@ def contact_sheet(samples, width):
     return np.vstack([np.hstack(tiles[i:i + 2]) for i in range(0, len(tiles), 2)])
 
 
-def parse_args():
+def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path)
     parser.add_argument("--output-dir", type=Path, required=True, help="Must be a new directory")
     parser.add_argument("--privacy", action="store_true", help="Also mask emails, contact numbers, QR codes and identity path prefixes; unresolved candidates remain for review")
+    parser.add_argument("--path-policy", choices=["identity-prefix", "parent"], default="identity-prefix", help="Privacy paths: identity prefix or complete parent directories; requires --privacy for parent")
+    parser.add_argument("--github-policy", choices=["full", "host"], default="full", help="GitHub links: full URL or host while retaining owner/repository")
     parser.add_argument("--padding", type=int, default=4, help="Extra pixels around text; default 4")
     parser.add_argument("--detect-every", type=int, default=1, help="1 scans every frame; higher values can miss flashes")
     parser.add_argument("--ocr-workers", type=int, choices=[1, 2, 3], default=1,
@@ -229,10 +227,14 @@ def parse_args():
     parser.add_argument("--style", choices=["solid", "pixelate"], default="solid")
     parser.add_argument("--start", type=float, default=0, help="Preview start in seconds")
     parser.add_argument("--duration", type=float, help="Process only this many seconds")
-    args = parser.parse_args()
+    parser.add_argument("--ocr-timeout", type=positive_timeout, default=60., help="Deadline for each worker request in seconds; default 60")
+    add_encoding_arguments(parser)
+    args = parser.parse_args(argv)
     if not all(math.isfinite(x) for x in (args.hold_seconds, args.start)) or \
             (args.duration is not None and not math.isfinite(args.duration)):
         parser.error("time parameters must be finite numbers")
+    if args.path_policy == "parent" and not args.privacy:
+        parser.error("--path-policy parent requires --privacy")
     if args.padding < 0 or args.detect_every < 1 or args.hold_seconds < 0 or args.start < 0:
         parser.error("padding, hold-seconds, start must be nonnegative; detect-every must be >= 1")
     if args.duration is not None and args.duration <= 0:
@@ -275,6 +277,10 @@ def main():
                   source_sha256=file_sha256(source),
                   source_signature={"size": source_stat.st_size, "mtime_ns": source_stat.st_mtime_ns},
                   audio_policy="AAC re-encode; stream count verified, packet identity not promised")
+    report["path_policy"] = args.path_policy
+    report["github_policy"] = args.github_policy
+    report["encoding"] = encoding_config(args)
+    report["ocr_timeout_seconds"] = args.ocr_timeout
     report["ocr_workers"] = args.ocr_workers if args.detect_every == 1 else 1
     report_path = args.output_dir / "report.json"
     progress_path = args.output_dir / "progress.json"
@@ -312,18 +318,19 @@ def main():
             report.update(width=width, height=height, source_video_stream=video["index"])
             ocr = VisionOCR(scratch)
             ocr.privacy = args.privacy
+            ocr.timeout = args.ocr_timeout
             if args.detect_every == 1 and args.ocr_workers > 1:
                 for worker_index in range(1, args.ocr_workers):
                     worker_dir = scratch / f"ocr-worker-{worker_index}"
                     worker_dir.mkdir()
                     extra_ocr.append(VisionOCR(worker_dir))
                     extra_ocr[-1].privacy = args.privacy
+                    extra_ocr[-1].timeout = args.ocr_timeout
                 ocr_pool = ThreadPoolExecutor(max_workers=args.ocr_workers)
             silent = scratch / "masked.mp4"
             encoder = subprocess.Popen(["ffmpeg", "-v", "error", "-nostdin", "-n", "-f", "rawvideo", "-pix_fmt", "bgr24",
                                         "-s", f"{width}x{height}", "-r", f"{fps:.10f}", "-i", "pipe:0", "-an",
-                                        "-c:v", "libx264", "-crf", "18", "-preset", "fast", "-pix_fmt", "yuv420p",
-                                        "-vf", "pad=ceil(iw/2)*2:ceil(ih/2)*2", "-map_metadata", "-1", str(silent)],
+                                        *video_encoding_options(args), "-map_metadata", "-1", str(silent)],
                                        stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
             tracks, previous, pending, samples = [], None, deque(), []
             identities = {}
@@ -372,7 +379,10 @@ def main():
                     if not future_frames:
                         break
                     frame, future = future_frames.popleft()
-                    observations = future.result()
+                    try:
+                        observations = future.result(timeout=args.ocr_timeout + 2.)
+                    except FutureTimeoutError:
+                        raise OCRWorkerError("ocr_timeout") from None
                     prefetch()
                 else:
                     ok, frame = capture.read()
@@ -390,7 +400,9 @@ def main():
                 should_scan = number % args.detect_every == 0 or cut
                 detected = detection_boxes(observations if observations is not None else ocr.read(frame),
                                            width, height, args.padding, details, identities,
-                                           privacy=args.privacy, review=candidates) if should_scan else []
+                                           privacy=args.privacy, review=candidates,
+                                           **({"path_policy": args.path_policy, "github_policy": args.github_policy}
+                                              if args.path_policy != "identity-prefix" or args.github_policy != "full" else {})) if should_scan else []
                 for candidate in candidates:
                     report['review_candidates'].append(dict(candidate, frame=number,
                         time=round(number/fps,6), normalized_source_time=round(args.start+number/fps,6),
@@ -474,6 +486,7 @@ def main():
                 raise RuntimeError("Exported video frame count did not match processed frames")
             if abs(float(out_video.get("duration", 0)) - clip_duration) > 1 / fps + .005:
                 raise RuntimeError("Exported video duration did not match the processed time window")
+            report["encoding_verification"] = verify_encoding(out_video, args)
             audio_count = sum(s["codec_type"] == "audio" for s in checked["streams"])
             if audio_count != source_audio_count:
                 raise RuntimeError("Exported audio stream count did not match input")
@@ -496,16 +509,26 @@ def main():
                                       for state in ('mask','needs_review','keep')}
             report['acceptance']='needs_review' if report['review_summary']['needs_review'] else 'not_verified'
             report['warnings'].append("Export completion is not visual acceptance. Independently rescan the encoded output with review_video.py.")
-    except BaseException:
+    except BaseException as error:
+        if isinstance(error, OCRWorkerError):
+            report["failure_code"] = str(error)
+            report["failure_frame"] = locals().get("number", 0)
         report["status"] = "failed"
         report['coverage']['visual'].update(state='failed',scanned_frames=scanned_frames)
         report['acceptance']='not_verified'
         raise
     finally:
         cleanup_errors = []
+        if report["status"] == "failed":
+            for worker in [ocr] + extra_ocr:
+                if worker is not None and callable(getattr(worker, "abort", None)):
+                    try:
+                        worker.abort()
+                    except Exception as error:
+                        cleanup_errors.append("OCR abort: " + type(error).__name__)
         if ocr_pool is not None:
             try:
-                ocr_pool.shutdown(wait=True)
+                ocr_pool.shutdown(wait=True, cancel_futures=True)
             except Exception as error:
                 cleanup_errors.append("OCR pool: " + type(error).__name__)
         if capture is not None:

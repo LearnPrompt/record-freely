@@ -9,6 +9,12 @@
 
 这些入口都是本地代码，不主动调用云 API，不上传画面。Agent 读取源码、运行工具与复查仍消耗 Codex 额度；本地 OCR 没有模型 API 账单，不等于 Codex 消耗为零。只有前后同口径账单/额度快照才能计算“节省多少”；测试的 `elapsed_seconds` 是本次进程墙钟时间，并非全部人工复查时间。
 
+## 可选编码与 OCR 时限
+
+自动与 refine 入口支持 `--crf`（默认 18）、`--preset`（默认 fast）和可选 `--color-space bt709`。例如已确认 SDR BT.709 的原片，可在短片和全片调用中显式使用 `--crf 16 --preset medium --color-space bt709`；不是默认改成高质量，也不是 HDR 色调映射。参数记录在当前运行报告中，仍需核实际编码输出及未遮区域色彩。
+
+自动与复扫入口的 `--ocr-timeout` 默认 60 秒，限制每次 worker 请求；无完整响应则终止 worker 并记录失败，不能将超时计作无候选。并行度与请求时限不同；预览先用 `--ocr-workers 1`，失败时保留当前版本的匿名报告与进度，正常退出后使用新目录重试。不得杀其他任务的进程或覆盖失败证据。
+
 ## 与源码对应的流程
 
 `redact_video.py` 是自动初稿入口；`refine_video.py` 在已有报告上重新渲染，稳框和人工补丁均为可选。不是一次默认调用就自动完成作者保留、路径修正与视觉验收。
@@ -58,6 +64,8 @@ SDR 支持 1–120 fps，输出 CFR H.264/yuv420p；奇数尺寸右/下补到偶
 
 `redact_video.py --privacy` 使用共享候选判断层；默认仍是 URL 模式。隐私模式额外检查邮箱、大陆手机号、有电话标签的号码、个人身份路径前缀以及二维码。普通本地文件扩展名不是网址，编号后面的缩写（例如 `2. AI Coding`）应待审而不是自动遮。未明确识别的电话号码也不能一律遮掉，避免误挡日期、版本号、帧号和教学数据。
 
+显式策略 `--path-policy identity-prefix|parent` 默认 `identity-prefix`；`parent` 需要隐私模式，隐藏身份路径的最后一个 `/` 及之前部分，保留最后文件名。`--github-policy full|host` 默认 `full`；`host` 仅对准确解析的 GitHub URL 隐藏 scheme/host，保留 `/owner/repo` 等路径。几何需要真实字符边界；共享、重叠或退化框不能冒充精确字框，策略无法安全定位时待审，不整行盖住要保留的内容。主 OCR 出现重复框时追加独立英文 fast 识别；同一行像素区域、字符数量和标点锚点一致，且仅少量 ASCII 字母识别差异时，才把其实际字框对齐到主识别文字，不按字符串比例推算。未对齐的 fast 候选只待审，不新增自动遮挡；它不能把 `README.md` 的主识别保留决定推翻成整行遮挡。语言及字符几何仍可能失败；含空格的父路径延续须人工定位。两个策略都需要原生首末帧和缩放验收，不是任意路径／任意站点的自动语义理解。
+
 候选的处理状态与定位分开：
 
 | 状态 | 含义 | 后续动作 |
@@ -72,16 +80,18 @@ SDR 支持 1–120 fps，输出 CFR H.264/yuv420p；奇数尺寸右/下补到偶
 
 ```bash
 python3 scripts/review_video.py /absolute/final.mp4 \
-  --output-dir /absolute/new-review --privacy --detect-every 1
+  --output-dir /absolute/new-review --privacy --detect-every 1 \
+  --redaction-report /absolute/final/report.json
 python3 scripts/review_video.py /absolute/final.mp4 \
   --output-dir /absolute/new-review-with-speech --privacy \
+  --redaction-report /absolute/final/report.json \
   --asr-model /absolute/local-whisper-model.bin \
   --subtitle /absolute/captions.srt --subtitle /absolute/other-captions.srt
 ```
 
 覆盖使用归一化 CFR 的时间轴，变帧率素材可能重复或丢弃源帧。音轨逐条检查，画面、音频、字幕同步受选定窗口限制；提供的 SRT 时间须从源视频零点开始，不能使用片段相对时间。
 
-语音可选且只走本地：`--asr-model` 指向已存在的模型，运行时需要已有 `whisper-cli`；没有提供模型是未检查，没有音轨是无音轨，执行失败是失败。不会自动下载模型，也不会调用云服务。转写只在临时目录用于候选检测，不在匿名报告保存原文。已有 SRT 字幕是独立输入来源，不代表已审阅嵌入视频的所有字幕。语音、字幕候选不自动静音或修改媒体；Agent 仍需判断指代、举例、否定、引用等语境。
+[音频示例](../docs/audio-review-examples.md)给出 PCM 证据、指定语言与私有首遍诊断操作。`--asr-language` 默认 `auto`，用 `en` 等值指定补检查语言；ASR 请求时先完整解码窗口 PCM，数字静音跳过 ASR，非零低音量不算静音。语音可选且只走本地：`--asr-model` 指向已存在的模型，运行时需要已有 `whisper-cli`；没有提供模型是未检查，没有音轨是无音轨，执行失败是失败。不会自动下载模型，也不会调用云服务。转写只在临时目录用于候选检测，不在匿名报告保存原文。已有 SRT 字幕是独立输入来源，不代表已审阅嵌入视频的所有字幕。语音、字幕候选不自动静音或修改媒体；Agent 仍需判断指代、举例、否定、引用等语境。
 
 ## 发布前语义复查
 

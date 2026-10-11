@@ -16,6 +16,10 @@ That follows LearnPrompt’s story: see what is possible, learn how to do it, an
 
 In the historical v1.0.1 trial, a fresh Agent ran a real one-minute 4K clip: **4m54s** automatic, 50s stabilization, and 41s final patch rendering. Agent review/correction spanned about 33 min including waits and overlapping computation; these are not additive or human hands-on time. A 12-frame title-overlap leak remains. See the [actual trial, reports and videos](docs/one-minute-trial.md).
 
+## Independent-audit fixes (unreleased)
+
+The public v1.1.0 package matched all 343 tag-source files and passed 138 tests, but its independent one-minute output retained sensitive fragments and overmasked content: **visual privacy acceptance failed**. These fixes add per-request `--ocr-timeout` (60s default), explicit `--crf 16 --preset medium --color-space bt709` (defaults remain 18/fast), and `--asr-language` (auto default) with digital-silence signal checks. In privacy mode, `--path-policy parent` retains only the final filename of identity paths; `--github-policy host` hides GitHub scheme/host while retaining the owner/repository. Defaults remain identity-prefix/full URL. Retention requires reliable character geometry; pending candidates are not concealed findings. Follow the [Skill entry](SKILL.md), [audit-fix boundaries](docs/independent-audit-fixes.md), [PCM, language and private diagnostics](docs/audio-review-examples.md), and [actual-mask timeline](docs/actual-mask-timeline.md). These options neither restore trusted captions automatically nor guarantee platform approval; review residual text and preserved teaching content.
+
 ## v1.1.0: turn real feedback into the next workflow
 
 This release brings together the long-video revisions and four distinct videos reviewed with Record Freely and Huangbai’s guoshen: a long screen-recorded tutorial, a silent mobile recording, a multilingual AI drama tutorial, and a mini-program tutorial. The lesson is how to preserve the explanation, locate what actually needs attention, and verify the edited frames. Each case keeps precheck, editing and publication states separate. **No actual platform approval has been established.**
@@ -93,7 +97,7 @@ Or run the automatic first pass:
 
 ```bash
 python3 scripts/redact_video.py /absolute/input.mp4 \
-  --output-dir /absolute/new-output --ocr-workers 3
+  --output-dir /absolute/new-output --ocr-workers 1
 ```
 
 OCR locates text, and offline domain rules select likely links. OpenCV template matching follows position and scale. Stabilization holds a fixed covering rectangle for static text and splits motion, zoom, cuts, and observation gaps into separate runs to reduce repeated size changes.
@@ -111,11 +115,13 @@ python3 scripts/redact_video.py /absolute/input.mp4 \
 
 # Independently scan the encoded output
 python3 scripts/review_video.py /absolute/final.mp4 \
-  --output-dir /absolute/new-review --privacy --detect-every 1
+  --output-dir /absolute/new-review --privacy --detect-every 1 \
+  --redaction-report /absolute/final/report.json
 
 # Optionally inspect local speech and existing SRT subtitles
 python3 scripts/review_video.py /absolute/final.mp4 \
   --output-dir /absolute/new-review-with-speech --privacy \
+  --redaction-report /absolute/final/report.json \
   --asr-model /absolute/local-whisper-model.bin \
   --subtitle /absolute/captions.srt
 ```

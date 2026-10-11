@@ -289,3 +289,53 @@ def test_real_missing_frame_still_fails_despite_clean_eof(tmp_path, monkeypatch)
     assert report['decoded_frames'] == 19 and report['expected_normalized_frames'] == 20
     assert report['status'] == report['result'] == 'failed'
     assert report['failure_code'] == 'decoded_coverage_incomplete'
+
+
+@pytest.mark.skipif(not HAS_FFMPEG, reason='FFmpeg integration')
+def test_fatal_timeout_stops_scan_and_records_coverage_gap(tmp_path):
+    from ocr_worker import JSONLineWorker
+    source = tmp_path / 'flash.mkv'
+    make_video(source)
+    class TimedOCR(v.ReviewOCR):
+        calls = 0
+        def __init__(self, scratch, privacy=False):
+            self.privacy = privacy
+            self.image = tmp_path / 'ocr.png'
+            self.process = subprocess.Popen([sys.executable, '-u', '-c',
+                'import sys,time;sys.stdin.readline();time.sleep(20)'],
+                stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, bufsize=0)
+            self.ipc = JSONLineWorker(self.process)
+        def read(self, frame):
+            type(self).calls += 1
+            return super().read(frame)
+    result = v.scan_visual(source, v.video_spec(v.probe(source), 0), tmp_path,
+                           ocr_factory=TimedOCR, ocr_timeout=.1)
+    assert TimedOCR.calls == 1
+    assert result['status'] == result['result'] == 'failed'
+    assert result['failure_code'] == 'ocr_timeout'
+    assert result['checked_frames'] == 0 and result['failed_frames'] == 1
+    assert result['decoded_frames'] == 1 and not result['decoder_reached_eof']
+    assert result['failure_frames'][0]['reason'] == 'ocr_timeout'
+
+
+def test_language_and_timeout_cli_validation():
+    parsed = v.parse_args(['input.mp4', '--output-dir', 'new', '--asr-language', 'zh', '--ocr-timeout', '.25'])
+    assert parsed.asr_language == 'zh' and parsed.ocr_timeout == .25
+    for switches in (['--ocr-timeout', 'nan'], ['--ocr-timeout', '0'], ['--asr-language', 'invalid']):
+        with pytest.raises(SystemExit):
+            v.parse_args(['input.mp4', '--output-dir', 'new', *switches])
+
+
+@pytest.mark.skipif(not HAS_FFMPEG, reason='FFmpeg integration')
+def test_review_passes_selected_language_to_audio(tmp_path, monkeypatch):
+    source = tmp_path / 'flash.mkv'
+    make_video(source)
+    original_scan = v.scan_visual
+    monkeypatch.setattr(v, 'scan_visual', lambda *a, **kw: original_scan(*a, **kw, ocr_factory=EmptyOCR))
+    selected = []
+    def audio(source, streams, **kwargs):
+        selected.append(kwargs['language'])
+        return {'status': 'not_applicable', 'tracks': []}
+    monkeypatch.setattr(v, 'review_audio', audio)
+    report = v.review(v.parse_args([str(source), '--output-dir', str(tmp_path / 'new'), '--asr-language', 'zh']))
+    assert report['status'] == 'complete' and selected == ['zh']

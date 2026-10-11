@@ -16,6 +16,10 @@ LearnPrompt が続けている「できると知る → やり方を学ぶ → �
 
 過去の v1.0.1 試用では、新しい Agent が公開 Skill で実際の1分4K動画を処理しました。自動初稿 **4分54秒**、安定化50秒、最終パッチ出力41秒。Agent の確認・修正は待機や重複計算を含む約33分で、合算や人の操作時間とは異なります。タイトルと重なる12フレームの漏れが残っています。[実際の試用・報告・動画](docs/one-minute-trial.md)を参照してください。
 
+## 独立検査後の修正（未リリース）
+
+公開 v1.1.0 のパッケージはタグの全343ファイルと一致し、138件のテストを通過しましたが、独立した1分試用には残字と過剰マスクがあり、**映像のプライバシー検査は不合格**でした。今回の修正は、OCRリクエストごとの `--ocr-timeout`（標準60秒）、明示的な `--crf 16 --preset medium --color-space bt709`（標準は18/fastのまま）、`--asr-language`（標準auto）とデジタル無音の信号確認を追加します。プライバシーモードの `--path-policy parent` は個人パスの最後のファイル名を残し、`--github-policy host` はGitHubのscheme/hostを隠して作者／リポジトリを残します。標準は個人接頭辞／完全URLです。保持には確かな文字位置が必要で、要確認候補は遮蔽済みではありません。[Skill入口](SKILL.md)、[検査後の修正範囲](docs/independent-audit-fixes.md)、[PCM・指定言語・私有診断](docs/audio-review-examples.md)、[実際のマスク時間軸](docs/actual-mask-timeline.md)を参照してください。信頼できる字幕の自動復元や審査通過は保証せず、残字と説明内容の保持を実際の映像で確認します。
+
 ## v1.1.0：実際のフィードバックを次の手順へ
 
 長い動画の修正と、放心录・黄白の guoshen を使って確認した4種類の動画の経験をまとめました。長い画面録画のチュートリアル、無音のスマートフォン録画、多言語の AI ドラマ解説、ミニプログラムの解説です。説明を残し、実際に処理が必要な箇所を見つけ、修正後の画面を確認する方法を学びました。事前確認、編集、公開の状態を事例ごとに分け、**プラットフォームで実際に審査を通過した結果は確認していません**。
@@ -93,7 +97,7 @@ Agent に次のように依頼します。
 
 ```bash
 python3 scripts/redact_video.py /absolute/input.mp4 \
-  --output-dir /absolute/new-output --ocr-workers 3
+  --output-dir /absolute/new-output --ocr-workers 1
 ```
 
 OCR で文字の位置を取得し、オフラインのドメイン規則でリンク候補を選びます。OpenCV のテンプレート照合で移動と拡大・縮小に追従します。静止文字には文字を覆う固定矩形を使い、移動、ズーム、カット、観測の途切れで区間を分け、枠の大きさの変動を抑えます。
@@ -111,11 +115,13 @@ python3 scripts/redact_video.py /absolute/input.mp4 \
 
 # エンコード済みの出力を独立して再検出する
 python3 scripts/review_video.py /absolute/final.mp4 \
-  --output-dir /absolute/new-review --privacy --detect-every 1
+  --output-dir /absolute/new-review --privacy --detect-every 1 \
+  --redaction-report /absolute/final/report.json
 
 # 任意でローカル音声と既存の SRT 字幕も確認する
 python3 scripts/review_video.py /absolute/final.mp4 \
   --output-dir /absolute/new-review-with-speech --privacy \
+  --redaction-report /absolute/final/report.json \
   --asr-model /absolute/local-whisper-model.bin \
   --subtitle /absolute/captions.srt
 ```

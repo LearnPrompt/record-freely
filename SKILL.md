@@ -17,8 +17,10 @@ description: "Locally redact visible links in screen recordings, optionally insp
 python3 scripts/redact_video.py /absolute/input.mp4 \
   --output-dir /absolute/preview --start 60 --duration 20
 python3 scripts/redact_video.py /absolute/input.mp4 \
-  --output-dir /absolute/full --ocr-workers 3
+  --output-dir /absolute/full --ocr-workers 1
 ```
+
+`--ocr-timeout` 限制每次 OCR 请求等待，默认 60 秒；超时记录失败并终止该 worker，不把失败当无候选。先用单 worker 做预览；需要并行时明确指定 `--ocr-workers 2` 或 `3`。编码默认保持 `CRF 18 / preset fast`；SDR 画质样片可显式用 `--crf 16 --preset medium --color-space bt709`，先验收再用于全片。颜色参数不能替代 HDR 转换或真实色彩比较。
 
 `report.json` 保存匿名逐帧矩形、切镜位置和原文件完整 SHA256；refine 在输出创建前核对内容哈希，拒绝同尺寸/同修改时间的无关影片。`preview.jpg` 是抽样审阅，不是全帧漏码证明。保留原输入和自动报告。完整 URL 的自动识别不等于自动理解“应该留下哪个作者/Skill 后缀”。如果用户要保留后缀、隐藏用户名路径或纠正多挡，审阅原始帧后用 SHA 绑定的人工矩形补丁；不要把所有本地文件路径一概当链接，也不要凭字符串长度猜像素边界。
 
@@ -34,18 +36,23 @@ python3 scripts/refine_video.py /absolute/input.mp4 \
 
 ## 可选隐私与独立复查
 
-用户只要求网址时，继续用默认模式；用户要连同联系方式、身份路径和二维码处理时加 `--privacy`。它检查邮箱、大陆手机号、有明确标签的电话号码、身份路径前缀和二维码。其他疑似号码、编号误识别域名、低置信度候选等留待复核。候选状态是 `mask`、`needs_review`、`keep`；它们是处理决定，不是平台违规判定。同画面空间相邻的拆分地址只列为待审，不因拼接自动遮挡。身份路径前缀缺少精确字符框时待审，避免误挡目录用途。语义上应保留哪部分，仍由 Agent 看上下文确认。报告的 `review_candidates` 不保存 OCR 原文或完整联系方式，`review_summary` 汇总状态。
+用户只要求网址时，继续用默认模式；用户要连同联系方式、身份路径和二维码处理时加 `--privacy`。它检查邮箱、大陆手机号、有明确标签的电话号码、身份路径前缀和二维码。其他疑似号码、编号误识别域名、低置信度候选等留待复核。需要只留身份路径最后文件名时，显式指定 `--path-policy parent`（必须配 `--privacy`）；默认 `identity-prefix` 只处理身份前缀。需要保留 GitHub 作者／仓库时指定 `--github-policy host`，仅对准确解析的 GitHub URL 遮 scheme/host；默认 `full` 保持完整网址遮挡。保留策略需要真实、非重叠的字符几何，定位不可信时进入待审，不凭长度或比例画精确框。默认不会自动保留任意域名的语义后缀。候选状态是 `mask`、`needs_review`、`keep`；它们是处理决定，不是平台违规判定。同画面空间相邻的拆分地址只列为待审，不因拼接自动遮挡。身份路径前缀缺少精确字符框时待审，避免误挡目录用途。语义上应保留哪部分，仍由 Agent 看上下文确认。报告的 `review_candidates` 不保存 OCR 原文或完整联系方式，`review_summary` 汇总状态。
 
 ```bash
 python3 scripts/redact_video.py /absolute/input.mp4 \
   --output-dir /absolute/privacy-preview --privacy --start 60 --duration 20
+# 用户确认只保留文件名及 GitHub 作者/仓库后的短预览
+python3 scripts/redact_video.py /absolute/input.mp4 \
+  --output-dir /absolute/retention-preview --privacy --start 60 --duration 20 \
+  --path-policy parent --github-policy host
 python3 scripts/review_video.py /absolute/final.mp4 \
-  --output-dir /absolute/new-review --privacy --detect-every 1
+  --output-dir /absolute/new-review --privacy --detect-every 1 \
+  --redaction-report /absolute/final/report.json
 ```
 
 复扫输出 `review.json`。可加 `--redaction-report /absolute/final/report.json` 校验成片 SHA-256；refine 后用最新报告，旧报告不能证明新版成片。独立复扫最终编码文件，不把原打码报告的框当作“全部敏感内容已找到”的证据。默认逐帧；`--detect-every N` 设为大于 1 就是抽样。用 `--start`、`--duration` 限定窗口时，明确窗口外未检查。候选定位与检测失败都需要交付；无候选不是零泄漏证明。复扫只产出检查材料，不修改视频。
 
-有已有本地 Whisper 模型和 `whisper-cli` 时，可用 `--asr-model /absolute/local-model.bin` 加入语音检查；`--subtitle /absolute/captions.srt` 可重复给出字幕来源。禁止默默下载模型或自动上传媒体；音轨未检查、没有音轨、ASR 失败须分别记录。临时转写完成检测后清理，不在匿名报告保存原文。语音和字幕结果只是提醒，不自动静音或删改字幕；每条音轨分别检查；所给 SRT 时间从源视频零点开始，窗口外不计为已检查。在 Agent 语义复查时单独核对画面、口播、字幕是否仍暴露同一内容。归一化 CFR 检查对变帧率素材可能重复或丢弃源帧，交付时说明。
+声音操作先读 [数字静音、指定语言与私有诊断示例](docs/audio-review-examples.md)。已有本地 Whisper 模型和 `whisper-cli` 时，可用 `--asr-model /absolute/local-model.bin` 加入语音检查；`--asr-language` 默认 `auto`，可在已定位窗口指定 `en` 等语言。请求 ASR 后先完整解码该窗口 PCM，确认数字静音则记录静音并跳过 ASR；低音量仍需审阅。`--subtitle /absolute/captions.srt` 可重复给出字幕来源。禁止默默下载模型或自动上传媒体；音轨未检查、没有音轨、ASR 失败须分别记录。临时转写完成检测后清理，不在匿名报告保存原文。语音和字幕结果只是提醒，不自动静音或删改字幕；每条音轨分别检查；所给 SRT 时间从源视频零点开始，窗口外不计为已检查。在 Agent 语义复查时单独核对画面、口播、字幕是否仍暴露同一内容。归一化 CFR 检查对变帧率素材可能重复或丢弃源帧，交付时说明。
 
 ## 平台发布前检查（独立 Agent 工作流）
 
@@ -57,7 +64,7 @@ python3 scripts/review_video.py /absolute/final.mp4 \
 
 ## 从真实修订学习（Agent 指导）
 
-处理原片重建、过挡修正、静音／多语言、完整生命周期或查看器时，先读 [修订经验与验收清单](references/review-lessons.md)；四条独立素材的脱敏事实见 [v1.1 案例记录](docs/case-lessons-v1.1.md)。这些是 Agent 操作指导，不代表脚本新增了自动静音判断、多语言补转写、可信字幕合成或成片查看器功能。
+处理原片重建、过挡修正、静音／多语言、完整生命周期或查看器时，先读 [修订经验与验收清单](references/review-lessons.md)；四条独立素材的脱敏事实见 [v1.1 案例记录](docs/case-lessons-v1.1.md)。静音信号检查和指定 ASR 语言已有脚本入口；哪些语言需要补识别、何处存在幻觉、语义保留及可信字幕合成仍需 Agent 与人工验收，脚本没有通用播放器。独立 v1.1.0 实跑失败及本轮修复边界见 [独立复查后的修复](docs/independent-audit-fixes.md)。
 
 把所有已确认补丁合并到同一原片坐标后重渲染，避免以旧成片为底反复压缩。用户未授权整页替换时，不用大块覆盖处理待核实的事实、功能状态或宣传表述。工具／模型品牌与用户点名的发布平台词分开；只修已确认范围。最终验收同时检查“敏感内容被盖住”和“应保留内容仍可见”。
 
@@ -68,3 +75,12 @@ python3 scripts/review_video.py /absolute/final.mp4 \
 交付视频、逐帧匿名报告、修订补丁及验证记录。说明自动与人工处理边界、未定位项、真实耗时和可验证的 Codex 用量口径。原片和源帧放入用户授权的本地复查包；公开发布前明确哪些原始媒体可以公开，勿把带身份信息的工作帧混入公开资产。
 
 脚本将 SDR 输入归一化为恒定帧率，重新编码 H.264 和 AAC；不会承诺音频数据包与原片相同。保留原分辨率，奇数边长补齐偶数像素。HDR 需要单独确认色彩工作流。检查源文件未改动、输出帧数/时长/音轨数量、完整解码和可见效果，再称为完成。另记任务编码尝试次数与交付文件的累计编码代数，二者不能混写。剪切保留源帧到成片帧的映射；快速复查默认跳到实际局部打码区间，跳转后确认真实画面可见，不仅检查播放器时长和进度。
+
+实际打码导航直接使用 [时间轴导出指南](docs/actual-mask-timeline.md) 和 `scripts/build_review_timeline.py`：
+
+```bash
+python3 scripts/build_review_timeline.py /absolute/reviewed-events.json \
+  --video /absolute/final.mp4 --output-dir /absolute/new-timeline
+```
+
+先审录局部遮挡事件与成片帧坐标，再导出 JSON/CSV/Markdown；此工具不检测视频、不剪片、不生成播放器。查看器要支持 HTTP Range 并在浏览器验收首、中、尾及缩放重点的真实画面。最终技术通过、候选复扫完成和隐私视觉通过分别记录。

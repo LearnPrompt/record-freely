@@ -16,6 +16,10 @@
 
 历史 v1.0.1 试用中，新 Agent 从公开仓库独立跑完一分钟真实4K样片：自动初稿 **4分54秒**，稳框50秒，最终补丁渲染41秒；另有约33分钟的 Agent 审阅/修订跨度，含等待和重叠计算，不能相加或当纯人工时间。已保留作者/Skill 名并撤销几类误遮，标题交叉处仍有12帧漏框。见[完整试用与实际视频](docs/one-minute-trial.md)。
 
+## 独立复查后的修复（未发布）
+
+v1.1.0 的公开包与标签源码 343 个文件一致、138 项测试通过，但独立一分钟样片仍有残留和过挡，**隐私视觉验收未通过**。本轮修复增加每请求 OCR 时限 `--ocr-timeout`（默认60秒）、显式质量参数 `--crf 16 --preset medium --color-space bt709`（默认仍18/fast），以及 `--asr-language`（默认auto）和数字静音信号检查。隐私模式可明确选 `--path-policy parent` 仅留身份路径最后文件名，`--github-policy host` 仅遮GitHub网址scheme/host、留作者/仓库；默认仍身份前缀／完整URL。保留策略需要可靠字符几何，待审不能当已遮。见 [Skill入口](SKILL.md)、[独立复查后的修复](docs/independent-audit-fixes.md)、[完整PCM／指定语言／私有诊断操作](docs/audio-review-examples.md)与[实际打码时间轴](docs/actual-mask-timeline.md)。这些参数不提供可信字幕自动恢复或平台过审保证；最终必须复核漏码和教学内容保留。
+
 ## v1.1.0：把真实反馈变成下一次的经验
 
 这次把长片迭代，以及另一对话中四条素材的「放心录＋黄白过审」协作经验归入同一版本：长教程录屏、静音手机录屏、多语言 AI 剧情教程和小程序教程。我们学到的不是一张更长的禁词表，而是怎样留下讲解，怎样找到真正需要处理的地方，再怎样确认修改后的画面。四条素材的预检、修改与发布状态分开记录，**没有取得平台实际过审结果**。
@@ -93,7 +97,7 @@ cp -R record-freely ~/.codex/skills/
 
 ```bash
 python3 scripts/redact_video.py /absolute/input.mp4 \
-  --output-dir /absolute/new-output --ocr-workers 3
+  --output-dir /absolute/new-output --ocr-workers 1
 ```
 
 OCR 先找文字，再用离线域名规则筛选疑似链接；OpenCV 模板匹配跟随位置与缩放。稳框阶段对静止文字使用固定覆盖框，遇到移动、缩放、切镜或检测间隙分段处理，减少框大小反复变化。
@@ -111,11 +115,13 @@ python3 scripts/redact_video.py /absolute/input.mp4 \
 
 # 对最终编码文件独立复扫，不沿用初稿的框作为检测结论
 python3 scripts/review_video.py /absolute/final.mp4 \
-  --output-dir /absolute/new-review --privacy --detect-every 1
+  --output-dir /absolute/new-review --privacy --detect-every 1 \
+  --redaction-report /absolute/final/report.json
 
 # 可选：本地完整音轨转写，并分别检查一个或多个现有 SRT 字幕来源
 python3 scripts/review_video.py /absolute/final.mp4 \
   --output-dir /absolute/new-review-with-speech --privacy \
+  --redaction-report /absolute/final/report.json \
   --asr-model /absolute/local-whisper-model.bin \
   --subtitle /absolute/captions.srt
 ```
