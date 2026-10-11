@@ -97,12 +97,44 @@ def video_spec(metadata, start, duration=None):
     if not math.isfinite(total) or total <= start:
         raise ValueError('window_outside_video')
     window = min(total - start, duration) if duration is not None else total - start
-    first = math.ceil(start * fps - 1e-8)
-    last = math.ceil((start + window) * fps - 1e-8)
+    first = frame_boundary(start, fps)
+    # ffprobe prints duration to microsecond precision. For example, a 5990
+    # frame / 30 fps MP4 reports 199.666667, not its exact rational duration.
+    # Only a boundary derived from that rounded endpoint gets this tolerance;
+    # an explicitly supplied window must retain real fractional-frame tails.
+    reaches_end = duration is None or duration >= total - start
+    last = frame_boundary(total if reaches_end else start + window, fps,
+                          duration_precision_seconds=0.0000005 if reaches_end else 0.)
+    rates = []
+    for value in (video.get('avg_frame_rate'), video.get('r_frame_rate')):
+        try:
+            rate = Fraction(value or '0/1')
+            rates.append(rate if rate > 0 else None)
+        except (ValueError, ZeroDivisionError):
+            rates.append(None)
+    declared_variable = str(video.get('frame_rate_mode', '')).lower() in ('vfr', 'variable')
+    rate_hint = ('variable_or_mixed' if declared_variable or (all(rates) and rates[0] != rates[1])
+                 else 'constant_rate_metadata_unverified' if all(rates) else 'unknown')
     return {'width': int(video['width']), 'height': int(video['height']), 'fps': fps,
             'stream_index': int(video['index']), 'origin': float(video.get('start_time') or 0.),
             'source_duration': total, 'start': start, 'duration': window,
-            'first_source_frame': first, 'end_source_frame_exclusive': last}
+            'first_source_frame': first, 'end_source_frame_exclusive': last,
+            'expected_count_basis': 'normalized_time_bounds',
+            'endpoint_precision_seconds': 0.0000005 if reaches_end else 0.,
+            'source_rate_hint': rate_hint, 'source_frame_coverage': 'not_verified'}
+
+
+def frame_boundary(seconds, fps, *, duration_precision_seconds=0.):
+    """Ceil a half-open time boundary, snapping only numerical/metadata noise."""
+    position = seconds * fps
+    nearest = round(position)
+    # Never allow even unusually high rates or coarse time bases to absorb a
+    # real partial frame. nb_frames does not establish CFR and is not used.
+    tolerance = max(8 * math.ulp(position),
+                    min(0.0001, duration_precision_seconds * fps))
+    if abs(position - nearest) <= tolerance:
+        return nearest
+    return math.ceil(position)
 
 
 def decoder_command(source, spec):
@@ -147,6 +179,11 @@ def scan_visual(source, spec, scratch, *, detect_every=1, privacy=False, ocr_fac
                 'window_start': spec['start'], 'window_duration': spec['duration'],
                 'first_source_frame': spec['first_source_frame'],
                 'end_source_frame_exclusive': spec['end_source_frame_exclusive'],
+                'expected_count_basis': spec['expected_count_basis'],
+                'endpoint_precision_seconds': spec['endpoint_precision_seconds'],
+                'source_rate_hint': spec['source_rate_hint'],
+                'source_frame_coverage': spec['source_frame_coverage'],
+                'decoder_reached_eof': False, 'decoder_exit_code': None,
                 'detect_every': detect_every, 'nominal_sample_interval_seconds': detect_every / spec['fps'],
                 'decoded_frames': 0, 'checked_frames': 0, 'failed_frames': 0, 'skipped_frames': 0,
                 'failure_frames': [], 'first_checked_time': None, 'last_checked_time': None,
@@ -159,6 +196,7 @@ def scan_visual(source, spec, scratch, *, detect_every=1, privacy=False, ocr_fac
         while True:
             data = read_frame(decoder.stdout, size)
             if not data:
+                coverage['decoder_reached_eof'] = True
                 break
             if len(data) != size:
                 coverage['failure_code'] = 'truncated_decoded_frame'
@@ -184,7 +222,8 @@ def scan_visual(source, spec, scratch, *, detect_every=1, privacy=False, ocr_fac
                 coverage['failed_frames'] += 1
                 coverage['failure_frames'].append({'frame': index, 'source_normalized_frame': source_index,
                                                     'time': timestamp, 'reason': 'ocr_frame_failed'})
-        if decoder.wait() != 0:
+        coverage['decoder_exit_code'] = decoder.wait()
+        if coverage['decoder_exit_code'] != 0:
             coverage['failure_code'] = 'video_decode_failed'
         expected = spec['end_source_frame_exclusive'] - spec['first_source_frame']
         coverage['expected_normalized_frames'] = expected

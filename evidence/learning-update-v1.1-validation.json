@@ -1,0 +1,45 @@
+{
+  "version": "1.1.0",
+  "checked_at": "2026-10-11",
+  "scope": "Release candidate source, not platform submission or whole-film zero-leak certification",
+  "checks": {
+    "baseline_tests_passed": 121,
+    "updated_tests_passed": 138,
+    "python_compileall": "passed",
+    "skill_frontmatter": "passed",
+    "git_diff_check": "passed",
+    "local_document_links": 12,
+    "actual_5990_frame_ffmpeg_regression": "passed with empty OCR worker to isolate decode coverage",
+    "native_vision_integration": "passed"
+  },
+  "actual_long_film_index": {
+    "output_frames": 63673,
+    "local_events": 10931,
+    "excluded_non_redaction_events": 546,
+    "continuous_jump_intervals": 194,
+    "masked_frames": 25179,
+    "encoded_file_sha_verified": true,
+    "private_source_files_uploaded": false,
+    "scope": "Reviewed existing event selection only, not a fresh whole-film OCR scan"
+  },
+  "independent_review": {
+    "reviewer": "separate read-only Agent",
+    "timeline_findings": "no confirmed defect",
+    "scenarios": [
+      "multiple source cuts including prefix and suffix",
+      "overlap and touching masks",
+      "no unmasked gap bridged",
+      "background-colored local mask retained",
+      "private labels not exported",
+      "video SHA versus coverage distinction",
+      "silent ASR not factual speech",
+      "minimal user-selected publishing-word scope",
+      "single encoding generation versus multiple attempts",
+      "visible frame required after browser seek",
+      "generic platform feedback retains unknown cause"
+    ]
+  },
+  "platform_publication_validation": "not_run",
+  "codex_usage_savings": "unmeasured",
+  "public_case_media": "Historical v1.0.1 authorized assets retained; four new private case media not uploaded"
+}

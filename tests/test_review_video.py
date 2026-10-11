@@ -207,3 +207,85 @@ def test_attached_picture_does_not_replace_playable_video_stream():
         {'index':1,'codec_type':'video','width':640,'height':360,'avg_frame_rate':'30/1','duration':'1'}]}
     spec=v.video_spec(info,0)
     assert spec['stream_index']==1 and spec['width']==640 and spec['fps']==30
+
+
+def metadata_video(**overrides):
+    video = {'index': 0, 'codec_type': 'video', 'width': 16, 'height': 16,
+             'avg_frame_rate': '30/1', 'r_frame_rate': '30/1',
+             'duration': '199.666667', 'nb_frames': '5990'}
+    video.update(overrides)
+    return {'streams': [video]}
+
+
+def test_rounded_duration_does_not_invent_5991st_frame():
+    spec = v.video_spec(metadata_video(), 0.)
+    assert spec['end_source_frame_exclusive'] == 5990
+    assert spec['expected_count_basis'] == 'normalized_time_bounds'
+    assert spec['endpoint_precision_seconds'] == 0.0000005
+    # Neither a plausible count nor an arbitrary wrong one overrides timing.
+    for count in ('1', '5991', 'N/A', None):
+        assert v.video_spec(metadata_video(nb_frames=count), 0.)['end_source_frame_exclusive'] == 5990
+
+
+def test_non_aligned_windows_and_real_fractional_endpoint_are_not_rounded_away():
+    info = metadata_video(duration='2.000000', nb_frames='60')
+    spec = v.video_spec(info, .015, .04)
+    assert (spec['first_source_frame'], spec['end_source_frame_exclusive']) == (1, 2)
+    # Explicit windows are precise user input, not rounded probe timestamps.
+    assert v.video_spec(info, 0., 1.0000001)['end_source_frame_exclusive'] == 31
+    assert v.video_spec(metadata_video(duration='1.016667'), 0.)['end_source_frame_exclusive'] == 31
+    # Binary floating point noise around an exact boundary is still harmless.
+    assert v.frame_boundary(.1 + .2, 10) == 3
+    assert v.frame_boundary(.45, 10) == 5
+
+
+@pytest.mark.parametrize('overrides, hint', [
+    ({'avg_frame_rate': '24/1', 'r_frame_rate': '30/1', 'nb_frames': '5990'}, 'variable_or_mixed'),
+    ({'frame_rate_mode': 'VFR', 'nb_frames': '5990'}, 'variable_or_mixed'),
+    ({'r_frame_rate': '0/0', 'nb_frames': '5990'}, 'unknown'),
+    ({}, 'constant_rate_metadata_unverified'),
+])
+def test_frame_rate_metadata_never_proves_original_source_frame_coverage(overrides, hint):
+    spec = v.video_spec(metadata_video(**overrides), 0.)
+    assert spec['source_rate_hint'] == hint
+    assert spec['source_frame_coverage'] == 'not_verified'
+    assert spec['expected_count_basis'] == 'normalized_time_bounds'
+    if overrides.get('avg_frame_rate') == '24/1':
+        assert spec['end_source_frame_exclusive'] != 5990
+
+
+@pytest.mark.skipif(not HAS_FFMPEG, reason='FFmpeg integration')
+def test_actual_5990_frame_mp4_rescan_reaches_verified_normalized_eof(tmp_path):
+    source = tmp_path / 'rounded-duration.mp4'
+    subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', 'color=size=16x16:rate=30',
+                    '-frames:v', '5990', '-c:v', 'libx264', '-preset', 'ultrafast',
+                    '-pix_fmt', 'yuv420p', str(source)], check=True)
+    info = v.probe(source)
+    video = next(s for s in info['streams'] if s['codec_type'] == 'video')
+    assert video['nb_frames'] == '5990'
+    assert video['duration'] == '199.666667'
+    report = v.scan_visual(source, v.video_spec(info, 0.), tmp_path, ocr_factory=EmptyOCR)
+    assert report['status'] == 'checked'
+    assert report['decoded_frames'] == report['checked_frames'] == report['expected_normalized_frames'] == 5990
+    assert report['decoder_reached_eof'] and report['decoder_exit_code'] == 0
+    assert report['source_frame_coverage'] == 'not_verified'
+
+
+@pytest.mark.skipif(not HAS_FFMPEG, reason='FFmpeg integration')
+def test_real_missing_frame_still_fails_despite_clean_eof(tmp_path, monkeypatch):
+    source = tmp_path / 'flash.mkv'
+    make_video(source)
+    spec = v.video_spec(v.probe(source), 0.)
+    original_command = v.decoder_command
+    # A clean decoder exit alone must not accept only 19 of 20 required frames.
+    def incomplete_command(source, requested):
+        command = original_command(source, requested)
+        index = command.index('-vf') + 1
+        command[index] = command[index].replace('end_frame=20', 'end_frame=19')
+        return command
+    monkeypatch.setattr(v, 'decoder_command', incomplete_command)
+    report = v.scan_visual(source, spec, tmp_path, ocr_factory=EmptyOCR)
+    assert report['decoder_reached_eof'] and report['decoder_exit_code'] == 0
+    assert report['decoded_frames'] == 19 and report['expected_normalized_frames'] == 20
+    assert report['status'] == report['result'] == 'failed'
+    assert report['failure_code'] == 'decoded_coverage_incomplete'
