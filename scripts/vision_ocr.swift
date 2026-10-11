@@ -20,7 +20,9 @@ while let line = readLine() {
             request.recognitionLanguages = ["en-US", "zh-Hans"]
             request.usesLanguageCorrection = false
             request.minimumTextHeight = 0.002
-            try VNImageRequestHandler(url: URL(fileURLWithPath: path), options: [:]).perform([request])
+            let privacy = input["privacy"] as? Bool ?? false
+            let barcodeRequest = VNDetectBarcodesRequest()
+            try VNImageRequestHandler(url: URL(fileURLWithPath: path), options: [:]).perform(privacy ? [request, barcodeRequest] : [request])
             var observations: [[String: Any]] = []
             for observation in request.results ?? [] {
                 guard let candidate = observation.topCandidates(1).first else { continue }
@@ -28,7 +30,7 @@ while let line = readLine() {
                 var characters: [[String: Any]] = []
                 // Offsets are Unicode scalar positions, matching Python's indexing.
                 // Only possible URL lines need costly per-character geometry.
-                let needsGeometry = string.contains(".") || string.contains("．") || string.lowercased().contains("http")
+                let needsGeometry = privacy || string.contains(".") || string.contains("．") || string.lowercased().contains("http")
                 for index in needsGeometry ? Array(string.indices) : [] {
                     let end = string.index(after: index)
                     if let box = try candidate.boundingBox(for: index..<end) {
@@ -40,7 +42,10 @@ while let line = readLine() {
                 observations.append(["text": string, "confidence": candidate.confidence,
                                      "box": rect(observation.boundingBox), "chars": characters])
             }
-            let output = try JSONSerialization.data(withJSONObject: ["observations": observations], options: [.sortedKeys])
+            let codes: [[String: Any]] = privacy ? (barcodeRequest.results ?? []).filter { $0.symbology == .qr }.map {
+                ["kind": "qr_code", "text": "", "box": rect($0.boundingBox), "confidence": 1.0]
+            } : []
+            let output = try JSONSerialization.data(withJSONObject: ["observations": observations, "codes": codes], options: [.sortedKeys])
             print(String(decoding: output, as: UTF8.self))
             fflush(stdout)
         } catch {

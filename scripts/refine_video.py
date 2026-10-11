@@ -126,6 +126,9 @@ def main():
     duration = frame_count / fps
     args.output_dir.mkdir(parents=True)
     decoder = encoder = None
+    report['candidate_ledger_origin']='automatic_report; not reclassified after stabilization or manual patches'
+    report['acceptance']='not_verified'
+    report.pop('output_sha256',None)
     report.update(status="processing", refinement_baseline_sha256=baseline_hash,
                   refinement_style="solid", publication_review_required=True)
     try:
@@ -166,6 +169,7 @@ def main():
                 raise RuntimeError("Source changed during rendering")
             shutil.copy2(staged, args.output_dir / "redacted.mp4")
             report.update(status="complete", masked_frames=sum(bool(f["boxes"]) for f in report["frames"]),
+                          output_sha256=file_sha256(args.output_dir / 'redacted.mp4'),
                           refinement_elapsed_seconds=round(time.monotonic() - started, 2),
                           refinement_verification={"frame_count": True, "duration": True, "audio_stream_count": True,
                                                    "full_codec_decode": True, "source_signature_unchanged": True,

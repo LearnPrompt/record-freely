@@ -4,7 +4,7 @@
 
 **Record the idea first. Let your Agent handle the parts that need masking.**
 
-[GitHub](https://github.com/LearnPrompt/record-freely) · [Downloads and one-minute clip](https://github.com/LearnPrompt/record-freely/releases/tag/v1.0.1) · [Public review](docs/public-review.md)
+[GitHub](https://github.com/LearnPrompt/record-freely) · [Download v1.1.0](https://github.com/LearnPrompt/record-freely/releases/tag/v1.1.0) · [Public review](docs/public-review.md)
 
 [Before / after](https://learnprompt.github.io/record-freely/) · [Implementation](references/implementation.md) · [Cost and time](docs/cost-and-time.md) · [Online comparison sliders](https://learnprompt.github.io/record-freely/)
 
@@ -14,7 +14,21 @@ Record Freely grew from an actual **35:29, 4K, 30fps** screen recording of a wor
 
 That follows LearnPrompt’s story: see what is possible, learn how to do it, and turn it into something you can use again. A visible address should not interrupt your willingness to share.
 
-A fresh Agent ran a real one-minute 4K clip: **4m54s** automatic, 50s stabilization, and 41s final patch rendering. Agent review/correction spanned about 33 min including waits and overlapping computation; these are not additive or human hands-on time. A 12-frame title-overlap leak remains. See the [actual trial, reports and videos](docs/one-minute-trial.md).
+In the historical v1.0.1 trial, a fresh Agent ran a real one-minute 4K clip: **4m54s** automatic, 50s stabilization, and 41s final patch rendering. Agent review/correction spanned about 33 min including waits and overlapping computation; these are not additive or human hands-on time. A 12-frame title-overlap leak remains. See the [actual trial, reports and videos](docs/one-minute-trial.md).
+
+## v1.1.0: turn real feedback into the next workflow
+
+This release brings together the long-video revisions and four distinct videos reviewed with Record Freely and Huangbai’s guoshen: a long screen-recorded tutorial, a silent mobile recording, a multilingual AI drama tutorial, and a mini-program tutorial. The lesson is how to preserve the explanation, locate what actually needs attention, and verify the edited frames. Each case keeps precheck, editing and publication states separate. **No actual platform approval has been established.**
+
+- **Mask narrowly and preserve viewing.** A candidate is not authorization to rewrite the scene. Cover confirmed addresses, identity prefixes or explicitly requested terms; retain filenames, Skill names, people, subtitles and original animation. Masking publishing-platform names is a preference for that material, not a blacklist of every tool brand. A whole-page replacement damaged an animation and was rejected; the correction restored local masks, and the failure remains part of the lessons.
+- **Review the full display lifetime.** Keep static masks steady; handle motion, zoom, cuts and detection gaps separately. Inspect first and last frames, wrapped tails, clipped characters and later reappearance in reduced panels. Intermittent whole-frame OCR hits do not establish the mask interval. Background-colored local masks still need native-frame acceptance.
+- **Check evidence before explaining moderation.** Exclude repeated ASR hallucinations on silent audio; supplement mixed-language segments while retaining source-time offsets. Verify AI demonstrations, factual sources, feature permissions and actual publishing states separately. Generic “unsuitable for sharing” feedback does not establish a reason, and masking a 403 cannot prove that a feature works.
+- **Combine edits on the original before export.** The v6 long-video workflow applied accepted masks and trusted caption layers to the original, then encoded with `libx264 / CRF 16 / preset medium / BT.709`, preserving 4K30 without scaling, denoising or sharpening. A one-minute preview was accepted before rebuilding the full film. This is a tested Agent recipe for that material, **not an automatic change to the default CLI encoding mode**. Task retries and the encoding generations of the delivered pixels are counted separately.
+- **Jump to real masking.** Build contiguous local-mask intervals from reviewed events; exclude global background processing, AI labels and ordinary text restoration. Do not bridge unmasked gaps. Map times after cuts to the delivered video, and verify that the browser actually displays the sought frame as well as reporting the right time.
+
+Use `python3 scripts/build_review_timeline.py --help` to export existing event records as actual-mask intervals in JSON, CSV and Markdown for viewer navigation. It **does not detect video content or decide platform violations**, and does not generate a general-purpose web player. See [actual-mask timeline](docs/actual-mask-timeline.md). See the [sanitized case lessons](docs/case-lessons-v1.1.md) and [review and minimal-edit boundaries](references/review-lessons.md). Quality, speech, timeline and privacy checks retain their own coverage; sampling, an older version’s full-frame OCR, or successful decoding must not become a claim of zero misses in the latest file.
+
+The v3 comparisons, independent one-minute trial and collection below are **historical v1.0.1 assets**, retained for reproduction. They are not new v6 quality comparisons or acceptance of every v1.1.0 capability.
 
 ## Full-frame before and after
 
@@ -51,7 +65,7 @@ Retained author/Skill components were verified from the source text, not inferre
 
 This creator's recording documents learning and applying a workflow using Media Storm material. The name describes the case background, not an official partnership.
 
-## Every masked segment, collected
+## Historical v1.0.1 masked-segment collection
 
 [Watch/download the collection](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/all-masked-segments.mp4) · [55 individual clips and reproduction files](https://github.com/LearnPrompt/record-freely/releases/download/v1.0.1/masked-segment-clips.zip) · [Original and collection timeline index](docs/masked-segment-collection.md)
 
@@ -86,6 +100,38 @@ OCR locates text, and offline domain rules select likely links. OpenCV template 
 
 See [implementation notes](references/implementation.md) for reviewed rectangle edits and stabilization. Automatic detection, reviewed edits, and final inspection are distinct stages. The source remains intact; outputs go into a new directory.
 
+## Optional privacy checks and independent output review
+
+The default still masks likely URLs only. Add `--privacy` to check email addresses, mainland Chinese mobile numbers, labeled phone numbers, personal path prefixes, and QR codes as well, while retaining useful path components where possible. Candidates without reliable recognition or bounds stay in a review queue. Each is marked `mask`, `needs_review`, or `keep`; reports omit the recognized addresses and contact details.
+
+```bash
+# Make a short privacy-mode first pass
+python3 scripts/redact_video.py /absolute/input.mp4 \
+  --output-dir /absolute/privacy-preview --privacy --start 60 --duration 20
+
+# Independently scan the encoded output
+python3 scripts/review_video.py /absolute/final.mp4 \
+  --output-dir /absolute/new-review --privacy --detect-every 1
+
+# Optionally inspect local speech and existing SRT subtitles
+python3 scripts/review_video.py /absolute/final.mp4 \
+  --output-dir /absolute/new-review-with-speech --privacy \
+  --asr-model /absolute/local-whisper-model.bin \
+  --subtitle /absolute/captions.srt
+```
+
+Speech inspection requires an installed `whisper-cli` and an existing local model. It neither downloads a model automatically nor uploads media. Without `--asr-model`, audio is explicitly recorded as unchecked, separately from absent audio or transcription failure. Temporary transcripts are cleaned up; anonymous reports omit ASR text. Existing subtitles are independent sources, and `--subtitle` may be repeated. Speech and subtitle candidates are reminders; the scripts do not mute speech, edit subtitles, or rewrite content.
+
+Review writes `review.json` and checks audio tracks separately. SRT timestamps must start at the original video’s zero point, not the selected clip’s zero point. Output review defaults to OCR on every normalized CFR frame. `--detect-every N` enables sampling and records coverage and failures. `--start` and `--duration` limit the inspected window; content outside it remains unchecked. Normalizing variable frame rates to CFR may duplicate or omit source frames. Even every-frame OCR can fail or miss text. Inspect flashes, scrolling, transitions, first appearances, clipped edges, and subtitle overlaps. Review leaves the input intact.
+
+Platform review is a separate Agent workflow using audiovisual context and sourced policies. Keep source dates, applicable scenarios, user preferences, observed feedback, and inferred causes separate. Tool names and unverified feedback do not become platform keyword bans. See the [prepublication workflow](docs/prepublication-review.md) and [blank record template](references/platform-review-template.json). Approval is not guaranteed.
+
+The workflow draws on [guoshen](https://github.com/huangbai-AI/guoshen)'s evidence, candidate review, and feedback separation, implemented around Record Freely's own engine without importing its full code or policy library. Historical 4K and one-minute results describe their original versions, not validation of these new modules.
+
+The earlier privacy upgrade passed **121 tests**, including real Vision single-frame flash/QR rescans, audio-track offsets, independent subtitle sources and rejection of mismatched output hashes. Separate local runs verified concealment in a 36-frame synthetic video and checked two synthesized speech tracks with an existing Whisper model. See [validation scope](docs/privacy-review-validation.md). This does not establish zero missed content in long videos or platform approval.
+
+Use `--redaction-report /absolute/final/report.json` to bind a rescan to the final output hash; use the newest report after refinement. Identity prefixes with unreliable character geometry remain pending. Spatially adjacent address fragments produce review hints, never automatic enlarged masks.
+
 ## How the algorithm works
 
 This diagram follows the current source. The default run produces an automatic first pass; the Agent reviews it and optionally stabilizes or patches it. HDR input is rejected and needs a separate SDR conversion workflow first.
@@ -115,7 +161,7 @@ The diagram shows logical stages, not a strict per-frame sequence. OCR workers m
 
 Degraded character bounds can overmask; stabilization and tracking can still miss text. Inspect the actual frames: technical checks are not visual acceptance. See [implementation notes](references/implementation.md).
 
-## What we measured
+## Historical v1.0.1 measurements
 
 | Item | Evidence |
 | --- | --- |
@@ -134,7 +180,7 @@ The Skill finds **visible text that resembles a URL**, follows movement and scal
 
 This helps reduce visible-address concerns before publishing. It cannot guarantee platform approval or zero missed text. Check appearances, disappearances, zooms, cuts, and adjacent text. One older case item remains unlocated: the reported `.html` at 25:41, where the exact source frame shows a scales animation.
 
-The current 70 core code tests and 9 collection-tool tests pass, including a regression for repeated whole-line Vision character bounds discovered in the fresh trial. The historical 144-frame real-OCR synthetic fixture passed. An independent Agent reran the code, checked all six real comparison images pixel for pixel, and recalculated the dataset hashes. The discovered source-binding flaw was fixed and retested. See the [independent review](docs/independent-review.md).
+The previously published version passed 70 core code tests and 9 collection-tool tests, including a regression for repeated whole-line Vision character bounds discovered in the fresh trial. The historical 144-frame real-OCR synthetic fixture passed. An independent Agent reran the code, checked all six real comparison images pixel for pixel, and recalculated the dataset hashes. The discovered source-binding flaw was fixed and retested. See the [independent review](docs/independent-review.md).
 
 ## Review from another machine
 

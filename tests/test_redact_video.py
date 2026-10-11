@@ -54,6 +54,8 @@ def test_low_confidence_bare_domain_is_not_masked_but_explicit_url_is():
     assert not r.detection_boxes([line], 1000, 1000, 4)
     line["text"] = "https://example.com"
     assert r.detection_boxes([line], 1000, 1000, 4)
+    line["text"] = "www.example.com"
+    assert r.detection_boxes([line], 1000, 1000, 4)
 
 
 def text_frame(x=100, y=120, scale=1):
