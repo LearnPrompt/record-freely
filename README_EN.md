@@ -4,7 +4,7 @@
 
 **Record the idea first. Let your Agent handle the parts that need masking.**
 
-[GitHub](https://github.com/LearnPrompt/record-freely) · [Download v1.1.0](https://github.com/LearnPrompt/record-freely/releases/tag/v1.1.0) · [Public review](docs/public-review.md)
+[GitHub](https://github.com/LearnPrompt/record-freely) · [Download v1.2.0](https://github.com/LearnPrompt/record-freely/releases/tag/v1.2.0) · [Public review](docs/public-review.md)
 
 [Before / after](https://learnprompt.github.io/record-freely/) · [Implementation](references/implementation.md) · [Cost and time](docs/cost-and-time.md) · [Online comparison sliders](https://learnprompt.github.io/record-freely/)
 
@@ -16,6 +16,23 @@ That follows LearnPrompt’s story: see what is possible, learn how to do it, an
 
 In the historical v1.0.1 trial, a fresh Agent ran a real one-minute 4K clip: **4m54s** automatic, 50s stabilization, and 41s final patch rendering. Agent review/correction spanned about 33 min including waits and overlapping computation; these are not additive or human hands-on time. A 12-frame title-overlap leak remains. See the [actual trial, reports and videos](docs/one-minute-trial.md).
 
+## v1.2.0: preserve the scene and make review faster
+
+The first problem was a visible address. The next was whether the tutorial still looked good after masking it. This version brings together both repositories’ lessons and the local editing tools: the automatic draft keeps its gray masks, while reviewed regions can use local background colors or gradients. Handheld screens and perspective changes can be tracked from human-confirmed anchors. The viewer jumps directly to actual masking.
+
+- **Reusable reviewed rendering.** `scripts/render_reviewed.py` combines reviewed patches, an optional existing report and trusted clean overlays on the original before one encoding pass. `scripts/background_masks.py` samples local colors or fits a color plane from a confirmed clean neighborhood on the same surface, excluding sensitive regions. It does not automatically discover badges or promise invisible edits.
+- **Evidence-based polygon tracking.** `scripts/track_region.py` uses manual anchors and bidirectional optical flow. Cuts, tracking loss and low-confidence gaps remain pending rather than being silently filled.
+- **Review real masking instead of minute marks.** `scripts/serve_review.py` listens locally and provides interval navigation, category filters, looping and local notes. Global styling and AI labels are separate from local privacy events.
+- **One additional, sanitized source case.** Check both interview badges, sample poster gradients by location, protect people, toys and captions, clear the old text before placing a transparent logo, and retry exact failed frames. Marketing feedback, substantive edits and privacy masking keep separate evidence and authorization.
+
+[Algorithms and patches](docs/local-mask-algorithms.md) · [Viewer guide](docs/review-viewer.md) · [Fifth case](docs/case-lessons-v1.2.md) · [Version validation and release record](docs/release-v1.2.0.md)
+
+The release record defines this version’s one-minute and package checks. Historical case metrics below do not validate the new tools. Attributable Codex allowance savings remain unknown; no platform submission was performed.
+
+## v1.2.0 also includes the independent-audit fixes
+
+The public v1.1.0 package matched all 343 tag-source files and passed 138 tests, but its independent one-minute output retained sensitive fragments and overmasked content: **visual privacy acceptance failed**. These fixes add per-request `--ocr-timeout` (60s default), explicit `--crf 16 --preset medium --color-space bt709` (defaults remain 18/fast), and `--asr-language` (auto default) with digital-silence signal checks. In privacy mode, `--path-policy parent` retains only the final filename of identity paths; `--github-policy host` hides GitHub scheme/host while retaining the owner/repository. Defaults remain identity-prefix/full URL. Retention requires reliable character geometry; pending candidates are not concealed findings. Follow the [Skill entry](SKILL.md), [audit-fix boundaries](docs/independent-audit-fixes.md), [PCM, language and private diagnostics](docs/audio-review-examples.md), and [actual-mask timeline](docs/actual-mask-timeline.md). These options neither restore trusted captions automatically nor guarantee platform approval; review residual text and preserved teaching content.
+
 ## v1.1.0: turn real feedback into the next workflow
 
 This release brings together the long-video revisions and four distinct videos reviewed with Record Freely and Huangbai’s guoshen: a long screen-recorded tutorial, a silent mobile recording, a multilingual AI drama tutorial, and a mini-program tutorial. The lesson is how to preserve the explanation, locate what actually needs attention, and verify the edited frames. Each case keeps precheck, editing and publication states separate. **No actual platform approval has been established.**
@@ -26,7 +43,7 @@ This release brings together the long-video revisions and four distinct videos r
 - **Combine edits on the original before export.** The v6 long-video workflow applied accepted masks and trusted caption layers to the original, then encoded with `libx264 / CRF 16 / preset medium / BT.709`, preserving 4K30 without scaling, denoising or sharpening. A one-minute preview was accepted before rebuilding the full film. This is a tested Agent recipe for that material, **not an automatic change to the default CLI encoding mode**. Task retries and the encoding generations of the delivered pixels are counted separately.
 - **Jump to real masking.** Build contiguous local-mask intervals from reviewed events; exclude global background processing, AI labels and ordinary text restoration. Do not bridge unmasked gaps. Map times after cuts to the delivered video, and verify that the browser actually displays the sought frame as well as reporting the right time.
 
-Use `python3 scripts/build_review_timeline.py --help` to export existing event records as actual-mask intervals in JSON, CSV and Markdown for viewer navigation. It **does not detect video content or decide platform violations**, and does not generate a general-purpose web player. See [actual-mask timeline](docs/actual-mask-timeline.md). See the [sanitized case lessons](docs/case-lessons-v1.1.md) and [review and minimal-edit boundaries](references/review-lessons.md). Quality, speech, timeline and privacy checks retain their own coverage; sampling, an older version’s full-frame OCR, or successful decoding must not become a claim of zero misses in the latest file.
+Use `python3 scripts/build_review_timeline.py --help` to export existing event records as actual-mask intervals in JSON, CSV and Markdown for viewer navigation. It **does not detect video content or decide platform violations**, and does not itself generate a web player; v1.2.0 provides a [separate local viewer](docs/review-viewer.md). See [actual-mask timeline](docs/actual-mask-timeline.md). See the [sanitized case lessons](docs/case-lessons-v1.1.md) and [review and minimal-edit boundaries](references/review-lessons.md). Quality, speech, timeline and privacy checks retain their own coverage; sampling, an older version’s full-frame OCR, or successful decoding must not become a claim of zero misses in the latest file.
 
 The v3 comparisons, independent one-minute trial and collection below are **historical v1.0.1 assets**, retained for reproduction. They are not new v6 quality comparisons or acceptance of every v1.1.0 capability.
 
@@ -73,7 +90,7 @@ The final v3 frame reports identify 106 contiguous masked runs, totaling 13,407 
 
 ## Use it
 
-Currently **macOS only**. Requires Xcode Command Line Tools, FFmpeg, Python 3, `opencv-python`, and `numpy`. The processing engine runs locally and does not upload video frames. **No separate YOLO or OCR model weights need downloading**: recognition uses Apple Vision built into macOS, with the Swift worker compiled by Xcode command-line tools.
+Currently **macOS only**. Requires Xcode Command Line Tools, FFmpeg, Python 3.9+, `opencv-python`, and `numpy`; the reviewed rendering tool additionally requires `Pillow`. The processing engine runs locally and does not upload video frames. **No separate YOLO or OCR model weights need downloading**: recognition uses Apple Vision built into macOS, with the Swift worker compiled by Xcode command-line tools.
 
 Get the complete source from GitHub and copy it into your Agent’s skills folder, for example:
 
@@ -93,7 +110,7 @@ Or run the automatic first pass:
 
 ```bash
 python3 scripts/redact_video.py /absolute/input.mp4 \
-  --output-dir /absolute/new-output --ocr-workers 3
+  --output-dir /absolute/new-output --ocr-workers 1
 ```
 
 OCR locates text, and offline domain rules select likely links. OpenCV template matching follows position and scale. Stabilization holds a fixed covering rectangle for static text and splits motion, zoom, cuts, and observation gaps into separate runs to reduce repeated size changes.
@@ -111,11 +128,13 @@ python3 scripts/redact_video.py /absolute/input.mp4 \
 
 # Independently scan the encoded output
 python3 scripts/review_video.py /absolute/final.mp4 \
-  --output-dir /absolute/new-review --privacy --detect-every 1
+  --output-dir /absolute/new-review --privacy --detect-every 1 \
+  --redaction-report /absolute/final/report.json
 
 # Optionally inspect local speech and existing SRT subtitles
 python3 scripts/review_video.py /absolute/final.mp4 \
   --output-dir /absolute/new-review-with-speech --privacy \
+  --redaction-report /absolute/final/report.json \
   --asr-model /absolute/local-whisper-model.bin \
   --subtitle /absolute/captions.srt
 ```
@@ -134,7 +153,7 @@ Use `--redaction-report /absolute/final/report.json` to bind a rescan to the fin
 
 ## How the algorithm works
 
-This diagram follows the current source. The default run produces an automatic first pass; the Agent reviews it and optionally stabilizes or patches it. HDR input is rejected and needs a separate SDR conversion workflow first.
+This diagram describes the traditional automatic/refine path. The v1.2.0 reviewed renderer and polygon tracker are separate explicit tools; see the algorithm guide above. The default run produces an automatic first pass; the Agent reviews it and optionally stabilizes or patches it. HDR input is rejected and needs a separate SDR conversion workflow first.
 
 ```mermaid
 flowchart TD

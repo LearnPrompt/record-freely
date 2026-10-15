@@ -15,6 +15,7 @@ import time
 import numpy as np
 from redact_video import cover, file_sha256, probe, run
 from stabilize_masks import stabilize_records
+from encoding import add_encoding_arguments, encoding_config, video_encoding_options, verify_encoding
 
 
 def validate_box(box, width, height):
@@ -92,6 +93,7 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True, help="Must not already exist")
     parser.add_argument("--stabilize", action="store_true", help="Coverage-safe envelopes within observed scene runs")
     parser.add_argument("--patch", type=Path, help="SHA-bound reviewed per-frame rectangle replacements")
+    add_encoding_arguments(parser)
     args = parser.parse_args()
     started = time.monotonic()
     source = args.input.resolve(strict=True)
@@ -129,6 +131,7 @@ def main():
     report['candidate_ledger_origin']='automatic_report; not reclassified after stabilization or manual patches'
     report['acceptance']='not_verified'
     report.pop('output_sha256',None)
+    report["encoding"] = encoding_config(args)
     report.update(status="processing", refinement_baseline_sha256=baseline_hash,
                   refinement_style="solid", publication_review_required=True)
     try:
@@ -141,8 +144,7 @@ def main():
             silent = scratch / "masked.mp4"
             encoder = subprocess.Popen(["ffmpeg", "-v", "error", "-nostdin", "-n", "-f", "rawvideo", "-pix_fmt", "bgr24",
                                         "-s", f"{width}x{height}", "-r", f"{fps:.10f}", "-i", "pipe:0", "-an",
-                                        "-c:v", "libx264", "-crf", "18", "-preset", "fast", "-pix_fmt", "yuv420p",
-                                        "-vf", "pad=ceil(iw/2)*2:ceil(ih/2)*2", "-map_metadata", "-1", str(silent)],
+                                        *video_encoding_options(args), "-map_metadata", "-1", str(silent)],
                                        stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
             for record in report["frames"]:
                 frame = np.frombuffer(read_exact(decoder.stdout, width * height * 3), np.uint8).reshape(height, width, 3)
@@ -160,6 +162,7 @@ def main():
             run(mux)
             info = probe(staged)
             video = next(s for s in info["streams"] if s["codec_type"] == "video")
+            report["encoding_verification"] = verify_encoding(video, args)
             if int(video.get("nb_frames", -1)) != frame_count or abs(float(video.get("duration", 0)) - duration) > 1 / fps + .005:
                 raise RuntimeError("Export frame count/duration did not match report")
             if sum(s["codec_type"] == "audio" for s in info["streams"]) != source_audio_count:

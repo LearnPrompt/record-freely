@@ -1,4 +1,5 @@
-import importlib.util,sys,json,time,threading
+import importlib.util,sys,json,time,threading,subprocess
+from ocr_worker import JSONLineWorker
 from pathlib import Path
 import numpy as np
 import pytest
@@ -6,18 +7,27 @@ import redact_video as r
 
 @pytest.mark.parametrize('workers',[1,2,3])
 def test_parallel_ocr_worker_exclusive_and_frames_ordered(tmp_path,monkeypatch,workers,scenario="normal"):
+    native_popen = subprocess.Popen
     frame_count=17
     frames=[np.full((24,40,3),i,np.uint8) for i in range(frame_count)]
     calls=[];instances=[];lock=threading.Lock();outputs=[]
     class OCR:
         def __init__(self,scratch):
             self.scratch=scratch;self.active=False;self.closed=False;instances.append(self)
+            if scenario == "timeout":
+                self.ipc = JSONLineWorker(native_popen([sys.executable,"-u","-c", "import sys,time;sys.stdin.readline();time.sleep(20)"],
+                    stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, bufsize=0), .1)
         def read(self,frame):
             with lock:
                 assert not self.active, 'same OCR worker read called concurrently'
                 assert not self.closed
                 self.active=True
             value=int(frame[0,0,0])
+            if scenario == "timeout":
+                try:
+                    return self.ipc.request({"frame": value})
+                finally:
+                    with lock:self.active=False
             if scenario != 'normal' and value==0:
                 with lock:self.active=False
                 raise RuntimeError('OCR worker failed')
@@ -25,7 +35,10 @@ def test_parallel_ocr_worker_exclusive_and_frames_ordered(tmp_path,monkeypatch,w
             with lock:
                 calls.append((self.scratch,value));self.active=False
             return [{'value':value}]
+        def abort(self):
+            if scenario == "timeout": self.ipc.abort()
         def close(self):
+            if scenario == "timeout": self.ipc.close()
             assert not self.active
             assert not self.closed
             if scenario == "close_error" and self is instances[0]:
@@ -71,7 +84,12 @@ def test_parallel_ocr_worker_exclusive_and_frames_ordered(tmp_path,monkeypatch,w
             r.main()
         assert all(o.closed for o in instances[1:]), 'extra OCR workers leaked'
         assert (output/'report.json').exists(), 'failure report was not written'
-        assert json.loads((output/'report.json').read_text())['status']=='failed'
+        failure=json.loads((output/'report.json').read_text())
+        assert failure['status']=='failed'
+        if scenario == 'timeout':
+            assert failure['failure_code']=='ocr_timeout' and failure['failure_frame']==0
+            assert all(o.ipc.process.poll() is not None for o in instances)
+            assert not any('Cleanup issue' in warning for warning in failure['warnings'])
         return
     r.main()
     report=json.loads((output/'report.json').read_text())
@@ -92,3 +110,9 @@ def test_parallel_worker_read_error_closes_other_workers(tmp_path,monkeypatch):
 
 def test_worker_close_error_still_cleans_up_and_reports(tmp_path,monkeypatch):
     test_parallel_ocr_worker_exclusive_and_frames_ordered(tmp_path,monkeypatch,3,'close_error')
+
+
+def test_parallel_alive_workers_timeout_and_shutdown_without_leaking(tmp_path, monkeypatch):
+    started = time.monotonic()
+    test_parallel_ocr_worker_exclusive_and_frames_ordered(tmp_path, monkeypatch, 3, 'timeout')
+    assert time.monotonic() - started < 3.

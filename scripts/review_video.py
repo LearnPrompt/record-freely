@@ -15,7 +15,8 @@ import numpy as np
 
 from redact_video import clamp, file_sha256, probe
 from review_candidates import observation_candidates
-from speech_review import review_audio, review_subtitle
+from speech_review import review_audio, review_subtitle, ASR_LANGUAGES
+from ocr_worker import JSONLineWorker, OCRWorkerError, positive_timeout, valid_ocr_response
 
 
 class ReviewOCR:
@@ -27,33 +28,23 @@ class ReviewOCR:
         if result.returncode:
             raise RuntimeError('vision_compile_failed')
         self.process = subprocess.Popen([str(binary)], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                        stderr=subprocess.DEVNULL, text=True, bufsize=1)
+                                        stderr=subprocess.DEVNULL, bufsize=0)
+        self.ipc = JSONLineWorker(self.process)
+        self.timeout = 60.
         self.image = Path(scratch) / 'frame.png'
 
     def read(self, frame):
         if not cv2.imwrite(str(self.image), frame):
             raise RuntimeError('frame_write_failed')
-        self.process.stdin.write(json.dumps({'path': str(self.image), 'privacy': self.privacy}) + '\n')
-        self.process.stdin.flush()
-        line = self.process.stdout.readline()
-        if not line:
-            raise RuntimeError('vision_worker_exited')
-        result = json.loads(line)
-        if 'error' in result:
-            raise RuntimeError('vision_frame_failed')
+        self.ipc.timeout = self.timeout
+        result = self.ipc.request({'path': str(self.image), 'privacy': self.privacy})
+        if not valid_ocr_response(result, 'barcodes'):
+            self.ipc.abort()
+            raise OCRWorkerError('ocr_invalid_response')
         return result
 
     def close(self):
-        try:
-            self.process.stdin.close()
-        except (BrokenPipeError, OSError):
-            pass
-        try:
-            self.process.wait(timeout=10)
-        except subprocess.TimeoutExpired:
-            self.process.kill()
-            self.process.wait()
-        self.process.stdout.close()
+        self.ipc.close()
 
 
 def parse_args(argv=None):
@@ -65,9 +56,11 @@ def parse_args(argv=None):
     parser.add_argument('--detect-every', type=int, default=1, metavar='N', help='OCR every N normalized frames; default every frame')
     parser.add_argument('--start', type=float, default=0.)
     parser.add_argument('--duration', type=float)
+    parser.add_argument('--asr-language', choices=ASR_LANGUAGES, default='auto', help='Local ASR language; auto detects the language')
     parser.add_argument('--asr-model', type=Path, help='Existing local whisper.cpp model; never downloaded')
     parser.add_argument('--subtitle', type=Path, action='append', default=[],
                         help='Local SRT on the source normalized timeline; repeat for independent sources')
+    parser.add_argument('--ocr-timeout', type=positive_timeout, default=60., help='Per-worker request deadline in seconds')
     args = parser.parse_args(argv)
     if args.detect_every < 1:
         parser.error('--detect-every must be positive')
@@ -173,7 +166,7 @@ def frame_findings(result, width, height, privacy=False):
     return findings
 
 
-def scan_visual(source, spec, scratch, *, detect_every=1, privacy=False, ocr_factory=ReviewOCR):
+def scan_visual(source, spec, scratch, *, detect_every=1, privacy=False, ocr_factory=ReviewOCR, ocr_timeout=60.):
     coverage = {'status': 'failed', 'result': 'failed', 'mode': 'every_frame' if detect_every == 1 else 'sampled',
                 'timeline': 'CFR_source_normalized_seconds', 'normalized_fps': spec['fps'],
                 'window_start': spec['start'], 'window_duration': spec['duration'],
@@ -187,10 +180,12 @@ def scan_visual(source, spec, scratch, *, detect_every=1, privacy=False, ocr_fac
                 'detect_every': detect_every, 'nominal_sample_interval_seconds': detect_every / spec['fps'],
                 'decoded_frames': 0, 'checked_frames': 0, 'failed_frames': 0, 'skipped_frames': 0,
                 'failure_frames': [], 'first_checked_time': None, 'last_checked_time': None,
+                'ocr_timeout_seconds': ocr_timeout,
                 'findings': [], 'qr_status': 'requested' if privacy else 'not_checked'}
     worker = decoder = None
     try:
         worker = ocr_factory(scratch, privacy=privacy)
+        worker.timeout = positive_timeout(ocr_timeout)
         decoder = subprocess.Popen(decoder_command(source, spec), stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         size = spec['width'] * spec['height'] * 3
         while True:
@@ -218,13 +213,26 @@ def scan_visual(source, spec, scratch, *, detect_every=1, privacy=False, ocr_fac
                 for finding in findings:
                     coverage['findings'].append(dict(finding, frame=index, source_normalized_frame=source_index,
                                                      time=timestamp, channel='visual'))
+            except OCRWorkerError as error:
+                coverage['failed_frames'] += 1
+                coverage['failure_code'] = str(error)
+                coverage['failure_frames'].append({'frame': index, 'source_normalized_frame': source_index,
+                                                   'time': timestamp, 'reason': str(error)})
+                decoder.stdout.close()
+                decoder.terminate()
+                try:
+                    decoder.wait(timeout=2.)
+                except subprocess.TimeoutExpired:
+                    decoder.kill()
+                    decoder.wait(timeout=2.)
+                break
             except (RuntimeError, OSError, ValueError, KeyError, TypeError):
                 coverage['failed_frames'] += 1
                 coverage['failure_frames'].append({'frame': index, 'source_normalized_frame': source_index,
                                                     'time': timestamp, 'reason': 'ocr_frame_failed'})
         coverage['decoder_exit_code'] = decoder.wait()
         if coverage['decoder_exit_code'] != 0:
-            coverage['failure_code'] = 'video_decode_failed'
+            coverage.setdefault('failure_code', 'video_decode_failed')
         expected = spec['end_source_frame_exclusive'] - spec['first_source_frame']
         coverage['expected_normalized_frames'] = expected
         if not coverage['decoded_frames'] or coverage['decoded_frames'] != expected:
@@ -247,7 +255,11 @@ def scan_visual(source, spec, scratch, *, detect_every=1, privacy=False, ocr_fac
             decoder.stdout.close()
             if decoder.poll() is None:
                 decoder.terminate()
-                decoder.wait()
+                try:
+                    decoder.wait(timeout=2.)
+                except subprocess.TimeoutExpired:
+                    decoder.kill()
+                    decoder.wait(timeout=2.)
         if worker is not None:
             worker.close()
     return coverage
@@ -292,11 +304,11 @@ def review(args):
         spec = video_spec(metadata, args.start, args.duration)
         report['video'] = {key: spec[key] for key in ('width', 'height', 'fps', 'source_duration')}
         with tempfile.TemporaryDirectory(prefix='local-review-') as temporary:
-            report['visual'] = scan_visual(source, spec, Path(temporary), detect_every=args.detect_every, privacy=args.privacy)
+            report['visual'] = scan_visual(source, spec, Path(temporary), detect_every=args.detect_every, privacy=args.privacy, ocr_timeout=getattr(args, "ocr_timeout", 60.))
             audio_streams = [s for s in metadata['streams'] if s.get('codec_type') == 'audio']
             report['audio'] = review_audio(source, audio_streams, video_origin=spec['origin'], start=spec['start'],
                                           duration=spec['duration'], model=args.asr_model, privacy=args.privacy,
-                                          scratch_parent=temporary)
+                                          scratch_parent=temporary, language=getattr(args, "asr_language", "auto"))
             if args.subtitle:
                 sources = []
                 for index, path in enumerate(args.subtitle, 1):

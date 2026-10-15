@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>放心录 · 快速审片</title><link rel="stylesheet" href="/viewer.css"></head>
+<body>
+<header><h1>放心录 · 快速审片</h1><p>按实际局部打码跳转 · 原片与成片时间分别显示</p></header>
+<main><section class="player">
+<video id="video" controls playsinline preload="metadata" src="/video"></video>
+<p id="error" role="status"></p>
+<div class="status"><strong id="clock">00:00.000</strong><span id="sourceClock">原片时间</span></div>
+<input id="scrubber" type="range" min="0" value="0" step="1" aria-label="成片时间轴">
+<div class="controls"><button id="prev">上一处 ↑</button><button id="play">播放 / 暂停</button><button id="next">下一处 ↓</button><button data-frame="-1">−1 帧</button><button data-frame="1">+1 帧</button><select id="speed" aria-label="播放速度"><option value="0.5">0.5 倍</option><option value="1" selected>1 倍</option><option value="1.5">1.5 倍</option><option value="2">2 倍</option></select></div>
+<div class="controls"><input id="jump" placeholder="01:25.2" aria-label="跳转时间"><select id="basis" aria-label="时间基准"><option value="output">成片时间</option><option value="source">原片时间</option></select><button id="jumpBtn">跳转</button><label><input id="loop" type="checkbox">循环当前区间</label></div>
+<div class="controls"><button id="first">全片首帧</button><button id="middle">全片中间</button><button id="last">全片尾帧</button></div>
+<article><h2 id="selection">请选择打码区间</h2><p id="selectionMeta"></p><div class="controls" id="checkpoints"></div><textarea id="note" placeholder="记录漏码、过挡、闪烁或画质问题" aria-label="复查备注"></textarea><div class="controls"><button id="save">保存备注</button><button id="mark">标记已检查</button><button id="export">导出 JSON</button></div><p id="saved" role="status"></p></article>
+<details><summary>版本与使用边界</summary><p id="version"></p><p>记录绑定成片 SHA256。时间轴仅覆盖已登记局部打码，不能证明没有漏码。逐帧定位依赖浏览器 CFR seek，仍需查看实际显示的画面。</p><p>键盘：空格播放，↑ ↓ 上下处，← → 前后 5 秒，, . 逐帧。备注留在浏览器，可导出备份。无在线请求。</p></details>
+</section><section>
+<div class="controls"><input id="search" type="search" placeholder="搜索时间或备注" aria-label="搜索打码区间"><select id="category" aria-label="筛选打码类别"><option value="">全部局部打码</option></select></div><p id="count"></p><div id="list"></div><div class="controls"><button id="pagePrev">上一页</button><span id="page"></span><button id="pageNext">下一页</button></div>
+</section></main><script src="/viewer.js"></script></body></html>

@@ -4,7 +4,7 @@
 
 **先把内容录下来，再把需要遮挡的地方交给 Agent。**
 
-[GitHub](https://github.com/LearnPrompt/record-freely) · [下载 v1.1.0](https://github.com/LearnPrompt/record-freely/releases/tag/v1.1.0) · [公开复查](docs/public-review.md)
+[GitHub](https://github.com/LearnPrompt/record-freely) · [下载 v1.2.0](https://github.com/LearnPrompt/record-freely/releases/tag/v1.2.0) · [公开复查](docs/public-review.md)
 
 [前后对比](https://learnprompt.github.io/record-freely/) · [实现说明](references/implementation.md) · [成本与耗时](docs/cost-and-time.md) · [在线拖动滑杆](https://learnprompt.github.io/record-freely/)
 
@@ -16,6 +16,23 @@
 
 历史 v1.0.1 试用中，新 Agent 从公开仓库独立跑完一分钟真实4K样片：自动初稿 **4分54秒**，稳框50秒，最终补丁渲染41秒；另有约33分钟的 Agent 审阅/修订跨度，含等待和重叠计算，不能相加或当纯人工时间。已保留作者/Skill 名并撤销几类误遮，标题交叉处仍有12帧漏框。见[完整试用与实际视频](docs/one-minute-trial.md)。
 
+## v1.2.0：把画面保住，把检查变快
+
+最初的问题是地址露出来；后来创作者真正关心的是：盖住它之后，教程还能不能好好看。我们把两个仓库积累的经验和本地修订工具汇到放心录：保持传统灰块初稿，再给已确认的局部区域选择同色／渐变遮罩；用人工锚点和双向光流处理手持、移动与透视；让查看器直接跳到实际打码处。
+
+- **背景色遮罩有了可复用入口。** `scripts/render_reviewed.py` 从原片合并审阅补丁、现有报告和可信图层后一次编码。`scripts/background_masks.py` 提供局部取色和颜色平面拟合；采样限定同一物体，排除敏感区域。不是自动发现所有胸牌或保证无痕。
+- **移动区域有证据地跟踪。** `scripts/track_region.py` 从人工锚点跟踪多边形，切镜、失跟和低置信度间隙保留待审；不能用猜测补全未知帧。
+- **快速检查不再按分钟。** `scripts/serve_review.py` 只监听本机，按实际局部打码区间提供跳转、类别筛选、循环和本地备注。AI 标识和全局样式不冒充打码事件。
+- **第五条素材带来新的审阅经验。** 双人胸牌分别检查、海报渐变逐位置取色、避开人物／玩偶／字幕、透明 Logo 先清底字、失败帧准确补跑；营销反馈、内容编辑和隐私遮挡分别记录，不把通知升级成通用禁词。
+
+[算法和补丁格式](docs/local-mask-algorithms.md) · [查看器使用](docs/review-viewer.md) · [第五条脱敏案例](docs/case-lessons-v1.2.md) · [本版验证与发布记录](docs/release-v1.2.0.md)
+
+本版一分钟验收与打包验证以发布记录为准；下面历史案例的成绩不代替新工具验证。无可归因的 Codex 额度节省量，也未进行平台投稿。
+
+## v1.2.0 同时纳入独立复查修复
+
+v1.1.0 的公开包与标签源码 343 个文件一致、138 项测试通过，但独立一分钟样片仍有残留和过挡，**隐私视觉验收未通过**。本轮修复增加每请求 OCR 时限 `--ocr-timeout`（默认60秒）、显式质量参数 `--crf 16 --preset medium --color-space bt709`（默认仍18/fast），以及 `--asr-language`（默认auto）和数字静音信号检查。隐私模式可明确选 `--path-policy parent` 仅留身份路径最后文件名，`--github-policy host` 仅遮GitHub网址scheme/host、留作者/仓库；默认仍身份前缀／完整URL。保留策略需要可靠字符几何，待审不能当已遮。见 [Skill入口](SKILL.md)、[独立复查后的修复](docs/independent-audit-fixes.md)、[完整PCM／指定语言／私有诊断操作](docs/audio-review-examples.md)与[实际打码时间轴](docs/actual-mask-timeline.md)。这些参数不提供可信字幕自动恢复或平台过审保证；最终必须复核漏码和教学内容保留。
+
 ## v1.1.0：把真实反馈变成下一次的经验
 
 这次把长片迭代，以及另一对话中四条素材的「放心录＋黄白过审」协作经验归入同一版本：长教程录屏、静音手机录屏、多语言 AI 剧情教程和小程序教程。我们学到的不是一张更长的禁词表，而是怎样留下讲解，怎样找到真正需要处理的地方，再怎样确认修改后的画面。四条素材的预检、修改与发布状态分开记录，**没有取得平台实际过审结果**。
@@ -26,7 +43,7 @@
 - **从原片汇总修改，再做成片。** 本次 v6 长片将确认过的遮罩和可信字幕图层一次叠加到原片，再用 `libx264 / CRF 16 / preset medium / BT.709` 编码，保留 4K、30fps，不加缩放、降噪或锐化。先验收一分钟，再重建全片。这是 Agent 在该素材上的实测方案，**不是默认 CLI 已自动切换的编码模式**；任务重试次数与最终画面的编码代数分开统计。
 - **检查器跳到实际打码处。** 从已审录的局部遮挡事件构建连续区间，排除全局背景处理、AI 标识和普通文字恢复；未打码的间隙不合并，剪切后的时间要映射到成片。既检查跳转时间，也确认浏览器真的显示对应画面。
 
-新工具 `python3 scripts/build_review_timeline.py --help` 把已有事件记录导出为 JSON、CSV 和 Markdown 的实际打码区间，供查看器按区间跳转；它**不负责识别视频或判断平台违规**，也不生成通用网页播放器。见[实际打码时间轴](docs/actual-mask-timeline.md)。完整的脱敏案例与状态见[四条素材和长片迭代经验](docs/case-lessons-v1.1.md)；可复用的执行边界见[审阅与最小修改](references/review-lessons.md)。画质、语音、时间轴与隐私模块的验证范围各自记录，不能把抽样、旧版全帧 OCR 或解码成功写成新成片全帧零遗漏。
+新工具 `python3 scripts/build_review_timeline.py --help` 把已有事件记录导出为 JSON、CSV 和 Markdown 的实际打码区间，供查看器按区间跳转；它**不负责识别视频或判断平台违规**，时间轴导出工具本身不生成播放器；v1.2.0 使用 [独立本地查看器](docs/review-viewer.md)。见[实际打码时间轴](docs/actual-mask-timeline.md)。完整的脱敏案例与状态见[四条素材和长片迭代经验](docs/case-lessons-v1.1.md)；可复用的执行边界见[审阅与最小修改](references/review-lessons.md)。画质、语音、时间轴与隐私模块的验证范围各自记录，不能把抽样、旧版全帧 OCR 或解码成功写成新成片全帧零遗漏。
 
 下面的 v3 对照图、一分钟独立试用和打码合集属于 **v1.0.1 历史资产**，保留用于复现，不代表 v6 的新画质对照或 v1.1.0 全部能力的验收。
 
@@ -73,7 +90,7 @@
 
 ## 怎么用
 
-目前支持 **macOS**。需要 Xcode Command Line Tools、FFmpeg、Python 3，以及 `opencv-python` 和 `numpy`。处理过程在本机完成，视频帧不会被引擎上传到云端。**无需额外下载 YOLO 或 OCR 模型权重**：文字识别使用 macOS 自带 Apple Vision；Swift 源码由 Xcode 命令行工具编译。
+目前支持 **macOS**。需要 Xcode Command Line Tools、FFmpeg、Python 3.9+，以及 `opencv-python` 和 `numpy`；新版审阅渲染入口另需 `Pillow`。处理过程在本机完成，视频帧不会被引擎上传到云端。**无需额外下载 YOLO 或 OCR 模型权重**：文字识别使用 macOS 自带 Apple Vision；Swift 源码由 Xcode 命令行工具编译。
 
 从仓库取得完整源码，再复制到 Agent 的 skills 目录。例如 Codex：
 
@@ -93,7 +110,7 @@ cp -R record-freely ~/.codex/skills/
 
 ```bash
 python3 scripts/redact_video.py /absolute/input.mp4 \
-  --output-dir /absolute/new-output --ocr-workers 3
+  --output-dir /absolute/new-output --ocr-workers 1
 ```
 
 OCR 先找文字，再用离线域名规则筛选疑似链接；OpenCV 模板匹配跟随位置与缩放。稳框阶段对静止文字使用固定覆盖框，遇到移动、缩放、切镜或检测间隙分段处理，减少框大小反复变化。
@@ -111,11 +128,13 @@ python3 scripts/redact_video.py /absolute/input.mp4 \
 
 # 对最终编码文件独立复扫，不沿用初稿的框作为检测结论
 python3 scripts/review_video.py /absolute/final.mp4 \
-  --output-dir /absolute/new-review --privacy --detect-every 1
+  --output-dir /absolute/new-review --privacy --detect-every 1 \
+  --redaction-report /absolute/final/report.json
 
 # 可选：本地完整音轨转写，并分别检查一个或多个现有 SRT 字幕来源
 python3 scripts/review_video.py /absolute/final.mp4 \
   --output-dir /absolute/new-review-with-speech --privacy \
+  --redaction-report /absolute/final/report.json \
   --asr-model /absolute/local-whisper-model.bin \
   --subtitle /absolute/captions.srt
 ```
@@ -134,7 +153,7 @@ python3 scripts/review_video.py /absolute/final.mp4 \
 
 ## 算法怎样工作
 
-下图对应当前源码；默认先生成自动初稿，再由 Agent 审阅，按需稳框和修补。HDR 输入会被拒绝，需要先用单独流程转为 SDR。
+下图对应传统自动初稿／refine 路线；v1.2.0 的审阅渲染和多边形跟踪是另一路显式入口，详见上方算法指南。默认先生成自动初稿，再由 Agent 审阅，按需稳框和修补。HDR 输入会被拒绝，需要先用单独流程转为 SDR。
 
 ```mermaid
 flowchart TD
