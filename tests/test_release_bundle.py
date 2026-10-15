@@ -46,3 +46,47 @@ def test_refuses_dirty_source_and_version_mismatch_without_output():
         with pytest.raises(ValueError, match='Commit intended files'):
             module.package(repo, root / 'assets', '1.1.0')
         assert not (root / 'assets').exists()
+
+
+def test_source_remains_pinned_when_head_advances_after_capture(monkeypatch):
+    with tempfile.TemporaryDirectory() as name:
+        root = Path(name)
+        repo = root / 'repo'
+        repo_fixture(repo)
+        captured = module.git(repo, 'rev-parse', 'HEAD').decode().strip()
+        real_git = module.git
+
+        def advance_after_capture(location, *args):
+            result = real_git(location, *args)
+            if args == ('rev-parse', 'HEAD'):
+                (repo / 'VERSION').write_text('1.2.0\n')
+                (repo / 'SKILL.md').write_text('later committed source\n')
+                subprocess.run(['git', '-C', str(repo), 'add', '.'], check=True)
+                subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Fixture',
+                                '-c', 'user.email=fixture@example.invalid', '-c', 'commit.gpgsign=false',
+                                'commit', '-qm', 'concurrent update'], check=True)
+            return result
+
+        monkeypatch.setattr(module, 'git', advance_after_capture)
+        result = module.package(repo, root / 'assets', '1.1.0')
+        assert real_git(repo, 'rev-parse', 'HEAD').decode().strip() != captured
+        assert result['commit'] == captured
+        assert result['all_archive_files_match_git_tree']
+        with zipfile.ZipFile(root / 'assets' / result['archive']['name']) as archive:
+            assert archive.read('record-freely/VERSION') == b'1.1.0\n'
+            assert archive.read('record-freely/SKILL.md') == b'synthetic fixture\n'
+
+
+def test_refuses_archive_that_export_ignore_silently_omits_source():
+    with tempfile.TemporaryDirectory() as name:
+        root = Path(name)
+        repo = root / 'repo'
+        repo_fixture(repo)
+        (repo / '.gitattributes').write_text('SKILL.md export-ignore\n')
+        subprocess.run(['git', '-C', str(repo), 'add', '.'], check=True)
+        subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Fixture',
+                        '-c', 'user.email=fixture@example.invalid', '-c', 'commit.gpgsign=false',
+                        'commit', '-qm', 'export rule'], check=True)
+        with pytest.raises(ValueError, match='Archive file set differs'):
+            module.package(repo, root / 'assets', '1.1.0')
+        assert not (root / 'assets' / 'SOURCE-CATALOG.json').exists()

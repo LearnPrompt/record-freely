@@ -25,13 +25,14 @@ def package(root, destination, version):
         raise ValueError('Commit intended files and preserve other edits before packaging')
     if destination == root or root in destination.parents:
         raise ValueError('Release assets must be outside the repository')
-    if git(root, 'show', 'HEAD:VERSION').decode().strip() != version:
-        raise ValueError('Committed VERSION differs from requested release')
     commit = git(root, 'rev-parse', 'HEAD').decode().strip()
+    expected_paths = set(git(root, 'ls-tree', '-r', '--name-only', '-z', commit).decode().split('\0')) - {''}
+    if git(root, 'show', f'{commit}:VERSION').decode().strip() != version:
+        raise ValueError('Committed VERSION differs from requested release')
     destination.mkdir(parents=True, exist_ok=False)
     archive = destination / f'record-freely-v{version}.zip'
     subprocess.run(['git', '-C', str(root), 'archive', '--format=zip', '--prefix=record-freely/',
-                    '--output', str(archive), 'HEAD'], check=True)
+                    '--output', str(archive), commit], check=True)
     rows = []
     with zipfile.ZipFile(archive) as bundle:
         if bundle.testzip() is not None:
@@ -47,15 +48,17 @@ def package(root, destination, version):
             content = bundle.read(item)
             repo_relative = str(relative.relative_to('record-freely'))
             # Read back every byte against the frozen Git tree, not a moving checkout.
-            if content != git(root, 'show', f'HEAD:{repo_relative}'):
+            if content != git(root, 'show', f'{commit}:{repo_relative}'):
                 raise ValueError('Archive differs from committed source')
             rows.append({'path': item.filename, 'bytes': len(content), 'sha256': sha(content)})
+    if {str(Path(row['path']).relative_to('record-freely')) for row in rows} != expected_paths:
+        raise ValueError('Archive file set differs from committed tree; do not omit public source')
     receipt = {'version': version, 'commit': commit, 'scope': 'Complete committed public source; '
                'new private case videos/transcripts and local historical review packs are excluded.',
                'archive': {'name': archive.name, 'bytes': archive.stat().st_size,
                            'sha256': sha(archive.read_bytes())},
                'file_count': len(rows), 'files': rows, 'crc_checked': True,
-               'all_archive_files_match_git_tree': True}
+               'all_archive_files_match_git_tree': True, 'all_git_tree_files_included': True}
     (destination / 'SOURCE-CATALOG.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
     return receipt
 
